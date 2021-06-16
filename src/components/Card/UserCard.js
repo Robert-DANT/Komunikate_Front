@@ -1,3 +1,4 @@
+import "./UserCard.css";
 import { Card, Button, CardDeck, Container, Row } from "react-bootstrap";
 
 const UserCard = () => {
@@ -6,9 +7,13 @@ const UserCard = () => {
       <Row>
         <CardDeck>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img
+              className="card-image"
+              variant="top"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>NAME</Card.Title>
               <Card.Text>
                 This is a wider card with supporting text below as a natural
                 lead-in to additional content. This content is a little bit
@@ -21,9 +26,13 @@ const UserCard = () => {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img
+              className="card-image"
+              variant="top"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>NAME</Card.Title>
               <Card.Text>
                 This card has supporting text below as a natural lead-in to
                 additional content.{" "}
@@ -35,9 +44,13 @@ const UserCard = () => {
             </Card.Footer>
           </Card>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img
+              className="card-image"
+              variant="top"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title>NAME</Card.Title>
               <Card.Text>
                 This is a wider card with supporting text below as a natural
                 lead-in to additional content. This card has even longer content
