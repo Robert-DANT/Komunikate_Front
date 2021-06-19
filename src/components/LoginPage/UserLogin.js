@@ -35,7 +35,7 @@ const UserLogin = () => {
               <Form.Check type="checkbox" label="Remember me" />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Login
             </Button>
           </Form>
         </Col>
