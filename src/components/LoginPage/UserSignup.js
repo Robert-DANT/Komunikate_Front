@@ -1,4 +1,4 @@
-import { Container, Form, Col, Button } from "react-bootstrap";
+import { Container, Form, Col, Button, Nav, Alert } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import "./UserSignup.css";
 import axios from "axios";
@@ -112,7 +112,7 @@ const UserSignup = () => {
         </Form.Group>
 
         <Form.Row>
-          <Form.Group as={Col}>
+          <Form.Group xs={12} md={6} as={Col}>
             <Form.Label>First Name</Form.Label>
             <Form.Control
               onChange={(e) => setFirstName(e.target.value)}
@@ -138,7 +138,7 @@ const UserSignup = () => {
         </Form.Row>
 
         <Form.Row>
-          <Form.Group as={Col}>
+          <Form.Group xs={12} md={6} as={Col}>
             <Form.Label>Languages</Form.Label>
             <Form.Control
               onChange={(e) => setLanguages(e.target.value)}
@@ -176,6 +176,11 @@ const UserSignup = () => {
           <h6>Type of User:</h6>
           <Form.Check type="checkbox" label="Info-Guide" />
           <Form.Check type="checkbox" label="Info-Seeker" />
+          <Form.Check
+            type="checkbox"
+            label="I agree to the Terms of Use and Privacy Policy"
+          />
+          <Alert.Link href="#">Terms and Conditions</Alert.Link>
         </Form.Group>
 
         <Button

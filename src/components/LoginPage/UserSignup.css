@@ -3,5 +3,6 @@ h3 {
 }
 
 .signup {
-  padding: 0 15rem;
+  max-width: 50rem;
+  margin: 0 auto;
 }
