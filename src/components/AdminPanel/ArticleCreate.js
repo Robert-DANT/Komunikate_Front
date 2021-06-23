@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create, SimpleForm, TextInput, DateInput, BooleanInput, ReferenceInput, SelectInput} from 'react-admin';
+import { Create, SimpleForm, TextInput, DateInput, BooleanInput } from 'react-admin';
 
 const ArticleCreate = (props) => {
   return (
