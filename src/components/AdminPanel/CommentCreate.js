@@ -5,6 +5,7 @@ import {
   TextInput,
   DateInput,
   BooleanInput,
+
 } from "react-admin";
 
 const CommentCreate = (props) => {
@@ -12,7 +13,7 @@ const CommentCreate = (props) => {
     <Create title="Create a comment" {...props}>
       <SimpleForm>
         <TextInput source="title" />
-        <TextInput source="text" />
+        <TextInput multiline source="text" />
         <DateInput label="Date" source="publishedAt" />
         <BooleanInput source="commentable" />
       </SimpleForm>
