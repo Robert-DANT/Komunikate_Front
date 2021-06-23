@@ -1,7 +1,8 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Admin, Resource } from "react-admin";
 // import simpleRestProvider from "ra-data-simple-rest";
+import jsonServerProvider from 'ra-data-json-server';
 import fakeDataProvider from "ra-data-fakerest";
 import UserList from "./components/AdminPanel/UserList";
 import UserCreate from "./components/AdminPanel/UserCreate";
@@ -12,8 +13,17 @@ import PostEdit from "./components/AdminPanel/ArticleEdit";
 import CommentList from "./components/AdminPanel/CommentList";
 import CommentCreate from "./components/AdminPanel/CommentCreate";
 import CommentEdit from "./components/AdminPanel/CommentEdit";
+import axios from 'axios';
 
-//mock data
+{/* <ul>
+{countryData.map((country, i) => {
+  return <li key={i}>{country.strLeague}</li>;
+})}
+</ul> */}
+
+const dataProvider = jsonServerProvider('http://localhost:3002/users/');
+
+/* //mock data
 const dataProvider = fakeDataProvider({
   users: [
     {
@@ -65,9 +75,27 @@ const dataProvider = fakeDataProvider({
       publishedAt: "2021-06-21",
     },
   ],
-});
+}); */
+
 
 function App() {
+
+  const [data, setData] = useState("");
+
+  const fetchAPI = async () => {
+    //Real Heroku Backend - https://stark-fjord-75040.herokuapp.com
+    await axios
+      .get("http://localhost:3002/users/")
+      .then((response) => setData(response.data))
+      .catch((e) => console.log(e.message));
+  };
+
+  console.log(data.users)
+
+    useEffect(() => {
+      fetchAPI();
+    }, []);
+
   return (
     <Admin dataProvider={dataProvider}>
       <Resource

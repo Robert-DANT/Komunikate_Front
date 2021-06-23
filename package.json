@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "ra-data-fakerest": "^3.13.5",
+    "ra-data-json-server": "^3.16.3",
     "ra-data-simple-rest": "^3.16.0",
     "react": "^17.0.2",
     "react-admin": "^3.16.1",
