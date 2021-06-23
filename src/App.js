@@ -5,10 +5,12 @@ import UserLoggedIn from "./components/LogedInLandingPage/UserLoggedin";
 import UserLogin from "./components/LoginPage/UserLogin";
 import UserSignup from "./components/LoginPage/UserSignup";
 import UserProfile from "./components/UserProfilePage/UserProfile";
+import UserSettings from "./components/UserSettings/UserSettings";
 
 function App() {
   return (
     <div className="App">
+      <UserSettings />
       <UserLoggedIn />
       <UserProfile />
       <Articles />
