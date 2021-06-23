@@ -1,0 +1,15 @@
+.table-column {
+  text-align: start;
+}
+
+.profile-card {
+  border: none !important;
+}
+
+.hr-posts {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 6px solid rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
