@@ -10,7 +10,7 @@ import {
 
 const CommentCreate = (props) => {
   return (
-    <Create title="Create a comment" {...props}>
+    <Create title="Create a Comment" {...props}>
       <SimpleForm>
         <TextInput source="title" />
         <TextInput multiline source="text" />

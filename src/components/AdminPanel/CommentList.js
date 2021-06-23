@@ -14,6 +14,7 @@ const CommentList = (props) => {
          <Datagrid>
              <TextField source='id' />
              <TextField source='title' name="CommentTitle"/>
+             <TextField source="text" />
              <DateField source='publishedAt' />
              <EditButton basePath='comments' />
              <DeleteButton basePath='comments' />

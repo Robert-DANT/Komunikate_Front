@@ -6,7 +6,8 @@ import {
     DateField, 
     EditButton,
     DeleteButton,
-    BooleanField
+    BooleanField,
+    ImageField
 } from 'react-admin';
 
 const ArticleList = (props) => {
@@ -15,7 +16,8 @@ const ArticleList = (props) => {
          <Datagrid>
              <TextField source='id' />
              <TextField source='title' />
-             <TextField source='sub_title' />
+             <TextField source='subtitle' />
+             <ImageField source="img" title="picture.title" />
              <DateField source='publishedAt' />
              <BooleanField source="commentable" />
              <EditButton basePath='posts' />

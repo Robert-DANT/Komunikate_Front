@@ -5,16 +5,21 @@ import {
   TextInput,
   DateInput,
   SelectArrayInput,
+  // ImageField,
+  ImageInput,
+  BooleanInput,
 } from "react-admin";
 
 const ArticleEdit = (props) => {
   return (
-    <Edit title="Edit article" {...props}>
+    <Edit title="Edit Article" {...props}>
       <SimpleForm>
         <TextInput disabled source="id" />
         <TextInput source="title" />
-        <TextInput source="sub_title" />
+        <TextInput source="subtitle" />
         <TextInput multiline source="body" />
+        {/* <ImageField source="img" title="picture.title" /> */}
+        <BooleanInput source="commentable" />
         <DateInput label="Published" source="publishedAt" />
         <SelectArrayInput
           label="Tags"
@@ -31,6 +36,11 @@ const ArticleEdit = (props) => {
             { id: "healthcare", name: "Healthcare" },
           ]}
         />
+        <ImageInput
+          source="pictures"
+          label="Related pictures"
+          accept="image/*"
+        ></ImageInput>
       </SimpleForm>
     </Edit>
   );

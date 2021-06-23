@@ -6,15 +6,18 @@ import {
   DateInput,
   BooleanInput,
   SelectArrayInput,
+  ImageInput,
+  // ImageField,
 } from "react-admin";
 
 const ArticleCreate = (props) => {
   return (
-    <Create title="Create an article" {...props}>
+    <Create title="Create Article" {...props}>
       <SimpleForm>
         <TextInput source="title" />
-        <TextInput source="sub_title" />
+        <TextInput source="subtitle" />
         <TextInput multiline source="body" />
+        {/* <ImageField source="img" title="picture.title" /> */}
         <DateInput label="Published" source="publishedAt" />
         <BooleanInput source="commentable" />
         <SelectArrayInput
@@ -32,6 +35,11 @@ const ArticleCreate = (props) => {
             { id: "healthcare", name: "Healthcare" },
           ]}
         />
+        <ImageInput
+          source="pictures"
+          label="Related pictures"
+          accept="image/*"
+        ></ImageInput>
       </SimpleForm>
     </Create>
   );

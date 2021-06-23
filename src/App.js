@@ -40,7 +40,7 @@ const dataProvider = fakeDataProvider({
       first_name: "Peter",
       last_name: "Parker",
       email: "peter@gmx.de",
-      user_role: "mentor",
+      user_role: "user",
       admin: "false",
     },
   ],
@@ -48,10 +48,10 @@ const dataProvider = fakeDataProvider({
   posts: [
     {
       title: "Welcome to Germany",
-      sub_title: "A beginner's Guide",
+      subtitle: "A beginner's Guide",
       body: "Cookies ensure our site works (Required cookies). We also offer Functional cookies that will personalize your visit so you are receiving the most relevant Auth0 content, and will give our internal sales teams insight into how we can help you solve identity. We also offer cookies to count visitors and optimize site performance (Performance Cookies), and Targeting Cookies that will deliver Auth0 ads to you.",
-      article_image:
-        "https://traveldigg.com/wp-content/uploads/2016/04/Brandenburg-Gate-Photo-At-Night.jpg",
+      img: "https://traveldigg.com/wp-content/uploads/2016/04/Brandenburg-Gate-Photo-At-Night.jpg",
+      url_1: "https://www.bz-berlin.de/data/uploads/2018/07/alex-6_1531845443-768x432.jpg",
       publishedAt: "2021-06-16",
       user_id: 1,
       commentable: true,

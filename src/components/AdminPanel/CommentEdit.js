@@ -12,7 +12,7 @@ const CommentEdit = (props) => {
     // Permssion to be posted?
 
     // <Edit title={<CommentTitle />} {...props}> 
-    <Edit title="Edit comment" {...props}>
+    <Edit title="Edit Comment" {...props}>
       <SimpleForm>
         <TextInput disabled source="id" />
         <TextInput source="title" />
