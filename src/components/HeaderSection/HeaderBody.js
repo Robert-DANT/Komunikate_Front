@@ -1,5 +1,6 @@
 import { Nav, Image, Name, Container, Row, Col } from "react-bootstrap";
 import { alignPropType } from "react-bootstrap/esm/DropdownMenu";
+import { Link } from "react-router-dom";
 import "./HeaderBody.css";
 import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
 

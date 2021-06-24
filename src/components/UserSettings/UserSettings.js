@@ -59,6 +59,32 @@ const UserSettings = () => {
 
               <Form.Row>
                 <Form.Group md={12} lg={6} as={Col}>
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control
+                    //   onChange={(e) => setFirstName(e.target.value)}
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter Username"
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col}>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    //   onChange={(e) => setLastName(e.target.value)}
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Email address"
+                    required
+                  />
+                </Form.Group>
+              </Form.Row>
+
+              <Form.Row>
+                <Form.Group md={12} lg={6} as={Col}>
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
                     //   onChange={(e) => setFirstName(e.target.value)}
@@ -104,6 +130,23 @@ const UserSettings = () => {
                     name="nationality"
                     placeholder="What country do you come from?"
                   />
+                </Form.Group>
+              </Form.Row>
+
+              <Form.Row>
+                <Form.Group md={12} lg={6} as={Col}>
+                  <Form.Label>Moved to</Form.Label>
+                  <Form.Control
+                    //   onChange={(e) => setLanguages(e.target.value)}
+                    type="text"
+                    id="moving_city"
+                    name="moving_city"
+                    placeholder="Enter City"
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col}>
+                  <Button variant="success">Update Photo</Button>{" "}
                 </Form.Group>
               </Form.Row>
             </Col>

@@ -9,3 +9,7 @@
 .padding-article {
   padding: 1rem 0 !important;
 }
+
+.table-column {
+  padding-left: 3rem;
+}
