@@ -31,23 +31,31 @@ const UserSettings = () => {
             </Col>
             <Col sm={8}>
               <h3>User Type</h3>
-              <Form>
-                {["radio"].map((type) => (
-                  <div key={`default-${type}`} className="mb-3 mt-3">
-                    <Form.Check
-                      type={type}
-                      id={`default-${type}`}
-                      label={`Mentor`}
-                    />
-
-                    <Form.Check
-                      type={type}
-                      label={`Info Seeker`}
-                      id={`disabled-default-${type}`}
-                    />
-                  </div>
-                ))}
-              </Form>
+              <Form.Group id="formGridCheckbox form-check-inline">
+                <h6>
+                  Are you looking for information or do you want to help others?
+                </h6>
+                <Form.Check
+                  // onChange={(e) => setUserRole(e.target.id)}
+                  // value={userRole}
+                  name="userType"
+                  type="radio"
+                  inline
+                  label="Info-Seeker"
+                  id="Seeker"
+                  required
+                />
+                <Form.Check
+                  // onChange={(e) => setUserRole(e.target.id)}
+                  // value={userRole}
+                  name="userType"
+                  type="radio"
+                  inline
+                  label="Info-Guide"
+                  id="Mentor"
+                  required
+                />
+              </Form.Group>
 
               <Form.Row>
                 <Form.Group md={12} lg={6} as={Col}>
