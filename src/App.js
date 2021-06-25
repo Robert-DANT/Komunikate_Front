@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+// import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+// import ArticleTemp from "./components/ArticlePage/ArticleTemp";
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = useState();
+  // const [city, setCity] = useState(data.city);
+
+  console.log(posts);
+  // console.log(city);
+
+  const fetchData = async () => {
+    await axios
+      .get(`https://jsonplaceholder.typicode.com/posts`)
+      .then((res) => setPosts(res.data.data))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+   <>
+   <h1>{data}</h1>
+   </>
+  )
 export default App;
