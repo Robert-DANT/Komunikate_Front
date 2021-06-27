@@ -3,7 +3,7 @@ import "./UserSettings.css";
 
 const UserSettings = () => {
   return (
-    <Container>
+    <Container className="user-settings-container">
       <Row>
         <Col sm={3}>
           <ListGroup variant="flush">
@@ -146,7 +146,7 @@ const UserSettings = () => {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Button variant="success">Update Photo</Button>{" "}
+                  <Button variant="success">Update Password</Button>{" "}
                 </Form.Group>
               </Form.Row>
             </Col>

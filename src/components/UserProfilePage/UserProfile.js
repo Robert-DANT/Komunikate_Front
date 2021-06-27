@@ -12,7 +12,7 @@ import "./UserProfile.css";
 
 const UserProfile = () => {
   return (
-    <Container>
+    <Container className="user-profile-container">
       <h3>UserProfile</h3>
       <Row>
         <Col md={4}>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Breadcrumb } from "react-bootstrap";
 import "./UserLogin.css";
 import Axios from "axios";
 import jwt_decode from "jwt-decode";
+import logo from "../../images/logos/Komunikate_Long_Black_v01.svg";
 
 const queryString = require("query-string");
 
@@ -31,7 +32,7 @@ const UserLogin = (props) => {
         alert("You've logged in");
         /*         return <Redirect to='/frontpage' /> */
         // props.history("/")
-        window.location.href = "/";
+        window.location.href = "/user_loggedIn";
       } else {
         alert("You've entered an incorrect E-mail or Password");
       }
@@ -51,8 +52,16 @@ const UserLogin = (props) => {
   };
 
   return (
-    <Container>
-      <h3>User Login Page</h3>
+    <Container className="login-container">
+      <Link to="/">
+        <img
+          src={logo}
+          width="300"
+          height="80"
+          className="d-inline-block align-top"
+          alt="Komunikate"
+        />
+      </Link>
 
       <Row className="justify-content-center">
         <Col xs={6}>
@@ -90,7 +99,10 @@ const UserLogin = (props) => {
               />
             </Form.Group>
             <div className="font-weight-light">
-              <p>Not a member? Sign Up</p>
+              <p>
+                Not a member?
+                <Link to="/register">Sign Up</Link>{" "}
+              </p>
               <p>Forgot Password?</p>
             </div>
             <Form.Group controlId="formBasicCheckbox">

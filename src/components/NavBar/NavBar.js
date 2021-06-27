@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -18,10 +17,16 @@ import logo from "../../images/logos/Komunikate_Long_Blue_v01.svg";
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
 
-export const NavBar = () => {
+const NavBar = (props) => {
+  /*   const token = localStorage.usertoken; */
+  // console.log(props);
+  // const [token, setToken] = useState(props.token);
+  console.log(props.token);
+  /*   const test = true; */
+  const token = localStorage.getItem("token");
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" sticky="top">
         <Navbar.Brand>
           <Link to="/">
             <img
@@ -46,42 +51,72 @@ export const NavBar = () => {
             <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>
-        <Nav className="mr-auto">
-          <NavDropdown title="Login" id="basic-nav-dropdown">
-            <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
+        {token ? (
+          <Nav>
+            <Nav.Link>
+              <Link to="/messages">
+                <img
+                  src="https://image.flaticon.com/icons/png/512/2950/2950657.png"
+                  width="30"
+                  alt="Messages"
+                />
+              </Link>
+            </Nav.Link>
+            <NavDropdown title="Username" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <Link to="/user_home">User Home</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                <Link to="/user_profile">User Profile</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/user_settings">User Settings</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        ) : (
+          <Nav className="mr-auto">
+            <Nav.Link>
+              <Link to="/user_login">Login</Link>
+            </Nav.Link>
+            <NavDropdown title="Login" id="basic-nav-dropdown">
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Log In
-              </Button>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Log In
+                </Button>
+              </Form>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Reset Password
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Form inline>
+              <Link exact to="/register">
+                <Button variant="outline-success">Register</Button>{" "}
+              </Link>
             </Form>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Reset Password
-            </NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-        <Form inline>
-          <Link exact to="/register">
-            <Button variant="outline-success">Register</Button>{" "}
-          </Link>
-        </Form>
+          </Nav>
+        )}
       </Navbar>
 
-      <br />
+      {/* <br />
 
       <Nav
         bg="light"
@@ -113,7 +148,7 @@ export const NavBar = () => {
             <Link to="/applications"> Applications </Link>
           </Nav.Link>
         </Nav.Item>
-      </Nav>
+      </Nav> */}
     </>
   );
 };
