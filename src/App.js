@@ -40,7 +40,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <NavBar />
+        <NavBar token={userToken} />
 
         <Switch>
           <Route path="/messages" token={userToken} component={Messenger} />

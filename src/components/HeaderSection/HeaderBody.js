@@ -11,11 +11,11 @@ const MainBody = (props) => {
   // const [token, setToken] = useState(props.token);
   const token = localStorage.getItem("token");
   return (
-    <>
-      <Container>
+    <Container fluid>
+      <Container fluid>
         <Row>
           <Col id="center" xs={50} md={50}>
-            <Image src={HomePagePic} fluid />
+            <Image className="header-image" src={HomePagePic} fluid />
           </Col>
         </Row>
         <br />
@@ -73,8 +73,7 @@ const MainBody = (props) => {
       </Container>
       <div style={{ backgroundImage: `url(${HomePagePic})` }}></div>
       <Articles />
-      {token ? <UserCard /> : ""}
-    </>
+    </Container>
   );
 };
 

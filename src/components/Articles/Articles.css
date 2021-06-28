@@ -8,3 +8,8 @@
   max-height: 15rem;
   object-fit: cover;
 }
+
+.cards-container {
+  padding-top: 6%;
+  padding-bottom: 6%;
+}

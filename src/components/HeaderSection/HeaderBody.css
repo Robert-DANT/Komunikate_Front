@@ -2,3 +2,9 @@
   margin: auto;
   justify-content: center;
 }
+
+.header-image {
+  height: 50rem;
+  width: fit-content;
+  object-fit: cover;
+}
