@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { Admin, Resource } from "react-admin";
+import { Admin, Resource, ListGuesser } from "react-admin";
 // import simpleRestProvider from "ra-data-simple-rest";
 import jsonServerProvider from 'ra-data-json-server';
 import fakeDataProvider from "ra-data-fakerest";
@@ -41,12 +41,12 @@ function App() {
         create={PostCreate}
         edit={PostEdit}
       />
-      <Resource
+{/*       <Resource
         name="comments"
         list={CommentList}
         create={CommentCreate}
         edit={CommentEdit}
-      />
+      /> */}
     </Admin>
   );
 }

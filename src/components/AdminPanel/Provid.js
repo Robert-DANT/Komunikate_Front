@@ -53,11 +53,14 @@ export default (apiUrl, httpClient) => {
                     ]),*/
                     // query: JSON.stringify(params.filter),
                 };
-                url = `${apiUrl}/${resource}?${stringify(query)}`;
+                if (resource==='users') url = `${apiUrl}/${resource}`;
+               else if (resource==='posts') url = `${apiUrl}/article`;
+               else url = `${apiUrl}/${resource}`;
                 break;
             }
             case GET_ONE:
-                url = `${apiUrl}/${resource}/${params.id}`;
+               if(resource==='posts') url = `${apiUrl}/article/${params.id}`;
+               else url = `${apiUrl}/${resource}/${params.id}`;
                 break;
             case GET_MANY: {
                 const query = {
@@ -91,14 +94,21 @@ export default (apiUrl, httpClient) => {
                 options.data = JSON.stringify(params.data);
                 break;
             case CREATE:
-                url = `${apiUrl}/${resource}`;
+                if (resource==='posts') url = `${apiUrl}/article`
+                else url = `${apiUrl}/${resource}/register`;
                 options.method = 'POST';
                 options.data = JSON.stringify(params.data);
                 break;
-            case DELETE:
+/*             case DELETE:
                 url = `${apiUrl}/${resource}/${params.id}`;
                 options.method = 'DELETE';
+                break; */
+            case DELETE:
+                if (resource === 'posts') url = `${apiUrl}/article/${params.id}`
+                else url = `${apiUrl}/${resource}/${params.id}`;
+                options.method = 'DELETE';
                 break;
+
             default:
                 throw new Error(`Unsupported fetch action type ${type}`);
         }
@@ -120,6 +130,7 @@ export default (apiUrl, httpClient) => {
             case GET_MANY:
             case GET_MANY_REFERENCE:
               console.log(data)
+              if (data.users){
                 return {
                     data: data.users.map(item => {item.id = item._id; delete item._id; return item}),
                     total: parseInt(
@@ -127,7 +138,45 @@ export default (apiUrl, httpClient) => {
                         0
                     ),
                 };
+            }
+            else if (data.allarticles) {
+                return {
+                    data: data.allarticles.map(item => {item.id = item._id; delete item._id; return item}),
+                    total: parseInt(
+                        headers['x-total-count'],
+                        0
+                    ),
+                };
+            }
+            else return console.log('No Else Statement setup yet...')
+            case GET_ONE:
+            if (data.getarticle) {
+                let editArticle = data.getarticle
+                editArticle.id = editArticle._id
+                delete editArticle._id
+                console.log(editArticle)
+                return {data: editArticle}
+            }   
+            else {let editUser = data.getUser
+                editUser.id = editUser._id
+                delete editUser._id
+                console.log(editUser)
+                    return{data: editUser};
+                }
             case DELETE:
+/*             if (data.deletearticle) {
+                let deleteArticle = data.deletearticle
+                deleteArticle.id = deleteArticle._id
+                delete deleteArticle._id
+                console.log(deleteArticle)
+                return {data: deleteArticle}
+            }   
+            else {let deleteUser = data.deleteUser
+                deleteUser.id = deleteUser._id
+                delete deleteUser._id
+                console.log(deleteUser)
+                    return{data: deleteUser};
+                }     */
             case DELETE_MANY:
                 return {data: params}
             default:

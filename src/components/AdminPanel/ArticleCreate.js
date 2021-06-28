@@ -17,6 +17,8 @@ const ArticleCreate = (props) => {
         <TextInput source="title" />
         <TextInput source="subtitle" />
         <TextInput multiline source="body" />
+        <TextInput multiline source="body2" />
+        <TextInput multiline source="body3" />
         {/* <ImageField source="img" title="picture.title" /> */}
         <DateInput label="Published" source="publishedAt" />
         <BooleanInput source="commentable" />
