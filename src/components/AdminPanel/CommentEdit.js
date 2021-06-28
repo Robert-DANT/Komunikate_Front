@@ -14,7 +14,7 @@ const CommentEdit = (props) => {
     // <Edit title={<CommentTitle />} {...props}> 
     <Edit title="Edit Comment" {...props}>
       <SimpleForm>
-        <TextInput disabled source="id" />
+        <TextInput disabled source="_id" />
         <TextInput source="title" />
         <TextInput source="text" />
         {/*  <ReferenceInput

@@ -14,7 +14,7 @@ const ArticleEdit = (props) => {
   return (
     <Edit title="Edit Article" {...props}>
       <SimpleForm>
-        <TextInput disabled source="id" />
+        <TextInput disabled source="_id" />
         <TextInput source="title" />
         <TextInput source="subtitle" />
         <TextInput multiline source="body" />

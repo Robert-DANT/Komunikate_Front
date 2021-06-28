@@ -13,7 +13,7 @@ const UserList = (props) => {
     return (
        <List {...props}>
          <Datagrid>
-             <TextField source='id' />
+             <TextField source='_id' />
              <TextField source='first_name' />
              <TextField source='last_name' />
              <TextField source='user_name' />

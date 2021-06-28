@@ -14,7 +14,7 @@ const ArticleList = (props) => {
     return (
        <List {...props}>
          <Datagrid>
-             <TextField source='id' />
+             <TextField source='_id' />
              <TextField source='title' />
              <TextField source='subtitle' />
              <ImageField source="img" title="picture.title" />

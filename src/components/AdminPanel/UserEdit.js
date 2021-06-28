@@ -5,7 +5,7 @@ const UserEdit = (props) => {
   return (
     <Edit title="Edit User" {...props}>
       <SimpleForm>
-        <TextInput disabled source="id" />
+        <TextInput disabled source="_id" />
         <TextInput source="first_name" />
         <TextInput source="last_name" />
         <TextInput source="user_name" />
