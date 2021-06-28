@@ -33,7 +33,7 @@ export default (apiUrl, httpClient) => {
      * @returns {Object} { url, options } The HTTP request parameters
      */
     const convertDataRequestToHTTP = (type, resource, params) => {
-        let url = 'http://localhost:3002/';
+        let url = 'http://localhost:3002';
         const options = {};
         switch (type) {
             case GET_LIST: {
@@ -114,7 +114,7 @@ export default (apiUrl, httpClient) => {
      */
     const convertHTTPResponse = (response, type, resource, params) => {
         const { headers, data } = response;
-    console.log(type, response)
+    
         switch (type) {
             case GET_LIST:
             case GET_MANY:
