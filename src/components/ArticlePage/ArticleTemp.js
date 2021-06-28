@@ -7,9 +7,9 @@ function ArticleTemp() {
     <div>
       <p>Release date: 27.06.2021</p>
       <h1 className="ArtHead">This is the title</h1>
-      <h2>This is the subtitle</h2>
-      <section>
-        <p>
+      <h2 className="ArtSub">This is the subtitle</h2>
+      <section className="ArtSec">
+        <p className="ArtPara">
           "This is the introduction" Hua Mulan (traditional Chinese: 花木蘭;
           simplified Chinese: 花木兰) is a legendary folk heroine from the
           Northern and Southern dynasties era (4th to 6th century AD) of Chinese
@@ -25,13 +25,14 @@ function ArticleTemp() {
           Peerless Heroes) by Jin Guliang.{" "}
         </p>
       </section>
-      <section>
+      <section className="ArtSec">
         <img
           alt="img1"
           src="https://giantbomb1.cbsistatic.com/uploads/scale_small/46/462814/3222917-7188601370-latest.jpg"
+          className="ArtImg"
         />
-        <h4>This is a dividing sub-headline</h4>
-        <p>
+        <h4 className="SubHead">This is a dividing sub-headline</h4>
+        <p className="ArtPara">
           "This is body number one" The heroine of the poem is given different
           family names in different versions of her story. The Musical Records
           of Old and New states Mulan's given name is not known and therefore
@@ -48,13 +49,14 @@ function ArticleTemp() {
           her given name (木蘭) literally means "magnolia."{" "}
         </p>
       </section>
-      <section>
+      <section className="ArtSec">
         <img
           alt="img2"
           src="http://haahilfm.com/wp-content/uploads/2019/11/K.jpg"
+          className="ArtImgT"
         />
-        <h4>This is another dividing sub-headline</h4>
-        <p>
+        <h4 className="SubHead">This is another dividing sub-headline</h4>
+        <p className="ArtPara">
           "This is body number two" Though The Ballad of Mulan itself does not
           expressly indicate the historical setting, the story is commonly
           attributed to the Northern Wei dynasty due to geographic and cultural
@@ -80,9 +82,9 @@ function ArticleTemp() {
           interpreting written government orders.{" "}
         </p>
       </section>
-      <section>
-        <h4>This is the last dividing sub-headline</h4>
-        <p>
+      <section className="ArtSec">
+        <h4 className="SubHead">This is the last dividing sub-headline</h4>
+        <p className="ArtPara">
          "This is the conclusion" Her parents, upon hearing her return, welcome
           her outside their hometown. Her elder sister puts on her fine dress.
           Her younger brother sharpens the knife for the swine and sheep. Mulan
