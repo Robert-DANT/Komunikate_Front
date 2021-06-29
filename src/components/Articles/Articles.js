@@ -4,6 +4,8 @@ import "./Articles.css";
 const Articles = () => {
   return (
     <>
+
+    
       <h3>Articles</h3>
       <Card className="article">
         <Card.Header>Featured</Card.Header>

@@ -10,12 +10,6 @@ import {
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 import logo from "../../images/logos/Komunikate_Long_Blue_v01.svg";
-// import logo from './components/logos/Komunikate_Long_Black_v01.svg';
-// import logo from './components/logos/Komunikate_Long_Blue_v01.svg';
-// import logo from './components/logos/Komunikate_Long_White_v01.svg';
-// import logo from './components/logos/Komunikate_Small_Black_v01.svg';
-// import logo from './components/logos/Komunikate_Small_Black_v01.svg';
-// import logo from './components/logos/Komunikate_Small_White_v01.svg';
 
 const NavBar = (props) => {
   /*   const token = localStorage.usertoken; */
@@ -81,7 +75,7 @@ const NavBar = (props) => {
             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link>
-            <NavDropdown title="Login" id="basic-nav-dropdown">
+           {/* <NavDropdown title="Login" id="basic-nav-dropdown">
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -106,7 +100,7 @@ const NavBar = (props) => {
               <NavDropdown.Item href="#action/3.4">
                 Reset Password
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <Form inline>
               <Link exact to="/register">
                 <Button variant="outline-success">Register</Button>{" "}
@@ -115,40 +109,6 @@ const NavBar = (props) => {
           </Nav>
         )}
       </Navbar>
-
-      {/* <br />
-
-      <Nav
-        bg="light"
-        expand="lg"
-        id="center"
-        variant="tabs"
-        defaultActiveKey="/"
-      >
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">
-            <Link to="/guide"> Guide </Link>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">
-            <Link to="/visas"> Visas </Link>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link eventKey="link-3">
-            <Link to="/healthInsurance"> HealthInsurance </Link>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link eventKey="link-4">
-            <Link to="/applications"> Applications </Link>
-          </Nav.Link>
-        </Nav.Item>
-      </Nav> */}
     </>
   );
 };
