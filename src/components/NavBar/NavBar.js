@@ -75,7 +75,7 @@ const NavBar = (props) => {
             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link>
-           {/* <NavDropdown title="Login" id="basic-nav-dropdown">
+           <NavDropdown title="Login" id="basic-nav-dropdown">
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -100,7 +100,7 @@ const NavBar = (props) => {
               <NavDropdown.Item href="#action/3.4">
                 Reset Password
               </NavDropdown.Item>
-            </NavDropdown> */}
+            </NavDropdown>
             <Form inline>
               <Link exact to="/register">
                 <Button variant="outline-success">Register</Button>{" "}

@@ -30,6 +30,9 @@ const FooterBar = () => {
 <div class="thumb-content"><a href="#.">Guide</a></div> 
 </li>
 <li>
+<div class="thumb-content"><a href="#.">Visas</a></div> 
+</li>
+<li>
 <div class="thumb-content"><a href="#.">Health Insurance</a></div>  
 </li>
 <li>
@@ -45,7 +48,7 @@ const FooterBar = () => {
 <div class="col-xs-12 col-sm-6 col-md-3">
 <div class="widget no-box">
 <h5 class="widget-title">Get Started<span></span></h5>
-<p>Get access to your full Training and Marketing Suite.</p>
+<p>Get access to our Mentors and More...</p>
 <a class="btn" href="/register" target="_blank">Register Now</a>
 </div>
 </div>
