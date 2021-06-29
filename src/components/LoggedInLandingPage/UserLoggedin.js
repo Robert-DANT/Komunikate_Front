@@ -6,58 +6,15 @@ import {
   Button,
   Badge,
   Form,
-  Nav,
-  Image,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import MainBody from "../HeaderSection/HeaderBody";
 import "./UserLoggedin.css";
-import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
 import Articles from "../Articles/Articles";
+import HeaderBody from "../HeaderSection/HeaderBody";
 
 const UserLoggedIn = () => {
   return (
     <Container fluid>
-      <Container fluid>
-        <Row>
-          <Col id="center" xs={50} md={50}>
-            <Image className="header-image" src={HomePagePic} fluid />
-          </Col>
-        </Row>
-        <br />
-
-        <Nav
-          bg="light"
-          expand="lg"
-          id="center"
-          variant="tabs"
-          defaultActiveKey="/"
-        >
-          <Nav.Item>
-            <Nav.Link eventKey="link-1">
-              <Link to="/guide"> Guide </Link>
-            </Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link eventKey="link-2">
-              <Link to="/visas"> Visas </Link>
-            </Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link eventKey="link-3">
-              <Link to="/healthInsurance"> HealthInsurance </Link>
-            </Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link eventKey="link-4">
-              <Link to="/applications"> Applications </Link>
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Container>
+      <HeaderBody />
       <Container>
         <Row className="logged-in-container">
           <Col md={3}>

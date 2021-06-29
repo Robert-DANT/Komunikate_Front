@@ -70,7 +70,7 @@ const MainBody = (props) => {
           needing to go to dozens of websites.
         </p>
       </Container>
-      <div style={{ backgroundImage: `url(${HomePagePic})` }}></div>
+      {/* <div style={{ backgroundImage: `url(${HomePagePic})` }}></div> */}
       <Articles />
     </Container>
   );
