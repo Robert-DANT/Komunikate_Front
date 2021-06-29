@@ -12,18 +12,19 @@ import {
 
 const ArticleList = (props) => {
     return (
-       <List {...props}>
-         <Datagrid>
-             <TextField source='_id' />
-             <TextField source='title' />
-             <TextField source='subtitle' />
-             <ImageField source="img" title="picture.title" />
-             <DateField source='publishedAt' />
-             <BooleanField source="commentable" />
-             <EditButton basePath='posts' />
+        <List {...props}>
+        <Datagrid rowClick="edit">
+            <TextField source="userComments" />
+            <TextField source="title" />
+            <TextField source="subtitle" />
+            <TextField source="body" />
+            <DateField source="date" />
+            <TextField source="id" />
+            <TextField source="body2" />
+            <EditButton basePath='posts' />
              <DeleteButton basePath='posts' />
-         </Datagrid>
-       </List>
+        </Datagrid>
+    </List>
     )
 }
 

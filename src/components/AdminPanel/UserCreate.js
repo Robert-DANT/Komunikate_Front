@@ -1,5 +1,5 @@
 import React from "react";
-import { Create, SimpleForm, TextInput, BooleanInput } from "react-admin";
+import { Create, SimpleForm, TextInput, BooleanInput, PasswordInput, RadioButtonGroupInput } from "react-admin";
 
 const UserCreate = (props) => {
   return (
@@ -7,9 +7,17 @@ const UserCreate = (props) => {
       <SimpleForm>
         <TextInput source="first_name" />
         <TextInput source="last_name" />
-        <TextInput source="user_name" />
+        <TextInput source="username" />
         <TextInput source="email" />
+        <PasswordInput source="password" />
+        <RadioButtonGroupInput source="user_role" choices={[
+            { id: 'Seeker', name: 'Seeker' },
+            { id: 'Mentor', name: 'Mentor' },
+        ]} />
+        <BooleanInput source="living_in_germany" />
         <BooleanInput source="admin" />
+        <TextInput source="languages" />
+        <TextInput source="nationality" />
       </SimpleForm>
     </Create>
   );

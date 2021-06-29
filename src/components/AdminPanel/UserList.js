@@ -7,17 +7,22 @@ import {
     EditButton,
     DeleteButton,
     BooleanField,
+    SelectField,
 } from 'react-admin';
 
 const UserList = (props) => {
     return (
        <List {...props}>
          <Datagrid>
-             <TextField source='_id' />
+             <TextField source='username' />
+             <SelectField source="user_role" choices={[
+            { id: 'Seeker', name: 'Seeker' },
+            { id: 'Mentor', name: 'Mentor' },
+        ]} />
+             <EmailField source='email' />
              <TextField source='first_name' />
              <TextField source='last_name' />
-             <TextField source='user_name' />
-             <EmailField source='email' />
+             <TextField source='id' />
              <BooleanField source="admin" />
              <EditButton basePath='users' />
              <DeleteButton basePath='users' />

@@ -41,12 +41,12 @@ function App() {
         create={PostCreate}
         edit={PostEdit}
       />
-      <Resource
+{/*       <Resource
         name="comments"
         list={CommentList}
         create={CommentCreate}
         edit={CommentEdit}
-      />
+      /> */}
     </Admin>
   );
 };
