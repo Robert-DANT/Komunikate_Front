@@ -54,12 +54,12 @@ export default (apiUrl, httpClient) => {
                     // query: JSON.stringify(params.filter),
                 };
                 if (resource==='users') url = `${apiUrl}/${resource}`;
-               else if (resource==='posts') url = `${apiUrl}/article`;
+               else if (resource==='posts') url = `${apiUrl}/posts`;
                else url = `${apiUrl}/${resource}`;
                 break;
             }
             case GET_ONE:
-               if(resource==='posts') url = `${apiUrl}/article/${params.id}`;
+               if(resource==='posts') url = `${apiUrl}/posts/${params.id}`;
                else url = `${apiUrl}/${resource}/${params.id}`;
                 break;
             case GET_MANY: {
@@ -94,7 +94,7 @@ export default (apiUrl, httpClient) => {
                 options.data = JSON.stringify(params.data);
                 break;
             case CREATE:
-                if (resource==='posts') url = `${apiUrl}/article`
+                if (resource==='posts') url = `${apiUrl}/posts`
                 else url = `${apiUrl}/${resource}/register`;
                 options.method = 'POST';
                 options.data = JSON.stringify(params.data);
@@ -104,7 +104,7 @@ export default (apiUrl, httpClient) => {
                 options.method = 'DELETE';
                 break; */
             case DELETE:
-                if (resource === 'posts') url = `${apiUrl}/article/${params.id}`
+                if (resource === 'posts') url = `${apiUrl}/posts/${params.id}`
                 else url = `${apiUrl}/${resource}/${params.id}`;
                 options.method = 'DELETE';
                 break;

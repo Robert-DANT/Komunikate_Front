@@ -33,7 +33,7 @@ export const fetchJson = (url, options) => {
     const token = localStorage.getItem('auth-token');
     requestHeaders['Authorization'] = `${token}`;
     
-
+console.log(url, options)
     return axios(url, { ...options, headers: requestHeaders })
         .then(response => {
            let { status, statusText, data } = response;
