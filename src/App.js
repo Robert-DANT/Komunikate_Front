@@ -26,7 +26,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    const token = localStorage.token;
+    let token = localStorage.token;
     if (token) {
       const decoded = jwt_decode(token);
       setUserToken({
@@ -44,7 +44,11 @@ const App = () => {
 
         <Switch>
           <Route path="/messages" token={userToken} component={Messenger} />
-          <Route exact path="/" component={HeaderBody} />
+          <Route
+            exact
+            path="/"
+            component={userToken.user_role === "" ? HeaderBody : UserLoggedIn}
+          />
           <Route path="/register" component={UserSignup} />
           <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />
@@ -57,12 +61,12 @@ const App = () => {
             token={userToken}
             component={UserSettings}
           />
-          <Route
+          {/* <Route
             exact
             path="/user_home"
             token={userToken}
-            component={UserLoggedIn}
-          />
+            component={userToken.user_role === "" ? HeaderBody : UserLoggedIn}
+          /> */}
           <Route
             path="/user_profile"
             token={userToken}

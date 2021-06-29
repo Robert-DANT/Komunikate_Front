@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import MainBody from "../HeaderSection/HeaderBody";
 import "./UserLoggedin.css";
 import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
+import Articles from "../Articles/Articles";
 
 const UserLoggedIn = () => {
   return (
@@ -137,126 +138,7 @@ const UserLoggedIn = () => {
             </Card>
           </Col>
           <Col className="table-column" md={9}>
-            <Row>
-              <Col className="article-img-column" sm={4}>
-                <Card.Img src="https://cdn.pixabay.com/photo/2020/05/06/14/26/field-5137778__340.jpg" />
-              </Col>
-              <Col sm={8}>
-                <Card className="article-body-column">
-                  <Card.Body className="padding-article">
-                    <Card.Title>Special title treatment</Card.Title>
-                    <small className="text-muted">
-                      By Name | Date | 100 Comments
-                    </small>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Button variant="primary">Continue reading...</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="article-img-column" sm={4}>
-                <Card.Img src="https://cdn.pixabay.com/photo/2020/05/06/14/26/field-5137778__340.jpg" />
-              </Col>
-              <Col sm={8}>
-                <Card className="article-body-column">
-                  <Card.Body className="padding-article">
-                    <Card.Title>Special title treatment</Card.Title>
-                    <small className="text-muted">
-                      By Name | Date | 100 Comments
-                    </small>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Button variant="primary">Continue reading...</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="article-img-column" sm={4}>
-                <Card.Img src="https://cdn.pixabay.com/photo/2020/05/06/14/26/field-5137778__340.jpg" />
-              </Col>
-              <Col sm={8}>
-                <Card className="article-body-column">
-                  <Card.Body className="padding-article">
-                    <Card.Title>Special title treatment</Card.Title>
-                    <small className="text-muted">
-                      By Name | Date | 100 Comments
-                    </small>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Button variant="primary">Continue reading...</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="article-img-column" sm={4}>
-                <Card.Img src="https://cdn.pixabay.com/photo/2020/05/06/14/26/field-5137778__340.jpg" />
-              </Col>
-              <Col sm={8}>
-                <Card className="article-body-column">
-                  <Card.Body className="padding-article">
-                    <Card.Title>Special title treatment</Card.Title>
-                    <small className="text-muted">
-                      By Name | Date | 100 Comments
-                    </small>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Button variant="primary">Continue reading...</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="article-img-column" sm={4}>
-                <Card.Img src="https://cdn.pixabay.com/photo/2020/05/06/14/26/field-5137778__340.jpg" />
-              </Col>
-              <Col sm={8}>
-                <Card className="article-body-column">
-                  <Card.Body className="padding-article">
-                    <Card.Title>Special title treatment</Card.Title>
-                    <small className="text-muted">
-                      By Name | Date | 100 Comments
-                    </small>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Button variant="primary">Continue reading...</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-            <Row>
-              <Col className="article-img-column" sm={4}>
-                <Card.Img src="https://cdn.pixabay.com/photo/2020/05/06/14/26/field-5137778__340.jpg" />
-              </Col>
-              <Col sm={8}>
-                <Card className="article-body-column">
-                  <Card.Body className="padding-article">
-                    <Card.Title>Special title treatment</Card.Title>
-                    <small className="text-muted">
-                      By Name | Date | 100 Comments
-                    </small>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to
-                      additional content.
-                    </Card.Text>
-                    <Button variant="primary">Continue reading...</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
+            <Articles />
           </Col>
         </Row>
       </Container>

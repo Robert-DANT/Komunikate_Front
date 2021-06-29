@@ -1,7 +1,54 @@
-import { Container, Row, Col, ListGroup, Form, Button } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  Form,
+  Button,
+  Popover,
+  OverlayTrigger,
+} from "react-bootstrap";
 import "./UserSettings.css";
 
 const UserSettings = () => {
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Title as="h3">Update Password</Popover.Title>
+      <Popover.Content>
+        <Form>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              // onChange={(e) => setPw(e.target.value)}
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              // onChange={(e) => setPw(e.target.value)}
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Update
+          </Button>
+        </Form>
+      </Popover.Content>
+    </Popover>
+  );
+
+  const Example = () => (
+    <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+      <Button variant="success">Update Password</Button>
+    </OverlayTrigger>
+  );
   return (
     <Container className="user-settings-container">
       <Row>
@@ -146,9 +193,23 @@ const UserSettings = () => {
                 </Form.Group>
 
                 <Form.Group as={Col}>
-                  <Button variant="success">Update Password</Button>{" "}
+                  <Example />
                 </Form.Group>
               </Form.Row>
+              <Button
+                className="cancel-save-button"
+                variant="primary"
+                type="submit"
+              >
+                Cancel
+              </Button>
+              <Button
+                className="cancel-save-button"
+                variant="primary"
+                type="submit"
+              >
+                Save Changes
+              </Button>
             </Col>
           </Row>
         </Col>

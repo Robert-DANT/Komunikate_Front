@@ -20,10 +20,10 @@ import logo from "../../images/logos/Komunikate_Long_Blue_v01.svg";
 const NavBar = (props) => {
   /*   const token = localStorage.usertoken; */
   // console.log(props);
-  const [token, setToken] = useState(props.token);
+  // const [token, setToken] = useState(props.token);
   console.log(props.token);
   /*   const test = true; */
-  // const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   return (
     <>
       <Navbar bg="light" expand="lg" sticky="top">

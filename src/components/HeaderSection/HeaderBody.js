@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import "./HeaderBody.css";
 import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
 import Articles from "../Articles/Articles";
-import UserCard from "../Card/UserCard";
 
 const MainBody = (props) => {
-  // const [token, setToken] = useState(props.token);
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState(props.token);
+  // const token = localStorage.getItem("token");
   return (
     <Container fluid>
       <Container fluid>
@@ -59,7 +58,7 @@ const MainBody = (props) => {
 
       <br />
       <br />
-      <Container>
+      <Container className="our-mission-container">
         <p>
           komunicate is a community of people who have or want to move to
           Germany. Moving to a new a country can be challenging for anybody and
