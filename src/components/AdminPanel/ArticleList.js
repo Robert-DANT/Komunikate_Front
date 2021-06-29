@@ -21,6 +21,7 @@ const ArticleList = (props) => {
             <DateField source="date" />
             <TextField source="id" />
             <TextField source="body2" />
+            <TextField source="body3" />
             <EditButton basePath='posts' />
              <DeleteButton basePath='posts' />
         </Datagrid>
