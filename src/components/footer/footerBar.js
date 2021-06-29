@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './footerBar.css';
+import './FooterBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const FooterBar = () => {
@@ -33,7 +33,7 @@ const FooterBar = () => {
 <div class="thumb-content"><a href="#.">Health Insurance</a></div>  
 </li>
 <li>
-<div class="thumb-content"><a href="#.">Lifestyle</a></div> 
+<div class="thumb-content"><a href="#.">Application</a></div> 
 </li>
 <li>
 <div class="thumb-content"><a href="#.">About</a></div> 
