@@ -47,8 +47,10 @@ const App = () => {
           <Route
             exact
             path="/"
+            token={userToken}
             component={userToken.user_role === "" ? HeaderBody : UserLoggedIn}
           />
+          <Route path="/user_home" token={userToken} component={UserLoggedIn} />
           <Route path="/register" component={UserSignup} />
           <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />

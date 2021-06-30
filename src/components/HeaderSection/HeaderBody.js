@@ -7,8 +7,8 @@ import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
 import Articles from "../Articles/Articles";
 
 const MainBody = (props) => {
-  const [token, setToken] = useState(props.token);
-  // const token = localStorage.getItem("token");
+  // const [token, setToken] = useState(props.token);
+  const token = localStorage.getItem("token");
   return (
     <Container fluid>
       <Container fluid>
@@ -71,7 +71,7 @@ const MainBody = (props) => {
         </p>
       </Container>
       {/* <div style={{ backgroundImage: `url(${HomePagePic})` }}></div> */}
-      <Articles />
+      {token ? "" : <Articles />}
     </Container>
   );
 };
