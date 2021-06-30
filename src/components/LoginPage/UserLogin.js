@@ -65,12 +65,12 @@ const UserLogin = (props) => {
 
       <Row className="justify-content-center">
         <Col xs={6}>
-          <Breadcrumb className="form-nav">
+{/*           <Breadcrumb className="form-nav">
             <Breadcrumb.Item href="#">Login</Breadcrumb.Item>
             <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
               SignUp
             </Breadcrumb.Item>
-          </Breadcrumb>
+          </Breadcrumb> */}
           <Form onSubmit={handleLogin} id="loginForm" autocomplete="off">
             <Form.Group controlId="formBasicEmail">
               <Form.Label>E-Mail</Form.Label>
@@ -100,7 +100,7 @@ const UserLogin = (props) => {
             </Form.Group>
             <div className="font-weight-light">
               <p>
-                Not a member?
+                Not a member?&nbsp;
                 <Link to="/register">Sign Up</Link>{" "}
               </p>
               <p>Forgot Password?</p>
