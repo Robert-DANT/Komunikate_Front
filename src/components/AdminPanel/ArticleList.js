@@ -17,11 +17,11 @@ const ArticleList = (props) => {
             <TextField source="userComments" />
             <TextField source="title" />
             <TextField source="subtitle" />
-            <TextField source="body" />
+{/*             <TextField source="body" />
+            <TextField source="body2" />
+            <TextField source="body3" /> */}
             <DateField source="date" />
             <TextField source="id" />
-            <TextField source="body2" />
-            <TextField source="body3" />
             <EditButton basePath='posts' />
              <DeleteButton basePath='posts' />
         </Datagrid>
