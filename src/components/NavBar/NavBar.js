@@ -10,7 +10,6 @@ import {
 import "./NavBar.css";
 import "../fonts.css";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Long_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Long_Blue_v01.svg';
@@ -18,9 +17,6 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
-=======
-import logo from "../../images/logos/Komunikate_Long_Blue_v01.svg";
->>>>>>> 60598f4434f6f0c49cef66ff8997d7a1cddd6f65
 
 const NavBar = (props) => {
   /*   const token = localStorage.usertoken; */
@@ -61,6 +57,14 @@ const NavBar = (props) => {
         {token ? (
           <Nav>
             <Nav.Link>
+            <Link to="/adminpanel">
+                <img
+                  src="https://image.flaticon.com/icons/png/512/2950/2950657.png"
+                  // change icon to admin panel & add conditional rendering for admin
+                  width="30"
+                  alt="Admin Panel"
+                />
+              </Link>
               <Link to="/messages">
                 <img
                   src="https://image.flaticon.com/icons/png/512/2950/2950657.png"
@@ -87,13 +91,8 @@ const NavBar = (props) => {
           <Nav className="mr-auto">
 {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
-<<<<<<< HEAD
             </Nav.Link> */}
             <NavDropdown title="Login" id="basic-nav-dropdown">
-=======
-            </Nav.Link>
-           <NavDropdown title="Login" id="basic-nav-dropdown">
->>>>>>> 60598f4434f6f0c49cef66ff8997d7a1cddd6f65
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>

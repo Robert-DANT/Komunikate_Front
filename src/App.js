@@ -21,6 +21,7 @@ import Messenger from "./components/Messenger/Messenger";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 const App = () => {
   const [userToken, setUserToken] = useState({
@@ -46,6 +47,7 @@ const App = () => {
         <NavBar token={userToken} />
 
         <Switch>
+        <Route path="/adminpanel" token={userToken} component={AdminPanel} />
           <Route path="/messages" token={userToken} component={Messenger} />
           <Route
             exact
@@ -87,3 +89,6 @@ const App = () => {
 };
 
 export default App;
+
+
+
