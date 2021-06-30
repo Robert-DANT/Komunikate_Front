@@ -11,3 +11,8 @@
     background: rgb(73, 79, 82);
     color: white;
 } */
+
+/* Smoothly scrolls down a page when doing anchor */
+html {
+  scroll-behavior: smooth;
+}

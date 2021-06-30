@@ -1,0 +1,39 @@
+.bg {
+    height: 40em;
+    background-image: url("http://images.ctfassets.net/t0fd7bi3x7x9/6szfAF5nogylaoK8Tswjkp/21543513b99a936c3c13ead861f09fdc/_RJD0683.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner{
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(247, 243, 241);
+    filter: drop-shadow(0px 4px 0.55rem rgb(230, 19, 19));
+    padding-top: 15rem;
+}
+
+.banner-title{
+    font-size: 5em;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.banner-subtitle{
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-top: -1.5rem;
+/*     font-weight: bold; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p {
+    font-size: 1.15rem;
+    text-align: justify;
+}
