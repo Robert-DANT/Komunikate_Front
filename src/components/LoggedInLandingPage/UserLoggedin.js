@@ -14,10 +14,11 @@ import MainBody from "../HeaderSection/HeaderBody";
 import "./UserLoggedin.css";
 import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
 import Articles from "../Articles/Articles";
+import LandingBanner from "../LandingBanner/LandingBanner";
 
 const UserLoggedIn = () => {
   return (
-    <Container fluid>
+    <Container fluid className="fullWidthImage">
       <Container fluid>
         <Row>
           <Col id="center" xs={50} md={50}>
@@ -58,6 +59,7 @@ const UserLoggedIn = () => {
           </Nav.Item>
         </Nav>
       </Container>
+{/*       <LandingBanner /> */}
       <Container>
         <Row className="logged-in-container">
           <Col md={3}>

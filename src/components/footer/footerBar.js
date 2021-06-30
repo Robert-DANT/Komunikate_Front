@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './footerBar.css';
+import './FooterBar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const FooterBar = () => {
