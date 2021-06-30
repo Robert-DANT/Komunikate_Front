@@ -15,9 +15,12 @@ import UserLogin from "./components/LoginPage/UserLogin";
 import UserSignup from "./components/LoginPage/UserSignup";
 import UserProfile from "./components/UserProfilePage/UserProfile";
 import UserSettings from "./components/UserSettings/UserSettings";
+import Messenger from "./components/Messenger/Messenger";
+//import Messenger from "./components/Messenger/Sliders"ö
+
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import Messenger from "./components/Messenger/Messenger";
 
 const App = () => {
   const [userToken, setUserToken] = useState({

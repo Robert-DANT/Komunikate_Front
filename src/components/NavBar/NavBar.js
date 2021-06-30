@@ -10,6 +10,7 @@ import {
 import "./NavBar.css";
 import "../fonts.css";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Long_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Long_Blue_v01.svg';
@@ -17,6 +18,9 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
+=======
+import logo from "../../images/logos/Komunikate_Long_Blue_v01.svg";
+>>>>>>> 60598f4434f6f0c49cef66ff8997d7a1cddd6f65
 
 const NavBar = (props) => {
   /*   const token = localStorage.usertoken; */
@@ -83,8 +87,13 @@ const NavBar = (props) => {
           <Nav className="mr-auto">
 {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
+<<<<<<< HEAD
             </Nav.Link> */}
             <NavDropdown title="Login" id="basic-nav-dropdown">
+=======
+            </Nav.Link>
+           <NavDropdown title="Login" id="basic-nav-dropdown">
+>>>>>>> 60598f4434f6f0c49cef66ff8997d7a1cddd6f65
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -118,40 +127,6 @@ const NavBar = (props) => {
           </Nav>
         )}
       </Navbar>
-
-      {/* <br />
-
-      <Nav
-        bg="light"
-        expand="lg"
-        id="center"
-        variant="tabs"
-        defaultActiveKey="/"
-      >
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">
-            <Link to="/guide"> Guide </Link>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">
-            <Link to="/visas"> Visas </Link>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link eventKey="link-3">
-            <Link to="/healthInsurance"> HealthInsurance </Link>
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link eventKey="link-4">
-            <Link to="/applications"> Applications </Link>
-          </Nav.Link>
-        </Nav.Item>
-      </Nav> */}
     </>
   );
 };

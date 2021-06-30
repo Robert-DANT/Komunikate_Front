@@ -3,6 +3,7 @@ import "./Articles.css";
 
 const Articles = () => {
   return (
+<<<<<<< HEAD
     <Container className="cards-container">
       <CardColumns>
         <Card>
@@ -18,6 +19,21 @@ const Articles = () => {
               longer.
             </Card.Text>
           </Card.Body>
+=======
+    <>
+
+    
+      <h3>Articles</h3>
+      <Card className="article">
+        <Card.Header>Featured</Card.Header>
+        <Card.Img
+          className="article-img"
+          variant="top"
+          src="https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"
+        />
+        <Card.Body>
+          <Card.Title>Moving to Germany in 2021</Card.Title>
+>>>>>>> 60598f4434f6f0c49cef66ff8997d7a1cddd6f65
           <Card.Text>
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Text>
