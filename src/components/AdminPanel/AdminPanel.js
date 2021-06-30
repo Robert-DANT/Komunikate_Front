@@ -1,4 +1,4 @@
-import "./App.css";
+import "../../App.css";
 import React, { useEffect, useState } from "react";
 import { Admin, Resource, ListGuesser } from "react-admin";
 // import simpleRestProvider from "ra-data-simple-rest";

@@ -8,13 +8,8 @@ import logo from "../../images/logos/Komunikate_Long_Black_v01.svg";
 
 const queryString = require("query-string");
 
-const UserLogin = (props) => {
+const UserLogin = ({setJwt}) => {
   let history = useHistory();
-
-  function redirect() {
-    history.push("https://stark-fjord-75040.herokuapp.com/users/");
-  }
-
   const [token, setToken] = useState();
   const [pw, setPw] = useState("");
   const [email, setEmail] = useState("");
@@ -29,10 +24,11 @@ const UserLogin = (props) => {
     });
     loginFunction(user).then((res) => {
       if (res) {
-        alert("You've logged in");
+        alert("You've logged in")
+        setJwt(res)
         /*         return <Redirect to='/frontpage' /> */
         // props.history("/")
-        window.location.href = "/user_loggedIn";
+        history.push('/');
       } else {
         alert("You've entered an incorrect E-mail or Password");
       }

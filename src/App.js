@@ -16,10 +16,10 @@ import UserSignup from "./components/LoginPage/UserSignup";
 import UserProfile from "./components/UserProfilePage/UserProfile";
 import UserSettings from "./components/UserSettings/UserSettings";
 import Messenger from "./components/Messenger/Messenger";
-//import Messenger from "./components/Messenger/Sliders"ö
+//import Messenger from "./components/Messenger/Sliders"
 
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useLocation, Redirect } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
@@ -27,7 +27,11 @@ const App = () => {
   const [userToken, setUserToken] = useState({
     email: "",
     user_role: "",
+    admin: "",
   });
+  const [jwt, setJwt] = useState('')
+
+  let location = useLocation();
 
   useEffect(() => {
     let token = localStorage.token;
@@ -38,16 +42,16 @@ const App = () => {
         user_role: decoded.user.user_role,
       });
     }
-  }, []);
+  }, [jwt]);
 
   console.log(userToken);
   return (
     <Router>
       <div className="App">
-        <NavBar token={userToken} />
+        {location.pathname.toLowerCase() !== '/adminpanel' && <NavBar token={userToken} />}
 
         <Switch>
-        <Route path="/adminpanel" token={userToken} component={AdminPanel} />
+          <Route path="/adminpanel" token={userToken} component={AdminPanel} />
           <Route path="/messages" token={userToken} component={Messenger} />
           <Route
             exact
@@ -55,31 +59,29 @@ const App = () => {
             token={userToken}
             component={userToken.user_role === "" ? HeaderBody : UserLoggedIn}
           />
-          <Route path="/user_home" token={userToken} component={UserLoggedIn} />
+          {/* User Registration and Login Routes */}
           <Route path="/register" component={UserSignup} />
+          <Route path="/user_login" >
+            <UserLogin setJwt={setJwt} />
+          </Route>
+          {/* User Related Routes */}
+          <Route path="/user_settings" token={userToken} component={UserSettings} />
+          <Route path="/user_profile/:id?" token={userToken} component={UserProfile} />
+          {/* <Route path="/user_card" token={userToken} component={UserCard} /> */}
+
+          {/* Routes for major Topics */}
           <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />
-          <Route path="/health_insurance" component={HealthInsurance} />
+          <Route path="/healthinsurance" component={HealthInsurance} />
           <Route path="/applications" component={Applications} />
-          <Route path="/articles" component={Articles} />
-          <Route path="/user_card" token={userToken} component={UserCard} />
-          <Route
-            path="/user_settings"
-            token={userToken}
-            component={UserSettings}
-          />
-          {/* <Route
-            exact
-            path="/user_home"
-            token={userToken}
-            component={userToken.user_role === "" ? HeaderBody : UserLoggedIn}
-          /> */}
-          <Route
-            path="/user_profile"
-            token={userToken}
-            component={UserProfile}
-          />
-          <Route path="/user_login" component={UserLogin} />
+
+          <Route path="/articles/:topic?" component={Articles} />
+
+
+          {/* Add all Routes above, Below is redirect for non existent paths */}
+          <Route path="/*">
+            <Redirect to="/" />
+          </Route>
         </Switch>
 
         <FooterBar />
