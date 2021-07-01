@@ -1,6 +1,4 @@
 import React, { useState, useRef } from "react";
-import axios from 'axios';
-const PORT = process.env.PORT || 'http://localhost:3002';
 import {
   Navbar,
   Nav,
@@ -19,10 +17,12 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
+import axios from 'axios';
+const PORT = process.env.PORT || 'http://localhost:3002';
+const queryString = require("query-string");
 
 const NavBar = (props) => {
     const searchRef = useRef()
-    const [searchString, setSearchString] = useState('')
     const [searchResults, setSearchResults] = useState([])
   /*   const token = localStorage.usertoken; */
   // console.log(props);
@@ -33,14 +33,12 @@ const NavBar = (props) => {
 
 
   const getSearch = () => {
-    const search = {
-      searchtext: searchString
-    }
+    const search = { params: {searchtext: searchRef.current.value}}
+
     axios
-        .get(`${PORT}/articles/search`, search)
+        .get(`${PORT}/posts/search`, search)
         .then(res => {
             console.log(res)
-            let results = res.data
             //setSearchResults(results)
         })
         .catch(err => {
@@ -48,10 +46,9 @@ const NavBar = (props) => {
         })
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-
-    setSearchString(searchRef.current.value) 
+    console.log(searchRef.current.value) 
     getSearch()
   }
 
