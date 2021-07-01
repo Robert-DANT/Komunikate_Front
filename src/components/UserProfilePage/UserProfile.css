@@ -1,20 +1,39 @@
+.outer-container-profile {
+  background-image: url("https://cdn.pixabay.com/photo/2012/12/29/21/11/sunrise-73074_960_720.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+}
+
 .user-profile-container {
   padding-top: 10%;
   padding-bottom: 10%;
+}
+
+.list-group-item {
+  background-color: transparent;
+  color: black;
 }
 
 .table-column {
   text-align: start;
 }
 
+.table td {
+  border: none;
+}
+
 .profile-card {
   border: none !important;
+  background-color: transparent;
 }
 
 .hr-posts {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  border-top: 6px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid black;
   width: 50%;
 }

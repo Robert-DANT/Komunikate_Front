@@ -68,7 +68,7 @@ const NavBar = (props) => {
             />
           </Link>
         </Navbar.Brand>
-    
+
         <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -83,18 +83,20 @@ const NavBar = (props) => {
             <Button type="submit" variant="outline-success" className="buttonFonts">Find it!</Button>
           </Form>
         </Navbar.Collapse>
-    
+
         {token ? (
           <Nav>
             <Nav.Link>
-            <Link to="/adminpanel">
+              <Link to="/adminpanel">
                 <img
-                  src="https://image.flaticon.com/icons/png/512/2950/2950657.png"
+                  src="https://image.flaticon.com/icons/png/512/3463/3463339.png"
                   // change icon to admin panel & add conditional rendering for admin
                   width="30"
                   alt="Admin Panel"
                 />
               </Link>
+            </Nav.Link>
+            <Nav.Link>
               <Link to="/messages">
                 <img
                   src="https://image.flaticon.com/icons/png/512/2950/2950657.png"
@@ -103,7 +105,11 @@ const NavBar = (props) => {
                 />
               </Link>
             </Nav.Link>
-            <NavDropdown title="Username" id="basic-nav-dropdown" className="navBarSpacing">
+            <NavDropdown
+              title="Username"
+              id="basic-nav-dropdown"
+              className="navBarSpacing"
+            >
               <NavDropdown.Item>
                 <Link to="/user_home">User Home</Link>
               </NavDropdown.Item>
@@ -119,14 +125,18 @@ const NavBar = (props) => {
           </Nav>
         ) : (
           <Nav className="mr-auto">
-{/*             <Nav.Link>
+            {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link> */}
             <NavDropdown title="Login" id="basic-nav-dropdown">
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" className="formFonts" />
+                  <Form.Control
+                    type="email"
+                    placeholder="Enter email"
+                    className="formFonts"
+                  />
                   <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                   </Form.Text>
@@ -134,7 +144,11 @@ const NavBar = (props) => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" className="formFonts" />
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    className="formFonts"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Check me out" />
@@ -150,7 +164,9 @@ const NavBar = (props) => {
             </NavDropdown>
             <Form inline>
               <Link exact to="/register">
-                <Button variant="outline-success" className="buttonFonts">Register</Button>{" "}
+                <Button variant="outline-success" className="buttonFonts">
+                  Register
+                </Button>{" "}
               </Link>
             </Form>
           </Nav>
