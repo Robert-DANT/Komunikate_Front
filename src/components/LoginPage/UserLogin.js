@@ -8,7 +8,7 @@ import logo from "../../images/logos/Komunikate_Long_Black_v01.svg";
 
 const queryString = require("query-string");
 
-const UserLogin = ({setJwt}) => {
+const UserLogin = ({ setJwt }) => {
   let history = useHistory();
   const [token, setToken] = useState();
   const [pw, setPw] = useState("");
@@ -24,11 +24,11 @@ const UserLogin = ({setJwt}) => {
     });
     loginFunction(user).then((res) => {
       if (res) {
-        alert("You've logged in")
-        setJwt(res)
+        alert("You've logged in");
+        setJwt(res);
         /*         return <Redirect to='/frontpage' /> */
         // props.history("/")
-        history.push('/');
+        history.push("/");
       } else {
         alert("You've entered an incorrect E-mail or Password");
       }
@@ -48,20 +48,20 @@ const UserLogin = ({setJwt}) => {
   };
 
   return (
-    <Container className="login-container">
-      <Link to="/">
-        <img
-          src={logo}
-          width="300"
-          height="80"
-          className="d-inline-block align-top"
-          alt="Komunikate"
-        />
-      </Link>
+    <Container className="outer-container-login" fluid>
+      <Container className="login-container-content bg-light">
+        <Link to="/">
+          <img
+            src={logo}
+            width="300"
+            height="80"
+            className="d-inline-block align-top"
+            alt="Komunikate"
+          />
+        </Link>
 
-      <Row className="justify-content-center">
-        <Col xs={6}>
-{/*           <Breadcrumb className="form-nav">
+        <Row className="justify-content-center">
+          {/*           <Breadcrumb className="form-nav">
             <Breadcrumb.Item href="#">Login</Breadcrumb.Item>
             <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
               SignUp
@@ -104,12 +104,12 @@ const UserLogin = ({setJwt}) => {
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Remember me" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button className="login-button" type="submit">
               Login
             </Button>
           </Form>
-        </Col>
-      </Row>
+        </Row>
+      </Container>
     </Container>
   );
 };

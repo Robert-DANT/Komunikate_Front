@@ -1,10 +1,48 @@
+.outer-container-login {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outer-container-login::before {
+  content: "";
+  background: #12c2e9;
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  /* background-image: url("https://cdn.pixabay.com/photo/2012/12/29/21/11/sunrise-73074_960_720.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  margin: -10px;
+  z-index: -1;
+}
+
+.login-container-content {
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  max-width: 25rem;
+  /* width: fit-content; */
+  border-radius: 30px;
+  position: relative;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 .form-nav ol {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.login-container {
-  padding-top: 10%;
-  padding-bottom: 10%;
+.login-button {
+  background: #12c2e9;
 }

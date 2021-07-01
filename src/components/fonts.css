@@ -1,55 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 .color_lightblue {
-    color: #0096be;
+  color: #0096be;
+}
+
+.color_lightblue_hr {
+  background-color: #0096be;
+  border: top;
 }
 
 .color_darkblue {
-    color: #005b97;
+  color: #005b97;
 }
 
 .color_brandgradient {
-    background: rgb(0,91,151);
-    background: linear-gradient(0deg, rgba(0,91,151,1) 0%, rgba(0,150,190,1) 70%);   
+  background: rgb(0, 91, 151);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 91, 151, 1) 0%,
+    rgba(0, 150, 190, 1) 70%
+  );
 }
 
 /* ///////////////////////////////////////////////////// */
 /* Main Headlines, Titles & h1 tags */
 .mainHeaderFonts {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
 }
 
 /* Sub headers & Secondary Titles */
 .subHeadlineFonts {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
 }
 
 /* Quotes & Pull quotes for highlighted text */
 .quoteFonts {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
 /* Main Body copy like <p> tags */
 .mainBodyFont {
-    font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
 /* Input Fields */
 .formFonts {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    font-style: italic;
-    
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-style: italic;
 }
 
 /* Buttons */
 .buttonFonts {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-style: bold;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-style: bold;
 }

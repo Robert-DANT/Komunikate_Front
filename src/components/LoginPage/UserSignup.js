@@ -122,161 +122,163 @@ const UserSignup = ({ token, setToken }) => {
     } */
 
   return (
-    <Container>
-      <h3>Create an Account</h3>
-      <Form
-        className="signup"
-        onSubmit={handleRegister}
-        id="registerForm"
-        autoComplete="off"
-      >
-        <Form.Group>
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            onChange={(e) => setUserName(e.target.value)}
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Username"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            onChange={(e) => setPw(e.target.value)}
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter email"
-            required
-          />
-        </Form.Group>
-
-        <Form.Row>
-          <Form.Group as={Col}>
-            <Form.Label>First Name</Form.Label>
+    <Container className="outer-container-register" fluid>
+      <Container className="content-container-register bg-light">
+        <h3>Create an Account</h3>
+        <Form
+          className="signup-form"
+          onSubmit={handleRegister}
+          id="registerForm"
+          autoComplete="off"
+        >
+          <Form.Group>
+            <Form.Label>Username</Form.Label>
             <Form.Control
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
               type="text"
-              id="firstname"
-              name="firstname"
-              placeholder="Enter First name"
+              id="name"
+              name="name"
+              placeholder="Username"
               required
             />
           </Form.Group>
 
-          <Form.Group as={Col}>
-            <Form.Label>Last name</Form.Label>
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
             <Form.Control
-              onChange={(e) => setLastName(e.target.value)}
-              type="text"
-              id="lastname"
-              name="lastname"
-              placeholder="Enter Last name"
-              required
-            />
-          </Form.Group>
-        </Form.Row>
-
-        <Form.Row>
-          <Form.Group as={Col}>
-            <Form.Label>Languages</Form.Label>
-            <Form.Control
-              onChange={(e) => setLanguages(e.target.value)}
-              type="text"
-              id="languages"
-              name="languages"
-              placeholder="i.e. English, French, Italian, Spanish"
+              onChange={(e) => setPw(e.target.value)}
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
               required
             />
           </Form.Group>
 
-          <Form.Group as={Col}>
-            <Form.Label>Nationality</Form.Label>
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
             <Form.Control
-              onChange={(e) => setNationality(e.target.value)}
-              type="text"
-              id="nationality"
-              name="nationality"
-              placeholder="What country do you come from?"
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter email"
               required
             />
           </Form.Group>
-        </Form.Row>
 
-        {/*         <Form.Group>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                onChange={(e) => setFirstName(e.target.value)}
+                type="text"
+                id="firstname"
+                name="firstname"
+                placeholder="Enter First name"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label>Last name</Form.Label>
+              <Form.Control
+                onChange={(e) => setLastName(e.target.value)}
+                type="text"
+                id="lastname"
+                name="lastname"
+                placeholder="Enter Last name"
+                required
+              />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label>Languages</Form.Label>
+              <Form.Control
+                onChange={(e) => setLanguages(e.target.value)}
+                type="text"
+                id="languages"
+                name="languages"
+                placeholder="i.e. English, French, Italian, Spanish"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label>Nationality</Form.Label>
+              <Form.Control
+                onChange={(e) => setNationality(e.target.value)}
+                type="text"
+                id="nationality"
+                name="nationality"
+                placeholder="What is your nationality?"
+                required
+              />
+            </Form.Group>
+          </Form.Row>
+
+          {/*         <Form.Group>
           <Form.Label>Do you live in Germany yet?</Form.Label>
           <Form.Control onChange={(e) => setCityGermany(e.target.value)} type="text" id="cityGermany" name="cityGermany" placeholder="leave blank if unknown"/>
         </Form.Group> */}
 
-        <Form.Group id="formGridCheckbox form-check-inline">
-          <h6>Do you live in Germany yet?</h6>
-          <Form.Check
-            onChange={(e) => setCityGermany(e.target.id)}
-            value={userRole}
-            name="userCity"
-            inline
-            type="radio"
-            label="Yes, I do"
-            id="true"
-            required
-          />
-          <Form.Check
-            onChange={(e) => setCityGermany(e.target.id)}
-            value={userRole}
-            name="userCity"
-            inline
-            type="radio"
-            label="No, not yet"
-            id="false"
-            required
-          />
-        </Form.Group>
+          <Form.Group id="formGridCheckbox form-check-inline">
+            <h6>Do you live in Germany yet?</h6>
+            <Form.Check
+              onChange={(e) => setCityGermany(e.target.id)}
+              value={userRole}
+              name="userCity"
+              inline
+              type="radio"
+              label="Yes, I do"
+              id="true"
+              required
+            />
+            <Form.Check
+              onChange={(e) => setCityGermany(e.target.id)}
+              value={userRole}
+              name="userCity"
+              inline
+              type="radio"
+              label="No, not yet"
+              id="false"
+              required
+            />
+          </Form.Group>
 
-        <Form.Group id="formGridCheckbox form-check-inline">
-          <h6>
-            Are you looking for information or do you want to help others?
-          </h6>
-          <Form.Check
-            onChange={(e) => setUserRole(e.target.id)}
-            value={userRole}
-            name="userType"
-            type="radio"
-            inline
-            label="Info-Seeker"
-            id="Seeker"
-            required
-          />
-          <Form.Check
-            onChange={(e) => setUserRole(e.target.id)}
-            value={userRole}
-            name="userType"
-            type="radio"
-            inline
-            label="Info-Guide"
-            id="Mentor"
-            required
-          />
-        </Form.Group>
+          <Form.Group id="formGridCheckbox form-check-inline">
+            <h6>
+              Are you looking for information or do you want to help others?
+            </h6>
+            <Form.Check
+              onChange={(e) => setUserRole(e.target.id)}
+              value={userRole}
+              name="userType"
+              type="radio"
+              inline
+              label="Info-Seeker"
+              id="Seeker"
+              required
+            />
+            <Form.Check
+              onChange={(e) => setUserRole(e.target.id)}
+              value={userRole}
+              name="userType"
+              type="radio"
+              inline
+              label="Info-Guide"
+              id="Mentor"
+              required
+            />
+          </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Register
-        </Button>
-      </Form>
+          <Button variant="primary" type="submit">
+            Register
+          </Button>
+        </Form>
+      </Container>
     </Container>
   );
 };
