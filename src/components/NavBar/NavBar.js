@@ -19,7 +19,7 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
 import axios from 'axios';
 const PORT = process.env.PORT || 'http://localhost:3002';
-const queryString = require("query-string");
+
 
 const NavBar = (props) => {
     const searchRef = useRef()
