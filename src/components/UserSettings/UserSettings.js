@@ -52,7 +52,7 @@ const UserSettings = () => {
     </OverlayTrigger>
   );
   return (
-    <Container className="outer-container" fluid>
+    <Container className="outer-container-settings" fluid>
       <Container className="content-container">
         <Row>
           <Col sm={3}>
