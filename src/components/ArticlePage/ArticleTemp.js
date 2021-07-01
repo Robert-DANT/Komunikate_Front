@@ -29,11 +29,16 @@ function ArticleTemp() {
   }, []);
 
   return (
-    <div>
-    { post ? <> <p>Release date: {calcDate(post.date)}</p>
+    <div className="ArtFull">
+    { post ? <> <p className="RelDate">Release date: {calcDate(post.date)}</p>
       <h1 className="ArtHead">{post.title}</h1>
       <h2 className="ArtSub">{post.subtitle}</h2>
       <section className="ArtSec">
+       <img
+          alt="img1"
+          src="https://i.pinimg.com/originals/fc/25/d3/fc25d35358542f3169ebb03ebabfbf79.jpg"
+          className="ArtImg"
+        />
         <p className="ArtPara">
          {post.body}
         </p>
@@ -44,7 +49,6 @@ function ArticleTemp() {
           src="https://giantbomb1.cbsistatic.com/uploads/scale_small/46/462814/3222917-7188601370-latest.jpg"
           className="ArtImg"
         />
-        <h4 className="SubHead">This is a dividing sub-headline</h4>
         <p className="ArtPara">
          {post.body2}
         </p>
@@ -53,15 +57,13 @@ function ArticleTemp() {
         <img
           alt="img2"
           src="http://haahilfm.com/wp-content/uploads/2019/11/K.jpg"
-          className="ArtImgT"
+          className="ArtImg"
         />
-        <h4 className="SubHead">This is another dividing sub-headline</h4>
         <p className="ArtPara">
           {post.body3}
         </p>
       </section>
       <section className="ArtSec">
-        <h4 className="SubHead">This is the last dividing sub-headline</h4>
         {/* <p className="ArtPara">
          "This is the conclusion" Her parents, upon hearing her return, welcome
           her outside their hometown. Her elder sister puts on her fine dress.
@@ -76,7 +78,7 @@ function ArticleTemp() {
           female?"[15][16]{" "} */}
         {/* </p> */}
       </section>
-      <h6>Author</h6>
+      <h6 className="ArtCreat">Author</h6>
       {/* <input
         className="ArtComment"
         name="submit"
