@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './FooterBar.css';
+import './footerBar.css';
 import '../fonts.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
