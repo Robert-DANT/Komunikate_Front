@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import axios from 'axios';
+const PORT = process.env.PORT || 'http://localhost:3002';
 import {
   Navbar,
   Nav,
@@ -19,12 +21,42 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
 
 const NavBar = (props) => {
+    const searchRef = useRef()
+    const [searchString, setSearchString] = useState('')
+    const [searchResults, setSearchResults] = useState([])
   /*   const token = localStorage.usertoken; */
   // console.log(props);
   // const [token, setToken] = useState(props.token);
   console.log(props.token);
   /*   const test = true; */
   const token = localStorage.getItem("token");
+
+
+  const getSearch = () => {
+    const search = {
+      searchtext: searchString
+    }
+    axios
+        .get(`${PORT}/articles`, search) //the URL has to be specified >> create the route!!!
+        .then(res => {
+            console.log(res)
+            let results = res.data
+            setSearchResults(results)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+  }
+
+  const handleSubmit = () => {
+    e.preventDefault()
+
+    setSearchString(searchRef.current.value) 
+    getSearch()
+  }
+
+
+
   return (
     <>
       <Navbar bg="light" expand="lg" sticky="top">
@@ -44,13 +76,14 @@ const NavBar = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           
-          <Form id="center" inline>
+          <Form onSubmit={handleSubmit} id="center" inline>
             <FormControl
               type="text"
               placeholder="What are you looking for?"
               className="mr-sm-2 formFonts formWidth roundedInput"
+              ref={searchRef}
             />
-            <Button variant="outline-success" className="buttonFonts">Find it!</Button>
+            <Button type="submit" variant="outline-success" className="buttonFonts">Find it!</Button>
           </Form>
         </Navbar.Collapse>
     
