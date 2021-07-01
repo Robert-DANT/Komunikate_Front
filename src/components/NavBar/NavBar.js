@@ -37,11 +37,11 @@ const NavBar = (props) => {
       searchtext: searchString
     }
     axios
-        .get(`${PORT}/articles`, search) //the URL has to be specified >> create the route!!!
+        .get(`${PORT}/articles/search`, search)
         .then(res => {
             console.log(res)
             let results = res.data
-            setSearchResults(results)
+            //setSearchResults(results)
         })
         .catch(err => {
           console.log(err)
