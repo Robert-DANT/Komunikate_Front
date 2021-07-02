@@ -1,15 +1,57 @@
 import { Card, CardColumns, Button, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import axios from 'axios'
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 import "./Articles.css";
+import React, { useState, useEffect } from "react";
 
 const Articles = () => {
-  let {topic} = useParams()
-  
+  let { topic } = useParams();
+
+  const [articles, setArticles] = useState();
+
+  const calcDate = (time) => {
+    const event = new Date(time);
+    return event.toLocaleDateString({
+      hour: "numeric",
+      minute: "numeric",
+    });
+  };
+
+  const fetchArticles = async () => {
+    await axios
+      .get("http://localhost:3002/posts")
+      .then((response) => setArticles(response.data.allarticles))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchArticles();
+  }, []);
+
   return (
     <Container className="cards-container">
       <CardColumns>
-        {/* Start of Card Element */}
+        {articles &&
+          articles.map((article) => (
+            <Link to={`/articles/article/${article._id}`}>
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src="https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"
+                />
+                <Card.Body>
+                  <Card.Title>{article.title}</Card.Title>
+                  <Card.Text>{article.body.substring(0, 100)}...</Card.Text>
+                </Card.Body>
+                <Card.Text>
+                  <small className="text-muted">
+                    post created: {calcDate(article.date)}
+                  </small>
+                </Card.Text>
+              </Card>
+            </Link>
+          ))}
+{/*         
         <Card>
           <Card.Img
             variant="top"
@@ -27,7 +69,7 @@ const Articles = () => {
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Text>
         </Card>
-        {/* End of Card Element */}
+        
         <Card>
           <Card.Img
             variant="top"
@@ -208,7 +250,7 @@ const Articles = () => {
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
-        </Card>
+        </Card> */}
       </CardColumns>
     </Container>
 

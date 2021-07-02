@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Applications.css";
+import "./applications.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Applications = () => {

@@ -3,11 +3,11 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-import FooterBar from "./components/Footer/FooterBar";
-import Guide from "./components/Routes/Guide";
-import Visas from "./components/Routes/Visas.js";
-import HealthInsurance from "./components/Routes/HealthInsurance";
-import Applications from "./components/Routes/Applications";
+import FooterBar from "./components/Footer/footerBar"; 
+import Guide from "./components/Routes/guide";
+import Visas from "./components/Routes/visas.js";
+import HealthInsurance from "./components/Routes/healthInsurance";
+import Applications from "./components/Routes/applications";
 import Articles from "./components/Articles/Articles";
 import UserCard from "./components/Card/UserCard";
 import UserLoggedIn from "./components/LoggedInLandingPage/UserLoggedin";
@@ -16,6 +16,7 @@ import UserSignup from "./components/LoginPage/UserSignup";
 import UserProfile from "./components/UserProfilePage/UserProfile";
 import UserSettings from "./components/UserSettings/UserSettings";
 import Messenger from "./components/Messenger/Messenger";
+import SingleArticle from './components/ArticlePage/ArticleTemp'
 //import Messenger from "./components/Messenger/Sliders"
 
 
@@ -25,7 +26,7 @@ import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 const App = () => {
   const [userToken, setUserToken] = useState({
-    email: "",
+    email: "", 
     user_role: "",
     admin: "",
   });
@@ -74,6 +75,8 @@ const App = () => {
           <Route path="/visas" component={Visas} />
           <Route path="/healthinsurance" component={HealthInsurance} />
           <Route path="/applications" component={Applications} />
+
+          <Route path="/articles/article/:id" component={SingleArticle} />
 
           <Route path="/articles/:topic?" component={Articles} />
 
