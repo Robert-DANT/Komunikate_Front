@@ -21,6 +21,7 @@ center {
 
 .bannerShift {
   margin-top: -50px;
+  position: absolute;
 }
 
 .fullWidthImage {

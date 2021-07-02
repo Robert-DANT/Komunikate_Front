@@ -61,3 +61,8 @@
     font-weight: 700;
     font-style: bold;
 }
+
+.titleShift {
+    margin-right: -500px;
+    margin-left: 1200px;
+}

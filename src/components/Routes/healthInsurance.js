@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./HealthInsurance.css";
+import "./healthInsurance.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const HealthInsurance = () => {

@@ -32,8 +32,11 @@ const LandingBanner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3 className="subHeadlineFonts text-right">Berliner Tour</h3>
-                        <p className="subHeadlineFonts text-right">Some Strasse with water</p>
+                    <div class=" text-wrap color_lightblueBox">
+                    <h3 className="subHeadlineFonts text-left">Berliner Tour</h3>
+                        <p className="subHeadlineFonts text-left">Some Strasse with water</p>
+                    </div>
+                        
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>

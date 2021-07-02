@@ -68,16 +68,27 @@ p {
       min-height: 500px;
   }
 
-    .carousel-caption {
-/*     max-width: 550px; */
-/*         width:100%;
-        height:100%; */
-        left: 250;
-        padding: 50px;
-        background-color: #0096be;
-} 
+  .carousel-caption {
+    /*     max-width: 550px; */
+    /*         width:100%;
+            height:100%; */
+            left: 250;
+            padding: 50px;
+/*             background-color: #0096be; */
+    } 
 
   .bannerShift {
     margin-top: 0px;
     z-index: -1;
+  }
+
+  .gradient-overlay {
+
+      position: absolute;
+      top: -200;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(0deg, rgba(0,91,151,1) 0%, rgba(0,150,190,1) 70%);   
+      opacity: .95;
   }

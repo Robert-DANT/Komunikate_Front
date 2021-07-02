@@ -1,5 +1,5 @@
 import React from "react";
-import "./Visas.css";
+import "./visas.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Visas = () => {
