@@ -20,6 +20,9 @@ const ArticleEdit = (props) => {
         <TextInput multiline source="body" />
         <TextInput multiline source="body2" />
         <TextInput multiline source="body3" />
+        <TextInput source="img1" />
+        <TextInput source="img2" />
+        <TextInput source="img3" />
         {/* <ImageField source="img" title="picture.title" /> */}
         <BooleanInput source="commentable" />
         <DateInput label="Published" source="publishedAt" />
