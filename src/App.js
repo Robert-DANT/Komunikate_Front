@@ -44,13 +44,17 @@ const App = () => {
     if (token) {
       const decoded = jwt_decode(token);
       setUserToken({
+        first_name: decoded.user.first_name,
+        last_name: decoded.user.last_name,
+        username: decoded.user.username,
         email: decoded.user.email,
         user_role: decoded.user.user_role,
+        id: decoded.user._id,
+        admin: decoded.user.admin,
       });
     }
   }, [jwt]);
 
-  console.log(userToken);
   return (
     <Router>
       <div className="App">
@@ -73,11 +77,9 @@ const App = () => {
             <UserLogin setJwt={setJwt} />
           </Route>
           {/* User Related Routes */}
-          <Route
-            path="/user_settings"
-            token={userToken}
-            component={UserSettings}
-          />
+          <Route path="/user_settings">
+            <UserSettings token={userToken} />
+          </Route>
           <Route
             path="/user_profile/:id?"
             token={userToken}
@@ -101,7 +103,8 @@ const App = () => {
           </Route>
         </Switch>
 
-        <FooterBar />
+        {/* Needs Restyling */}
+        {/* <FooterBar /> */}
       </div>
     </Router>
   );
