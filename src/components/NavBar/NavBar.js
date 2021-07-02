@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Navbar,
   Nav,
@@ -17,14 +17,43 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
+import axios from 'axios';
+const PORT = process.env.PORT || 'http://localhost:3002';
+
 
 const NavBar = (props) => {
+    const searchRef = useRef()
+    const [searchResults, setSearchResults] = useState([])
   /*   const token = localStorage.usertoken; */
   // console.log(props);
   // const [token, setToken] = useState(props.token);
   console.log(props.token);
   /*   const test = true; */
   const token = localStorage.getItem("token");
+
+
+  const getSearch = () => {
+    const search = { params: {searchtext: searchRef.current.value}}
+
+    axios
+        .get(`${PORT}/posts/search`, search)
+        .then(res => {
+            console.log(res)
+            //setSearchResults(results)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(searchRef.current.value) 
+    getSearch()
+  }
+
+
+
   return (
     <>
       <Navbar bg="light" expand="lg" sticky="top">
@@ -43,15 +72,15 @@ const NavBar = (props) => {
         <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Form id="center" inline>
+          
+          <Form onSubmit={handleSubmit} id="center" inline>
             <FormControl
               type="text"
               placeholder="What are you looking for?"
               className="mr-sm-2 formFonts formWidth roundedInput"
+              ref={searchRef}
             />
-            <Button variant="outline-success" className="buttonFonts">
-              Find it!
-            </Button>
+            <Button type="submit" variant="outline-success" className="buttonFonts">Find it!</Button>
           </Form>
         </Navbar.Collapse>
 
