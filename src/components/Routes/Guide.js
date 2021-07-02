@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./guide.css";
+import "./Guide.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Guide = () => {

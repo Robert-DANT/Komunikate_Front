@@ -3,11 +3,11 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-import FooterBar from "./components/Footer/footerBar"; 
-import Guide from "./components/Routes/guide";
-import Visas from "./components/Routes/visas.js";
-import HealthInsurance from "./components/Routes/healthInsurance";
-import Applications from "./components/Routes/applications";
+import FooterBar from "./components/Footer/FooterBar";
+import Guide from "./components/Routes/Guide";
+import Visas from "./components/Routes/Visas.js";
+import HealthInsurance from "./components/Routes/HealthInsurance";
+import Applications from "./components/Routes/Applications";
 import Articles from "./components/Articles/Articles";
 import UserCard from "./components/Card/UserCard";
 import UserLoggedIn from "./components/LoggedInLandingPage/UserLoggedin";
@@ -16,21 +16,26 @@ import UserSignup from "./components/LoginPage/UserSignup";
 import UserProfile from "./components/UserProfilePage/UserProfile";
 import UserSettings from "./components/UserSettings/UserSettings";
 import Messenger from "./components/Messenger/Messenger";
-import SingleArticle from './components/ArticlePage/ArticleTemp'
+import SingleArticle from "./components/ArticlePage/ArticleTemp";
 //import Messenger from "./components/Messenger/Sliders"
 
-
-import { BrowserRouter as Router, Switch, Route, useLocation, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+  Redirect,
+} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 const App = () => {
   const [userToken, setUserToken] = useState({
-    email: "", 
+    email: "",
     user_role: "",
     admin: "",
   });
-  const [jwt, setJwt] = useState('')
+  const [jwt, setJwt] = useState("");
 
   let location = useLocation();
 
@@ -49,7 +54,9 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        {location.pathname.toLowerCase() !== '/adminpanel' && <NavBar token={userToken} />}
+        {location.pathname.toLowerCase() !== "/adminpanel" && (
+          <NavBar token={userToken} />
+        )}
 
         <Switch>
           <Route path="/adminpanel" token={userToken} component={AdminPanel} />
@@ -62,12 +69,20 @@ const App = () => {
           />
           {/* User Registration and Login Routes */}
           <Route path="/register" component={UserSignup} />
-          <Route path="/user_login" >
+          <Route path="/user_login">
             <UserLogin setJwt={setJwt} />
           </Route>
           {/* User Related Routes */}
-          <Route path="/user_settings" token={userToken} component={UserSettings} />
-          <Route path="/user_profile/:id?" token={userToken} component={UserProfile} />
+          <Route
+            path="/user_settings"
+            token={userToken}
+            component={UserSettings}
+          />
+          <Route
+            path="/user_profile/:id?"
+            token={userToken}
+            component={UserProfile}
+          />
           {/* <Route path="/user_card" token={userToken} component={UserCard} /> */}
 
           {/* Routes for major Topics */}
@@ -79,7 +94,6 @@ const App = () => {
           <Route path="/articles/article/:id" component={SingleArticle} />
 
           <Route path="/articles/:topic?" component={Articles} />
-
 
           {/* Add all Routes above, Below is redirect for non existent paths */}
           <Route path="/*">
@@ -94,6 +108,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
