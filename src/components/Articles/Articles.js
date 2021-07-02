@@ -37,7 +37,7 @@ const Articles = () => {
               <Card>
                 <Card.Img
                   variant="top"
-                  src="https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"
+                  src={article.img1 || "https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"}
                 />
                 <Card.Body>
                   <Card.Title>{article.title}</Card.Title>

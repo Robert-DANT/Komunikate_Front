@@ -36,7 +36,7 @@ function ArticleTemp() {
       <section className="ArtSec">
        <img
           alt="img1"
-          src="https://i.pinimg.com/originals/fc/25/d3/fc25d35358542f3169ebb03ebabfbf79.jpg"
+          src={post.img1 || "https://i.pinimg.com/originals/fc/25/d3/fc25d35358542f3169ebb03ebabfbf79.jpg"}
           className="ArtImg"
         />
         <p className="ArtPara">
@@ -45,8 +45,8 @@ function ArticleTemp() {
       </section>
       <section className="ArtSec">
         <img
-          alt="img1"
-          src="https://giantbomb1.cbsistatic.com/uploads/scale_small/46/462814/3222917-7188601370-latest.jpg"
+          alt="img2"
+          src={post.img2 ||"https://giantbomb1.cbsistatic.com/uploads/scale_small/46/462814/3222917-7188601370-latest.jpg"}
           className="ArtImg"
         />
         <p className="ArtPara">
@@ -55,8 +55,8 @@ function ArticleTemp() {
       </section>
       <section className="ArtSec">
         <img
-          alt="img2"
-          src="http://haahilfm.com/wp-content/uploads/2019/11/K.jpg"
+          alt="img3"
+          src={post.img3 ||"http://haahilfm.com/wp-content/uploads/2019/11/K.jpg"}
           className="ArtImg"
         />
         <p className="ArtPara">
