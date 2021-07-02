@@ -22,7 +22,7 @@ const LandingBanner = () => {
 
     return (
         <div>
-            <div class="carousel-inner" role="listbox" style=" width:100%; height: 500px !important;">
+            <div class="carousel-inner" role="listbox" className="bannerShift" /* style=" width:100%; height: 500px !important;" */>
 
             <Carousel fade>
                 <Carousel.Item interval={5000}>
@@ -32,8 +32,8 @@ const LandingBanner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3 className="subHeadlineFonts text-right">Berliner Tour</h3>
+                        <p className="subHeadlineFonts text-right">Some Strasse with water</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
@@ -44,8 +44,8 @@ const LandingBanner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 className="mainHeaderFonts text-right">Second slide label</h3>
+                        <p className="subHeadlineFonts text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
@@ -56,8 +56,8 @@ const LandingBanner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Berlin</h3>
-                        <p>
+                        <h3 className="subHeadlineFonts text-right">Berlin</h3>
+                        <p className="subHeadlineFonts text-right">
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
                     </Carousel.Caption>

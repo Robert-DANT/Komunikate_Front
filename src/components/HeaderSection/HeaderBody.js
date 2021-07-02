@@ -6,6 +6,7 @@ import "./HeaderBody.css";
 import "../fonts.css";
 import HomePagePic from "../../images/pics/HomePageBackgroundPic.jpg";
 import Articles from "../Articles/Articles";
+import LandingBanner from "../LandingBanner/LandingBanner";
 
 const MainBody = (props) => {
   // const [token, setToken] = useState(props.token);
@@ -44,12 +45,16 @@ const MainBody = (props) => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-        <Row>
+{/*         <Row>
           <Col id="center" xs={50} md={50}>
             <Image className="header-image bannerShift" src={HomePagePic} fluid />
           </Col>
-        </Row>
+        </Row> */}
+
+
       </Container>
+      
+      <LandingBanner className="bannerShift" />
 
       <br />
       <br />
