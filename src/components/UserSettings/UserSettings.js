@@ -25,6 +25,8 @@ const UserSettings = ({ token }) => {
   const [userRole, setUserRole] = useState();
   const [workingRole, setWorkingRole] = useState();
   const [bio, setBio] = useState();
+  const [proPhoto, setProPhoto] = useState();
+  const [hobbies, setHobbies] = useState();
 
   const queryString = require("query-string");
 
@@ -42,7 +44,9 @@ const UserSettings = ({ token }) => {
     setLivingGermany(userInfo.living_in_germany);
     setUserRole(userInfo.user_role);
     setWorkingRole(userInfo.working_role);
-    setBio(userInfo.userBio)
+    setBio(userInfo.userBio);
+    setProPhoto(userInfo.userImg);
+    setHobbies(userInfo.interests)
   }, [userInfo]);
 
   const fetchUserInfo = async () => {
@@ -63,8 +67,11 @@ const UserSettings = ({ token }) => {
       nationality: nationality,
       living_in_germany: livingGermany,
       user_role: userRole,
+      languages: languages,
       working_role: workingRole,
-      userBio: bio
+      userBio: bio,
+      userImg: proPhoto,
+      interests: hobbies
     });
     updateUserInfo(newUserInfo).then((res) => {
       if (!res) {
@@ -127,11 +134,9 @@ const UserSettings = ({ token }) => {
   );
   /* List of Fields that are currently not working:
 Share about yourself/ UserBio
-Lanugages
-Nationality
 Year to Germany
 Moved to
-Hobbies and Interests */
+*/
   return (
     <Container className="outer-container-settings" fluid>
       <Container className="content-container bg-light">
@@ -139,7 +144,7 @@ Hobbies and Interests */
           <Col sm={3}>
             <img
               className="user-image"
-              src="https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_960_720.png"
+              src={proPhoto}
               alt="Generic placeholder"
             />
 
@@ -298,12 +303,14 @@ Hobbies and Interests */
                       Languages
                     </Form.Label>
                     <Form.Control
+                      onChange={(e) => setLanguages(e.target.value)}
                       // onChange={(e) => setLanguages(e.target.value)}
-                      value={languages.map((e) => ` ${e}`)}
+/*                       value={languages.map((e) => ` ${e}`)} */
+                      value={languages}
                       type="text"
                       id="languages"
                       name="languages"
-                      placeholder="Languages"
+                      placeholder="What languages do you speak?"
                       className="formFonts"
                     />
                   </Form.Group>
@@ -313,8 +320,8 @@ Hobbies and Interests */
                       Nationality
                     </Form.Label>
                     <Form.Control
-                      //   onChange={(e) => setNationality(e.target.value)}
-                      value={nationality.map((e) => ` ${e}`)}
+                      onChange={(e) => setNationality(e.target.value)}
+                      value={nationality}
                       type="text"
                       id="nationality"
                       name="nationality"
@@ -423,8 +430,8 @@ Hobbies and Interests */
                     Hobbies and Interests
                   </Form.Label>
                   <Form.Control
-                    //   onChange={(e) => setHobbies(e.target.value)}
-                    //   Mongodb model attribute: interests
+                    onChange={(e) => setHobbies(e.target.value)}
+                    value={hobbies}
                     type="text"
                     id="interests"
                     name="interests"

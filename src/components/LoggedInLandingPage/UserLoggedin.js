@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import "./UserLoggedin.css";
 import Articles from "../Articles/Articles";
+import UserCard from "../Card/UserCard";
 import HeaderBody from "../HeaderSection/HeaderBody";
 
 const UserLoggedIn = () => {
@@ -95,9 +96,11 @@ const UserLoggedIn = () => {
             </Card>
           </Col>
           <Col className="table-column" md={9}>
-            <Articles />
+{/*             <Articles /> */}
+            <UserCard />
           </Col>
         </Row>
+        
       </Container>
     </Container>
   );
