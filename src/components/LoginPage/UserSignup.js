@@ -2,6 +2,7 @@ import { Container, Form, Col, Button } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import "./UserSignup.css";
 import axios from "axios";
+import ISO6391 from 'iso-639-1'
 import jwt_decode from "jwt-decode";
 
 // npm install query-string
@@ -17,13 +18,29 @@ const UserSignup = ({ token, setToken }) => {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [nationality, setNationality] = useState("");
-  const [languages, setLanguages] = useState("");
+  const [languages, setLanguages] = useState(['']);
   const [cityGermany, setCityGermany] = useState(false);
   const [userRole, setUserRole] = useState("");
 
   // testing console
   console.log(cityGermany);
   console.log(userRole);
+
+  const languagesArray = ISO6391.getAllNames()
+
+  const moreLanguages = () => {
+    return (<Form.Control 
+      as="select"
+      defaultValue='Choose ...'
+      onChange={(e) => setLanguages(...languages, e.target.value)}
+      id="languages"
+      name="languages"
+      required
+      >
+          <option>Choose ...</option>
+          {languagesArray.map(el => <option>{el}</option>)}
+    </Form.Control>)
+  }
 
   // unneeded login code - can be deleted
   /*   const handleLogin = (e) => {
@@ -74,6 +91,8 @@ const UserSignup = ({ token, setToken }) => {
       living_in_germany: cityGermany,
       user_role: userRole,
     });
+    console.log(user)
+
     registerFunction(user).then((err) => {
       if (err) {
         alert(err);
@@ -120,6 +139,18 @@ const UserSignup = ({ token, setToken }) => {
       else setLoginScreen(true)
       
     } */
+
+    const handleAddLanguage = () => {
+      const newLanguages = [...languages, ''];
+      setLanguages(newLanguages);
+    };
+  
+    const handleInputChange = (index, e) => {
+      const newLanguages = [...languages];
+      newLanguages[index] = e.target.value;
+  
+      setLanguages(newLanguages);
+    };
 
   return (
     <Container className="outer-container-register" fluid>
@@ -194,17 +225,33 @@ const UserSignup = ({ token, setToken }) => {
           </Form.Row>
 
           <Form.Row>
-            <Form.Group as={Col}>
+          {languages.map((language, index) => (
+            <div key={`${language}-${index}`}>
+              {console.log(`${language}-${index}`)}
+              <Form.Group as={Col}>
               <Form.Label>Languages</Form.Label>
-              <Form.Control
-                onChange={(e) => setLanguages(e.target.value)}
-                type="text"
+              <Form.Control 
+                as="select"
+                value={language}
+                //defaultValue=''
+                // onChange={(e) => setLanguages(...languages, e.target.value)}
                 id="languages"
                 name="languages"
-                placeholder="i.e. English, French, Italian, Spanish"
                 required
-              />
+                onChange={(e) => handleInputChange(index, e)}
+                >
+                    <option></option>
+                    {languagesArray.map(el => <option>{el}</option>)}
+              </Form.Control>
             </Form.Group>
+            <Button
+              type="button"
+              onClick={() => handleAddLanguage()}
+            >
+              +
+            </Button>              
+            </div>
+          ))}
 
             <Form.Group as={Col}>
               <Form.Label>Nationality</Form.Label>
@@ -228,7 +275,7 @@ const UserSignup = ({ token, setToken }) => {
             <h6>Do you live in Germany yet?</h6>
             <Form.Check
               onChange={(e) => setCityGermany(e.target.id)}
-              value={userRole}
+              value='true'
               name="userCity"
               inline
               type="radio"
@@ -238,7 +285,7 @@ const UserSignup = ({ token, setToken }) => {
             />
             <Form.Check
               onChange={(e) => setCityGermany(e.target.id)}
-              value={userRole}
+              value='false'
               name="userCity"
               inline
               type="radio"
@@ -254,7 +301,7 @@ const UserSignup = ({ token, setToken }) => {
             </h6>
             <Form.Check
               onChange={(e) => setUserRole(e.target.id)}
-              value={userRole}
+              value="Seeker"
               name="userType"
               type="radio"
               inline
@@ -264,7 +311,7 @@ const UserSignup = ({ token, setToken }) => {
             />
             <Form.Check
               onChange={(e) => setUserRole(e.target.id)}
-              value={userRole}
+              value="Mentor"
               name="userType"
               type="radio"
               inline
@@ -284,3 +331,34 @@ const UserSignup = ({ token, setToken }) => {
 };
 
 export default UserSignup;
+
+
+
+
+ 
+
+
+          
+       
+
+
+{/* <Form.Group as={Col}>
+<Form.Label>Languages</Form.Label>
+<Form.Control 
+  as="select"
+  defaultValue='Choose ...'
+  onChange={(e) => setLanguages(...languages, e.target.value)}
+  id="languages"
+  name="languages"
+  required
+  >
+      <option>Choose ...</option>
+      {languagesArray.map(el => <option>{el}</option>)}
+</Form.Control>
+<Button>
+  Add language
+</Button>
+</Form.Group> */}
+
+
+
