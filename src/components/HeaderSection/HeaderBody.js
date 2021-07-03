@@ -50,8 +50,6 @@ const MainBody = (props) => {
             <Image className="header-image bannerShift" src={HomePagePic} fluid />
           </Col>
         </Row> */}
-
-
       </Container>
       
       <LandingBanner className="bannerShift" />

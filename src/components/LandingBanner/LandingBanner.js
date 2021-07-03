@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-    Carousel,
-    Container,
-    Row,
-    Col,
-    ListGroup,
-    Form,
-    Button,
-    Popover,
-    OverlayTrigger,
-} from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import Carousel01 from "../../images/banner/01_BerlinTurm.jpg";
 import Carousel02 from "../../images/banner/02_Guitar.jpg";
 import Carousel03 from "../../images/banner/03_BeerOutside.jpg";

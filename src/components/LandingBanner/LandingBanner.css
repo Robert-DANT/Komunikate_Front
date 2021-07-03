@@ -81,14 +81,3 @@ p {
     margin-top: 0px;
     z-index: -1;
   }
-
-  .gradient-overlay {
-
-      position: absolute;
-      top: -200;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(0deg, rgba(0,91,151,1) 0%, rgba(0,150,190,1) 70%);   
-      opacity: .95;
-  }
