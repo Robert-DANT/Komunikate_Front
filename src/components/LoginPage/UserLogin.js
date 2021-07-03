@@ -38,7 +38,7 @@ const UserLogin = ({ setJwt }) => {
   const loginFunction = (user) => {
     return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
       .then((response) => {
-        localStorage.setItem("token", response.data);
+        localStorage.setItem("token", response.data); //use the hook here.
         setToken(response.data);
         return response.data; //redirect react-router to individual landing page
       })
