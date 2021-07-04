@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-    Carousel,
-    Container,
-    Row,
-    Col,
-    ListGroup,
-    Form,
-    Button,
-    Popover,
-    OverlayTrigger,
-} from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import Carousel01 from "../../images/banner/01_BerlinTurm.jpg";
 import Carousel02 from "../../images/banner/02_Guitar.jpg";
 import Carousel03 from "../../images/banner/03_BeerOutside.jpg";
@@ -22,7 +12,7 @@ const LandingBanner = () => {
 
     return (
         <div>
-            <div class="carousel-inner" role="listbox" style=" width:100%; height: 500px !important;">
+            <div class="carousel-inner" role="listbox" className="bannerShift" /* style=" width:100%; height: 500px !important;" */>
 
             <Carousel fade>
                 <Carousel.Item interval={5000}>
@@ -32,8 +22,11 @@ const LandingBanner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <div class=" text-wrap color_lightblueBox">
+                    <h3 className="subHeadlineFonts text-left">Berliner Tour</h3>
+                        <p className="subHeadlineFonts text-left">Some Strasse with water</p>
+                    </div>
+                        
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
@@ -44,8 +37,8 @@ const LandingBanner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3 className="mainHeaderFonts text-right">Second slide label</h3>
+                        <p className="subHeadlineFonts text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
@@ -56,8 +49,8 @@ const LandingBanner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3>Berlin</h3>
-                        <p>
+                        <h3 className="subHeadlineFonts text-right">Berlin</h3>
+                        <p className="subHeadlineFonts text-right">
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
                     </Carousel.Caption>

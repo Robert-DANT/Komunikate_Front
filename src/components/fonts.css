@@ -14,6 +14,14 @@
   color: #005b97;
 }
 
+.color_lightblueBox {
+    background-color: #0096be ;
+  }
+
+.color_darkblueBox {
+    background-color: #005b97 ;
+  }
+
 .color_brandgradient {
   background: rgb(0, 91, 151);
   background: linear-gradient(
@@ -56,7 +64,12 @@
 
 /* Buttons */
 .buttonFonts {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 700;
-  font-style: bold;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-style: bold;
+}
+
+.titleShift {
+    margin-right: -500px;
+    margin-left: 1200px;
 }

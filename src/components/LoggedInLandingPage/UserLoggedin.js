@@ -13,7 +13,7 @@ import HeaderBody from "../HeaderSection/HeaderBody";
 
 const UserLoggedIn = () => {
   return (
-    <Container className="outer-container-user-home" fluid>
+    <Container fluid className="fullWidthImage">
       <HeaderBody />
       <Container>
         <Row className="logged-in-container">
