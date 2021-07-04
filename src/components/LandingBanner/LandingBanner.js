@@ -17,7 +17,7 @@ const LandingBanner = () => {
             <div class="carousel-inner" role="listbox" className="bannerShift">
 
             <Carousel fade controls={false} indicators={false}>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={10000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel01}
@@ -33,7 +33,7 @@ const LandingBanner = () => {
                         
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={10000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel02}
@@ -47,7 +47,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={10000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel03}
@@ -63,7 +63,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={10000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel04}
@@ -79,7 +79,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={10000}>
                     <img
                         className="d-block w-100"
                         src={Carousel06}
@@ -90,12 +90,12 @@ const LandingBanner = () => {
                         <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
                         <h3 className="mainHeaderFonts text-left">Stuttgart </h3>
                         <p className="subHeadlineFonts text-left">
-                            Weißenburgpark
+                            View from the top of Weißenburgpark
                         </p>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={10000}>
                     <img
                         className="d-block w-100"
                         src={Carousel07}
