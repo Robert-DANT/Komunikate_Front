@@ -41,7 +41,7 @@ const Articles = () => {
                 />
                 <Card.Body>
                   <Card.Title>{article.title}</Card.Title>
-                  <Card.Text>{article.body.substring(0, 100)}...</Card.Text>
+                  <Card.Text>{article.body.substring(0, 120)}...</Card.Text>
                 </Card.Body>
                 <Card.Text>
                   <small className="text-muted">

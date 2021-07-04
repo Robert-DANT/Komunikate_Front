@@ -16,6 +16,7 @@ import CommentEdit from "./CommentEdit";
 import axios from 'axios';
 import myDataProvider from './Provid'
 import {fetchJson as httpClient} from './httpClient'
+import MyLayout from "./MyLayout";
 
 
 
@@ -28,7 +29,7 @@ const dataProvider = myDataProvider('http://localhost:3002', httpClient);
 function AdminPanel() {
 
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin /*layout={MyLayout}*/ dataProvider={dataProvider}>
       <Resource
         name="users"
         list={UserList}

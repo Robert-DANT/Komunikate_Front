@@ -18,8 +18,8 @@ const ArticleList = (props) => {
             <TextField source="title" />
             <TextField source="subtitle" />
             <TextField source="img1" />
-            <TextField source="img2" />
-            <TextField source="img3" />
+            {/* <TextField source="img2" />
+            <TextField source="img3" /> */}
 {/*             <TextField source="body" />
             <TextField source="body2" />
             <TextField source="body3" /> */}

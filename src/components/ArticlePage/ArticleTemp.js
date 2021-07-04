@@ -36,7 +36,7 @@ function ArticleTemp() {
       <section className="ArtSec">
        <img
           alt="img1"
-          src={post.img1 || "https://i.pinimg.com/originals/fc/25/d3/fc25d35358542f3169ebb03ebabfbf79.jpg"}
+          src={post.img1 || "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.fotocommunity.com%2Fsonnenuntergang-in-australien-32803daa-f98d-47d8-bcd3-8d8edde85379.jpg"}
           className="ArtImg"
         />
         <p className="ArtPara">
@@ -46,7 +46,7 @@ function ArticleTemp() {
       <section className="ArtSec">
         <img
           alt="img2"
-          src={post.img2 ||"https://giantbomb1.cbsistatic.com/uploads/scale_small/46/462814/3222917-7188601370-latest.jpg"}
+          src={post.img2 ||"https://mediafiles.urlaubsguru.de/wp-content/uploads/2019/07/Oberpfaelzer-Wald_Mystische-Waelder-am-Goldsteig-im-Naturpark-Steinwald.jpg"}
           className="ArtImg"
         />
         <p className="ArtPara">
