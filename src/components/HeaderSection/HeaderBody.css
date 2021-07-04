@@ -21,10 +21,14 @@ center {
 
 .bannerShift {
   margin-top: -50px;
-  position: absolute;
+  position: relative;
 }
 
 .fullWidthImage {
   padding-right: 0px;
   padding-left: 0px;
+}
+
+.whiteBackground {
+  background-color: #ffffff8c;
 }

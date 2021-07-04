@@ -16,6 +16,7 @@ import UserSignup from "./components/LoginPage/UserSignup";
 import UserProfile from "./components/UserProfilePage/UserProfile";
 import UserSettings from "./components/UserSettings/UserSettings";
 import Messenger from "./components/Messenger/Messenger";
+import LandingBanner from "./components/LandingBanner/LandingBanner";
 //import Messenger from "./components/Messenger/Sliders"
 
 
@@ -83,7 +84,6 @@ const App = () => {
             <Redirect to="/" />
           </Route>
         </Switch>
-
         <FooterBar />
       </div>
     </Router>
