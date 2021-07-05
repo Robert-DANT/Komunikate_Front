@@ -9,6 +9,7 @@ const UserEdit = (props) => {
         <TextInput source="last_name" />
         <TextInput source="username" />
         <TextInput source="email" />
+        <TextInput source="userImg" />
         <PasswordInput source="password" />
         <RadioButtonGroupInput source="user_role" choices={[
             { id: 'Seeker', name: 'Seeker' },

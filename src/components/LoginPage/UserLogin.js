@@ -10,7 +10,8 @@ const queryString = require("query-string");
 
 const UserLogin = ({ setJwt }) => {
   let history = useHistory();
-  const [token, setToken] = useState();
+  // The below token useState doesn't seem to be used here so it was commented out
+/*   const [token, setToken] = useState(); */
   const [pw, setPw] = useState("");
   const [email, setEmail] = useState("");
 
@@ -38,8 +39,10 @@ const UserLogin = ({ setJwt }) => {
   const loginFunction = (user) => {
     return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
       .then((response) => {
-        localStorage.setItem("token", response.data); //use the hook here.
-        setToken(response.data);
+        localStorage.setItem("token", response.data);
+        // Commented out setToken below because it 
+        // doesn't seem to be needed for userlogin to run
+/*         setToken(response.data); */
         return response.data; //redirect react-router to individual landing page
       })
       .catch((err) => {

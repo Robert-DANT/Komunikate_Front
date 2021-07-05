@@ -9,10 +9,12 @@ import {
 } from "react-bootstrap";
 import "./UserLoggedin.css";
 import Articles from "../Articles/Articles";
+import UserCard from "../Card/UserCard";
 import HeaderBody from "../HeaderSection/HeaderBody";
 
 const UserLoggedIn = () => {
   return (
+/*     <Container className="outer-container-user-home" fluid> */
     <Container fluid className="fullWidthImage">
       <HeaderBody />
       <Container>
@@ -96,8 +98,10 @@ const UserLoggedIn = () => {
           </Col>
           <Col className="table-column" md={9}>
             <Articles />
+{/*             <UserCard /> */}
           </Col>
         </Row>
+        
       </Container>
     </Container>
   );

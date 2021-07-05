@@ -54,30 +54,63 @@ p {
     .carousel .carousel-item {
         height: 800px;
       }
+      
+      .captionShift {
+        right: 5%;
+        left: -50%;
+        top: 30%;
+        transform: translateX(50%);
+      }
+  
+        .carousel-caption p {
+        margin-left:2rem;
+    
+        }
+    
+        .carousel-caption h3 {
+        margin-left:2rem;
+        margin-bottom: -.1rem;
+    
+        }
 
   }
 
   .carousel-item img {
-      position: absolute;
+    
+    position: relative;
+/*     object-fit: contain; */
       object-fit: contain;
-/*       object-fit: cover; */
+
 /*       margin: auto; */
 /*       object-position: 100% 150%; */
-      top: 0;
-      left: 0;
-      min-height: 500px;
-  }
+/*     top: 0;
+    left: 200; */
+    min-height: 500px;
+    /* transition: (5s ease-in-out); */
+}
 
-  .carousel-caption {
-    /*     max-width: 550px; */
-    /*         width:100%;
-            height:100%; */
-            left: 250;
-            padding: 50px;
-/*             background-color: #0096be; */
-    } 
+/* .imgYShift {
+      object-position: 30% 70%;
+} */
 
   .bannerShift {
-    margin-top: 0px;
     z-index: -1;
   }
+
+
+  .carousel-caption p {
+    margin-left:2rem;
+    margin-right:2rem;
+  }
+
+  .carousel-caption h3 {
+    margin-left:2rem;
+    margin-right:2rem;
+    margin-bottom: -.1rem;
+
+  }
+
+  .dropShadow {
+    filter: drop-shadow(10px 10px 4px #00000049);
+  }
+

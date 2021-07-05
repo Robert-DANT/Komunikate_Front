@@ -18,8 +18,9 @@ const MainBody = (props) => {
           bg="light"
           expand="lg"
           id="center"
-          variant="tabs"
+          variant="light"
           defaultActiveKey="/"
+/*           className="whiteBackground" */
         >
           <Nav.Item>
             <Nav.Link eventKey="link-1">

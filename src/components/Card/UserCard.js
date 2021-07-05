@@ -1,70 +1,58 @@
+import { Card, CardDeck, Row, Badge, CardColumns, Button, Container } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 import "./UserCard.css";
-import { Card, Button, CardDeck, Container, Row, Badge } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 
-const UserCard = () => {
+
+
+const UserCards = () => {
+
+  let { userr } = useParams();
+
+  const [user, setUser] = useState();
+
+  // const calcDate = (time) => {
+  //   const event = new Date(time);
+  //   return event.toLocaleDateString({
+  //     hour: "numeric",
+  //     minute: "numeric",
+  //   });
+  // };
+
+  const fetchUsers = async () => {
+    await axios
+      .get("http://localhost:3002/users")
+      .then((response) => setUser(response.data.users))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
-    <Container>
-      <h3>Connect with Users</h3>
-      <Row className="justify-content-center">
-        <CardDeck>
-          <Card>
-            <Card.Img
-              className="card-image"
-              variant="top"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            />
-            <Card.Body>
-              <Card.Title>Maxine Mustermann</Card.Title>
+    <Container className="cards-container">
+      <CardColumns>
+        {user &&
+          user.map((users) => (
+            <Link to={`/users/${users._id}`}>
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src={users.userImg || "https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"}
+                />
+                <Card.Body>
+                  <Card.Title>{users.first_name}</Card.Title>
+                  <Card.Text>{users.last_name}</Card.Text>
+                </Card.Body>
 
-              <Card.Text>Looking to move to Germany</Card.Text>
-              <Button variant="success" className="mt-auto" block>
-                Send a Message
-              </Button>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last seen 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              className="card-image"
-              variant="top"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            />
-            <Card.Body>
-              <Card.Title>John Donatello</Card.Title>
-              <Badge variant="info">Mentor</Badge>{" "}
-              <Card.Text>Moved to Germany in 2010</Card.Text>
-              <Button variant="success" className="mt-auto" block>
-                Send a Message
-              </Button>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last seen 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              className="card-image"
-              variant="top"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            />
-            <Card.Body>
-              <Card.Title>Max Mustermann</Card.Title>
-
-              <Card.Text>Looking to move to Germany</Card.Text>
-              <Button variant="success" className="mt-auto" block>
-                Send a Message
-              </Button>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last seen 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-        </CardDeck>
-      </Row>
+              </Card>
+            </Link>
+          ))}
+      </CardColumns>
     </Container>
   );
 };
 
-export default UserCard;
+export default UserCards;

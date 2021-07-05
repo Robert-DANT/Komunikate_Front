@@ -3,56 +3,129 @@ import { Carousel } from "react-bootstrap";
 import Carousel01 from "../../images/banner/01_BerlinTurm.jpg";
 import Carousel02 from "../../images/banner/02_Guitar.jpg";
 import Carousel03 from "../../images/banner/03_BeerOutside.jpg";
-import Carousel04 from "../../images/banner/04_Cafe.jpg";
+import Carousel04 from "../../images/banner/04_RJD6863.jpg";
 import Carousel05 from "../../images/banner/05_ThreeWoman.jpg";
+import Carousel06 from "../../images/banner/06_RJD9955.jpg"
+import Carousel07 from "../../images/banner/07_relocating-to-germany.jpg"
+import Carousel08 from "../../images/banner/08_Berlin_Bridge.jpg"
 import './LandingBanner.css';
-
+import "../fonts.css"
 
 const LandingBanner = () => {
 
     return (
         <div>
-            <div class="carousel-inner" role="listbox" className="bannerShift" /* style=" width:100%; height: 500px !important;" */>
+            <div class="carousel-inner" role="listbox" className="bannerShift">
 
-            <Carousel fade>
+            <Carousel fade controls={false} indicators={false}>
                 <Carousel.Item interval={5000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 imgYShift"
                         src={Carousel01}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                    <div class=" text-wrap color_lightblueBox">
-                    <h3 className="subHeadlineFonts text-left">Berliner Tour</h3>
-                        <p className="subHeadlineFonts text-left">Some Strasse with water</p>
+                    <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+
+                    <h3 className="mainHeaderFonts text-left">Berlin</h3>
+                        <p className="subHeadlineFonts text-left">Karl-Marx-Allee</p>
+
                     </div>
                         
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 imgYShift"
                         src={Carousel02}
                         alt="Second slide"
                     />
 
                     <Carousel.Caption>
-                        <h3 className="mainHeaderFonts text-right">Second slide label</h3>
-                        <p className="subHeadlineFonts text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Berlin</h3>
+                        <p className="subHeadlineFonts text-left">Kantstrasse, Charlottenburg</p>
+                        </div>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 imgYShift"
                         src={Carousel03}
                         alt="Third slide"
                     />
 
                     <Carousel.Caption>
-                        <h3 className="subHeadlineFonts text-right">Berlin</h3>
-                        <p className="subHeadlineFonts text-right">
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Hamburg</h3>
+                        <p className="subHeadlineFonts text-left">
+                            Central Park
                         </p>
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img
+                        className="d-block w-100 imgYShift"
+                        src={Carousel04}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Hamburg</h3>
+                        <p className="subHeadlineFonts text-left">
+                            Platz der Republik, Altona
+                        </p>
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img
+                        className="d-block w-100"
+                        src={Carousel06}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Stuttgart </h3>
+                        <p className="subHeadlineFonts text-left">
+                            View from the top of Weißenburgpark
+                        </p>
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img
+                        className="d-block w-100"
+                        src={Carousel07}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Frankfurt </h3>
+                        <p className="subHeadlineFonts text-left">
+                            Frankfurt International Airport
+                        </p>
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img
+                        className="d-block w-100"
+                        src={Carousel08}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Berlin </h3>
+                        <p className="subHeadlineFonts text-left">
+                            The Molecule Man standing in the Spree River in Treptow
+                        </p>
+                        </div>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

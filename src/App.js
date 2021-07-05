@@ -17,6 +17,7 @@ import UserProfile from "./components/UserProfilePage/UserProfile";
 import UserSettings from "./components/UserSettings/UserSettings";
 import Messenger from "./components/Messenger/Messenger";
 import SingleArticle from "./components/ArticlePage/ArticleTemp";
+import LandingBanner from "./components/LandingBanner/LandingBanner";
 //import Messenger from "./components/Messenger/Sliders"
 
 import {
@@ -85,7 +86,7 @@ const App = () => {
             token={userToken}
             component={UserProfile}
           />
-          {/* <Route path="/user_card" token={userToken} component={UserCard} /> */}
+          <Route path="/users/:userr" token={userToken} component={UserCard} />
 
           {/* Routes for major Topics */}
           <Route path="/guide" component={Guide} />
@@ -105,6 +106,7 @@ const App = () => {
 
         {/* Needs Restyling */}
         {/* <FooterBar /> */}
+        <FooterBar />
       </div>
     </Router>
   );

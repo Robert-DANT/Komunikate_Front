@@ -29,8 +29,10 @@ export const fetchJson = (url, options) => {
     ) {
         requestHeaders['Content-Type'] = 'application/json';
     }
-    
-    const token = localStorage.getItem('auth-token');
+    // auth-token was changed to token on July 3rd 15Uhr 
+    // to keep naming consistent with localstorage.getItem
+    // which has it labeled as 'token' in app.js
+    const token = localStorage.getItem('token'); 
     requestHeaders['Authorization'] = `${token}`;
     
 console.log(url, options)
