@@ -97,8 +97,8 @@ const UserLoggedIn = () => {
             </Card>
           </Col>
           <Col className="table-column" md={9}>
-{/*             <Articles /> */}
-            <UserCard />
+            <Articles />
+{/*             <UserCard /> */}
           </Col>
         </Row>
         
