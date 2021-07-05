@@ -7,6 +7,7 @@ import Carousel04 from "../../images/banner/04_RJD6863.jpg";
 import Carousel05 from "../../images/banner/05_ThreeWoman.jpg";
 import Carousel06 from "../../images/banner/06_RJD9955.jpg"
 import Carousel07 from "../../images/banner/07_relocating-to-germany.jpg"
+import Carousel08 from "../../images/banner/08_Berlin_Bridge.jpg"
 import './LandingBanner.css';
 import "../fonts.css"
 
@@ -17,7 +18,7 @@ const LandingBanner = () => {
             <div class="carousel-inner" role="listbox" className="bannerShift">
 
             <Carousel fade controls={false} indicators={false}>
-                <Carousel.Item interval={10000}>
+                <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel01}
@@ -33,7 +34,7 @@ const LandingBanner = () => {
                         
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={10000}>
+                <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel02}
@@ -47,7 +48,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={10000}>
+                <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel03}
@@ -63,7 +64,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={10000}>
+                <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel04}
@@ -79,7 +80,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={10000}>
+                <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100"
                         src={Carousel06}
@@ -95,7 +96,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={10000}>
+                <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100"
                         src={Carousel07}
@@ -107,6 +108,22 @@ const LandingBanner = () => {
                         <h3 className="mainHeaderFonts text-left">Frankfurt </h3>
                         <p className="subHeadlineFonts text-left">
                             Frankfurt International Airport
+                        </p>
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img
+                        className="d-block w-100"
+                        src={Carousel08}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Berlin </h3>
+                        <p className="subHeadlineFonts text-left">
+                            The Molecule Man standing in the Spree River in Treptow
                         </p>
                         </div>
                     </Carousel.Caption>
