@@ -92,8 +92,12 @@ const UserSignup = ({ token, setToken }) => {
 
     return (
       axios
+<<<<<<< HEAD
       .post("http://localhost:3002/users/register", newUser)
 /*         .post("https://stark-fjord-75040.herokuapp.com/users/register", newUser) */
+=======
+        .post("http://localhost:3002/users/register", newUser)
+>>>>>>> dfe46cb451309d867daa8b1f7f8baf180e0f934b
         /*     return axios.post("http://localhost:3002/users/register", newUser) */
         .then((res) => {
           console.log(res);

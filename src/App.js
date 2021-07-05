@@ -86,7 +86,7 @@ const App = () => {
             token={userToken}
             component={UserProfile}
           />
-          {/* <Route path="/user_card" token={userToken} component={UserCard} /> */}
+          <Route path="/users/:userr" token={userToken} component={UserCard} />
 
           {/* Routes for major Topics */}
           <Route path="/guide" component={Guide} />
