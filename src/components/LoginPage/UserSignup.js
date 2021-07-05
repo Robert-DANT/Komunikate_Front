@@ -76,7 +76,7 @@ const UserSignup = ({ token, setToken }) => {
   // code to prepare user inputted form data
   const handleRegister = (e) => {
     e.preventDefault();
-    const form = document.getElementById("registerForm");
+    //const form = document.getElementById("registerForm");
     /*     form.reset(); */
 
     const user = queryString.stringify({
