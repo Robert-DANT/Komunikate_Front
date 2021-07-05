@@ -1,4 +1,4 @@
-import { Container, Form, Col, Button } from "react-bootstrap";
+import { Container, Form, Col, Row, Button } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import "./UserSignup.css";
 import axios from "axios";
@@ -225,11 +225,13 @@ const UserSignup = ({ token, setToken }) => {
           </Form.Row>
 
           <Form.Row>
+            <Col>
+            <Form.Label>Languages</Form.Label>
           {languages.map((language, index) => (
-            <div key={`${language}-${index}`}>
-              {console.log(`${language}-${index}`)}
+            // <div key={`${language}-${index}`}>
+              //{console.log(`${language}-${index}`)}
               <Form.Group as={Col}>
-              <Form.Label>Languages</Form.Label>
+
               <Form.Control 
                 as="select"
                 value={language}
@@ -243,15 +245,18 @@ const UserSignup = ({ token, setToken }) => {
                     <option></option>
                     {languagesArray.map(el => <option>{el}</option>)}
               </Form.Control>
-            </Form.Group>
-            <Button
-              type="button"
-              onClick={() => handleAddLanguage()}
-            >
-              +
-            </Button>              
-            </div>
+            </Form.Group>              
+            //</div>
           ))}
+            <Button
+                type="button"
+                onClick={() => handleAddLanguage()}
+              >
+                +
+            </Button>
+            </Col>
+
+          
 
             <Form.Group as={Col}>
               <Form.Label>Nationality</Form.Label>
