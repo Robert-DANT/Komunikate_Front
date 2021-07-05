@@ -14,6 +14,20 @@
   color: #005b97;
 }
 
+.color_lightblueBox {
+    background-color: #0095bee0 ;
+    border-radius : 10px;
+  }
+
+.color_darkblueBox {
+    background-color: #005b97 ;
+  }
+
+  .color_darkgradBox {
+    background-color: #005b97 ;
+    background-color: linear-gradient(0deg, rgba(0,91,151,1) 0%, rgba(0,150,190,1) 70%);   
+}
+
 .color_brandgradient {
   background: rgb(0, 91, 151);
   background: linear-gradient(
@@ -59,4 +73,9 @@
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-style: bold;
+}
+
+.titleShift {
+    margin-right: -500px;
+    margin-left: 1200px;
 }
