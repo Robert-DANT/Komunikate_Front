@@ -16,9 +16,7 @@ export function ContactsProvider( { token, children} ) {
     const [connectedUsers, setConnectedUsers] = useState([])
     const socket = useSocket()
 
-    console.log(mapContacts)
-    console.log(connectedUsers)
-    console.log(contacts)
+
     // const [contacts, setContacts] = useLocalStorage('contacts', [])
 
     // const createContact = (id, name) => { //was passed as a prop
@@ -33,14 +31,13 @@ export function ContactsProvider( { token, children} ) {
                     .get(`${PORT}/users`, 
                         {
                             headers: {
-                                'auth-token': token, //useLocalStorage, the legit npm version
+                                'auth-token': token, 
                                 'Content-Type': 'application/x-www-form-urlencoded'
                             },
                             params: queryString
                         }
                     )
                     .then(res => {
-                        console.log(res)
                         let contacts = res.data.users.map(({_id, username, languages, city_in_germany, user_role}) => ({_id, username, languages, city_in_germany, user_role}))
                         setContacts(contacts)
                     })

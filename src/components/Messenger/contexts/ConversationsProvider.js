@@ -2,6 +2,7 @@ import { useContext, useState, useEffect, useCallback, createContext } from 'rea
 import axios from 'axios'
 import { useContacts } from './ContactsProvider'
 import { useSocket } from './SocketProvider'
+//import useLocalStorage from '../hooks/useLocalStorage';
 
 
 const PORT = process.env.PORT || 'http://localhost:3002'
@@ -13,7 +14,7 @@ export const useConversations = () => {
 }
 
 export function ConversationsProvider( { token, idUser, children } ) { 
-    const [conversations, setConversations] = useState([])   //useLocalStorage('conversations', [])
+    const [conversations, setConversations] = useState([]) //useLocalStorage('conversations', [])
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
     const { mapContacts } = useContacts()
     const socket = useSocket()
@@ -91,8 +92,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
                     madeChange = true
                     return {
                         ...conversation,
-                        messages: [...conversation.messages, newMessage],
-                        newMessage: true
+                        messages: [...conversation.messages, newMessage]
                     }
                 }
 
@@ -104,7 +104,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
             } else {
                 return [
                     ...prevConversations, 
-                    { recipients, messages: [newMessage], newMessage: true}
+                    { recipients, messages: [newMessage] }
                 ]
             }
         })
@@ -131,7 +131,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
             const contact = mapContacts.find(contact => {
                 return contact._id === recipient
             })
-            const name = (contact && contact.username)
+            const name = (contact && contact.username) || recipient
             return { id: recipient, name}
         })
 
