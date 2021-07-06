@@ -16,6 +16,8 @@ import CommentEdit from "./CommentEdit";
 import axios from 'axios';
 import myDataProvider from './Provid'
 import {fetchJson as httpClient} from './httpClient'
+import MyLayout from "./MyLayout";
+import { createMuiTheme } from '@material-ui/core/styles';
 
 
 
@@ -23,12 +25,17 @@ import {fetchJson as httpClient} from './httpClient'
 const dataProvider = myDataProvider('http://localhost:3002', httpClient);
 
 
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark', // Switching the dark mode on is a single property value change.
+  },
+});
 
 
 function AdminPanel() {
 
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin theme={theme} layout={MyLayout} dataProvider={dataProvider}>
       <Resource
         name="users"
         list={UserList}

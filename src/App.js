@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-import FooterBar from "./components/Footer/FooterBar";
+// import FooterBar from "./components/Footer/FooterBar";
 import Guide from "./components/Routes/Guide";
 import Visas from "./components/Routes/Visas.js";
 import HealthInsurance from "./components/Routes/HealthInsurance";
@@ -60,7 +60,7 @@ const App = () => {
     <Router>
       <div className="App">
         {location.pathname.toLowerCase() !== "/adminpanel" && (
-          <NavBar token={userToken} />
+          <NavBar userToken={userToken} setJwt={setJwt} />
         )}
 
         <Switch>
@@ -86,7 +86,7 @@ const App = () => {
             token={userToken}
             component={UserProfile}
           />
-          <Route path="/users/:userr" token={userToken} component={UserCard} />
+          <Route path="/users/:id" token={userToken} component={UserCard} />
 
           {/* Routes for major Topics */}
           <Route path="/guide" component={Guide} />
