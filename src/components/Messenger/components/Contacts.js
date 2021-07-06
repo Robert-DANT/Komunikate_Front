@@ -8,7 +8,7 @@ import SearchModal from './SearchModal'
 export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedContactIds, setSelectedContactIds] = useState([])
-    const { contacts, connectedUsers } = useContacts()
+    const { contacts, setContacts, connectedUsers } = useContacts()
     const { conversations, createConversation, selectConversationIndex, arrayEquality } = useConversations()
 
     
@@ -17,67 +17,41 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
     
     
     //method to filter out duplicate conversations
+    const conversationsPlusRecipients = conversations.map(conversation => conversation.recipients).map(el => el.map(el => el.id))
+    
     const checkDuplicate = () => {
-        const conversationsPlusRecipients = conversations.map(conversation => conversation.recipients).map(el => el.map(el => el.id)) //an array of arrays of recipients
          return conversationsPlusRecipients.filter(el => arrayEquality(el, selectedContactIds))          
         }
     
-    console.log(checkDuplicate())
-    
-    const conversationsPlusRecipients = conversations.map(conversation => conversation.recipients).map(el => el.map(el => el.id))
-    console.log(conversationsPlusRecipients)
-    console.log(selectedContactIds)
-    
-    
-
-    
-    
-    // console.log(conversationsPlusRecipients.findIndex(recipientsArray => {
-    //     let result = arrayEquality(recipientsArray, checkDuplicate().flat())
-    //     console.log(recipientsArray, checkDuplicate().flat())
-    //     console.log(result)
-    //     return result
-    // }))
-
-
-    // if a contact is clicked, it is either removed from the list of selected contacts (the if statement)(i.e. it was selected before) or it is added (i.e. it was not selected before)
-    const handleCheckboxChange = (contactId) => {
-        setSelectedContactIds(prevSelectedContactIds => {
-            if (prevSelectedContactIds.includes(contactId)) {
-                return prevSelectedContactIds.filter(prevId => {
-                    return contactId !== prevId
-                })
-            } else {
-                return [...prevSelectedContactIds, contactId]
-            }
-        })
-    }
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(checkDuplicate())
-        console.log(checkDuplicate().flat().length)
         if(selectedContactIds.length){
         if (checkDuplicate().flat().length) {
-            console.log('enter checkDuplicate')
             const selectIndex = conversationsPlusRecipients.findIndex(recipientsArray => arrayEquality(recipientsArray, checkDuplicate().flat()))
-            console.log(selectIndex)
             selectConversationIndex(selectIndex)
             setActiveKey(conversationsKey)
          } else {
         createConversation(selectedContactIds)
-        selectConversationIndex(conversations.length)// is this the right way to do it?
+        selectConversationIndex(conversations.length)
         setActiveKey(conversationsKey)}
-        setSelectedContactIds([])
-        const form = document.getElementById('checkbox-form')
-        form.reset() //this no working
         }
         else {
             alert('No contacts selected')
         }
+        setSelectedContactIds([])
+        const checkboxFalse = contacts.map(contact => ({ ...contact, isChecked: false }))
+        setContacts(checkboxFalse)
       }
     
+      const handleCheckboxChange = (e) => {
+        let checkedArray = contacts.map(contact => ({...contact}))
+        let contactIndex = checkedArray.findIndex(contact => contact._id === e.target.value)
+        checkedArray[contactIndex].isChecked = e.target.checked
+        setContacts(checkedArray)
+        setSelectedContactIds([...selectedContactIds, checkedArray[contactIndex]._id]) 
+    }
+
 
     const closeModal = () => {
         setModalOpen(false)
@@ -102,7 +76,8 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                                 <Form.Group key={contact._id}>
                                     <Form.Check
                                         type='checkbox'
-                                        value={selectedContactIds.includes(contact._id)}
+                                        checked={contact.isChecked}
+                                        value={contact._id}
                                         label={(
                                         <>
                                             <span><h6>{contact.username}.... 
@@ -114,7 +89,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                                             </ul> 
                                         </>
                                         )}
-                                        onChange={() => handleCheckboxChange(contact._id)}
+                                        onChange={handleCheckboxChange}
                                     />
                                 </Form.Group>
                             ))}

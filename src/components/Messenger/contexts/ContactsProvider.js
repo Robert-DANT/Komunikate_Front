@@ -105,7 +105,7 @@ export function ContactsProvider( { token, children} ) {
     
 
     return (
-        <ContactsContext.Provider value={{ contacts, mapContacts, connectedUsers, searchedUsersGet }}>
+        <ContactsContext.Provider value={{ contacts, setContacts, mapContacts, connectedUsers, searchedUsersGet }}>
             {children}
         </ContactsContext.Provider>
     )

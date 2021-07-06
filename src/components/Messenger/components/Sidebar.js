@@ -27,7 +27,7 @@ export default function Sidebar({ idUser }) {
                 <Tab.Content className='border border-right overflow-auto flex-grow-1'> 
                 {/* have to add border here to make border-right working*/}
                     <Tab.Pane eventKey={CONVERSATIONS_KEY}>
-                        <Conversations />
+                        <Conversations idUser={idUser}/>
                     </Tab.Pane>
                     <Tab.Pane eventKey={CONTACTS_KEY}>
                         <Contacts setActiveKey={setActiveKey} conversationsKey={CONVERSATIONS_KEY} idUser={idUser}/>
