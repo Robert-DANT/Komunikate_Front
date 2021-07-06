@@ -19,8 +19,8 @@ const UserList = (props) => {
             { id: 'Seeker', name: 'Seeker' },
             { id: 'Mentor', name: 'Mentor' },
         ]} />
-             <EmailField source='email' />
-             <TextField source="userImg" />
+{/*              <EmailField source='email' />
+             <TextField source="userImg" /> */}
              <TextField source='first_name' />
              <TextField source='last_name' />
              <TextField source='id' />

@@ -22,7 +22,7 @@ const UserLoggedIn = () => {
 
   const fetchUsers = async () => {
     await axios
-      .get("http://localhost:3002/users")
+      .get("https://stark-fjord-75040.herokuapp.com/users")
       .then((response) => setUsers(response.data.users))
       .catch((error) => console.log(error));
   };
@@ -74,7 +74,6 @@ const UserLoggedIn = () => {
                 <Badge variant="info">{user.user_role}</Badge>{" "}
                 <Card.Text>Speaks: {user.languages}</Card.Text>
                 <Card.Text>Nationality: {user.nationality}</Card.Text>
-{/*                 <Link to={`/articles/article/${article._id}`}> */}
                 <Link to={`/users/${user._id}`}>
                 <Button variant="success" className="mt-auto" block>
                   User Profile

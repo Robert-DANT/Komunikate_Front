@@ -7,7 +7,7 @@ import "../fonts.css";
 
 const Articles = () => {
   let { topic } = useParams();
-
+  console.log(topic)
   const [articles, setArticles] = useState();
 
   const calcDate = (time) => {
@@ -18,21 +18,29 @@ const Articles = () => {
     });
   };
 
+  const fetchCategories = async () => {
+    await axios
+      .get(`https://stark-fjord-75040.herokuapp.com/posts/categories/${topic}`)
+      .then((response) => setArticles(response.data.getCategoryArticle))
+      .catch((error) => console.log(error));
+  };
+
   const fetchArticles = async () => {
     await axios
-      .get("http://localhost:3002/posts")
+      .get("https://stark-fjord-75040.herokuapp.com/posts")
       .then((response) => setArticles(response.data.allarticles))
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    fetchArticles();
-  }, []);
+    if (topic) fetchCategories()
+    else fetchArticles()
+  }, [topic]);
 
   return (
     <Container className="cards-container">
             <Container className="our-mission-container mainBodyFont justifyText">
-          <h1 className="mainHeaderFonts color_lightblue someTopPadding">The Latest Articles</h1>
+          <h1 className="mainHeaderFonts color_lightblue someTopPadding">{topic ? topic  : "The Latest Articles"}</h1>
           <hr className="color_lightblue_hr" />
           <h4>
 

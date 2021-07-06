@@ -22,7 +22,7 @@ const UserCards = () => {
 
   const fetchUsers = async () => {
     await axios
-      .get("http://localhost:3002/users")
+      .get("https://stark-fjord-75040.herokuapp.com/users")
       .then((response) => setUser(response.data.users))
       .catch((error) => console.log(error));
   };
@@ -32,7 +32,7 @@ const UserCards = () => {
   }, []);
 
   return (
-/*     <Container className="cards-container">
+    <Container className="cards-container">
       <CardColumns>
         {user &&
           user.map((users) => (
@@ -51,7 +51,7 @@ const UserCards = () => {
             </Link>
           ))}
       </CardColumns>
-    </Container> */
+    </Container>
   );
 };
 

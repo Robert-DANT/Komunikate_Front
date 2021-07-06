@@ -89,10 +89,10 @@ const App = () => {
           <Route path="/users/:id" token={userToken} component={UserCard} />
 
           {/* Routes for major Topics */}
-          <Route path="/guide" component={Guide} />
+{/*           <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />
           <Route path="/healthinsurance" component={HealthInsurance} />
-          <Route path="/applications" component={Applications} />
+          <Route path="/applications" component={Applications} /> */}
 
           <Route path="/articles/article/:id" component={SingleArticle} />
 
