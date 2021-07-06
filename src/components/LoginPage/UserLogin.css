@@ -9,9 +9,10 @@
 
 .outer-container-login::before {
   content: "";
-  background: #12c2e9;
-  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  background: #2980b9;
+  background: -webkit-linear-gradient(to bottom, #ffffff, #6dd5fa, #2980b9);
+  background: linear-gradient(to bottom, #ffffff, #6dd5fa, #2980b9);
+
   /* background-image: url("https://cdn.pixabay.com/photo/2012/12/29/21/11/sunrise-73074_960_720.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
