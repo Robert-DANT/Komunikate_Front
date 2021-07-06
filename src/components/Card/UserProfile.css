@@ -1,0 +1,67 @@
+.outer-container-profile {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* background-image: url("https://cdn.pixabay.com/photo/2015/03/26/09/49/river-690374_960_720.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  /* opacity: 0.5; */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+}
+
+.outer-container-profile::before {
+  content: "";
+  background-image: url("https://cdn.pixabay.com/photo/2015/03/26/09/49/river-690374_960_720.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  /* transform: scale(1.1); */
+  margin: -10px;
+  z-index: -1;
+}
+
+.user-profile-container {
+  max-width: 50rem;
+  position: relative;
+  border-radius: 60px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.list-group-item {
+  background-color: transparent;
+  color: black;
+}
+
+.table-column {
+  text-align: start;
+}
+
+.table td {
+  border: none;
+}
+
+.profile-card {
+  border: none !important;
+  background-color: transparent;
+}
+
+.hr-posts {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid black;
+  width: 50%;
+}

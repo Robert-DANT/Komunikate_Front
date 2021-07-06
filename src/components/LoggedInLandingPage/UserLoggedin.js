@@ -11,8 +11,27 @@ import "./UserLoggedin.css";
 import Articles from "../Articles/Articles";
 import UserCard from "../Card/UserCard";
 import HeaderBody from "../HeaderSection/HeaderBody";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const UserLoggedIn = () => {
+
+  const [users, setUsers] = useState();
+
+
+  const fetchUsers = async () => {
+    await axios
+      .get("http://localhost:3002/users")
+      .then((response) => setUsers(response.data.users))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+
   return (
 /*     <Container className="outer-container-user-home" fluid> */
     <Container fluid className="fullWidthImage">
@@ -41,60 +60,35 @@ const UserLoggedIn = () => {
                 Submit
               </Button>
             </Form.Group>
+{ users &&  users.map((user) => (
+
+            
             <Card>
               <Card.Img
                 className="card-image"
                 variant="top"
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                src={user.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
               />
               <Card.Body>
-                <Card.Title>Maxine Mustermann</Card.Title>
-                <Badge variant="info">Mentor</Badge>{" "}
-                <Card.Text>Looking to move to Germany</Card.Text>
+                <Card.Title>{user.username}</Card.Title>
+                <Badge variant="info">{user.user_role}</Badge>{" "}
+                <Card.Text>Speaks: {user.languages}</Card.Text>
+                <Card.Text>Nationality: {user.nationality}</Card.Text>
+{/*                 <Link to={`/articles/article/${article._id}`}> */}
+                <Link to={`/users/${user._id}`}>
+                <Button variant="success" className="mt-auto" block>
+                  User Profile
+                </Button>
+                </Link>
                 <Button variant="success" className="mt-auto" block>
                   Send a Message
                 </Button>
               </Card.Body>
-              <Card.Footer>
+{/*               <Card.Footer>
                 <small className="text-muted">Last seen 3 mins ago</small>
-              </Card.Footer>
-            </Card>
-            <Card>
-              <Card.Img
-                className="card-image"
-                variant="top"
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-              />
-              <Card.Body>
-                <Card.Title>John Donatello</Card.Title>
-                <Badge variant="info">Mentor</Badge>{" "}
-                <Card.Text>Moved to Germany in 2010</Card.Text>
-                <Button variant="success" className="mt-auto" block>
-                  Send a Message
-                </Button>
-              </Card.Body>
-              <Card.Footer>
-                <small className="text-muted">Last seen 3 mins ago</small>
-              </Card.Footer>
-            </Card>
-            <Card>
-              <Card.Img
-                className="card-image"
-                variant="top"
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-              />
-              <Card.Body>
-                <Card.Title>John Donatello</Card.Title>
-                <Badge variant="info">Mentor</Badge>{" "}
-                <Card.Text>Moved to Germany in 2010</Card.Text>
-                <Button variant="success" className="mt-auto" block>
-                  Send a Message
-                </Button>
-              </Card.Body>
-              <Card.Footer>
-                <small className="text-muted">Last seen 3 mins ago</small>
-              </Card.Footer>
-            </Card>
+              </Card.Footer> */}
+            </Card> )) }
+
           </Col>
           <Col className="table-column" md={9}>
             <Articles />
