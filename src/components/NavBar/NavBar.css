@@ -47,3 +47,7 @@
             border-bottom: 20px !important;
             width: 30vw!important;
   }
+
+  .dropShadowNav {
+    filter: drop-shadow(0 -3mm 4mm #000000);
+  }

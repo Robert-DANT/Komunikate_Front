@@ -8,27 +8,22 @@ center {
   justify-content: center;
 }
 
-.header-image {
-  height: 50rem;
-  width: fit-content;
-  object-fit: cover;
-
+.stickyNav {
+  position: sticky;
+  top: 100;
 }
 
-.our-mission-container {
-  padding-bottom: 6%;
+.genericBar {
+  display: flex;
+  justify-content: center;
+  height: 5em;
+  width: 150em; 
 }
 
-.bannerShift {
-  margin-top: -50px;
-  position: relative;
+.someTopPadding {
+  margin-top: 3rem;
 }
 
-.fullWidthImage {
-  padding-right: 0px;
-  padding-left: 0px;
-}
-
-.whiteBackground {
-  background-color: #ffffff8c;
+.dropShadowNav {
+  filter: drop-shadow(0 -3mm 4mm #000000);
 }
