@@ -106,7 +106,7 @@ const App = () => {
 
         {/* Needs Restyling */}
         {/* <FooterBar /> */}
-        <FooterBar />
+        <FooterBar className="stickyFooter" />
       </div>
     </Router>
   );

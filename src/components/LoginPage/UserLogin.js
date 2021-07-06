@@ -37,7 +37,8 @@ const UserLogin = ({ setJwt }) => {
   };
 
   const loginFunction = (user) => {
-    return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
+    return Axios.post("http://localhost:3002/login", user)
+    /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
       .then((response) => {
         localStorage.setItem("token", response.data);
         // Commented out setToken below because it 

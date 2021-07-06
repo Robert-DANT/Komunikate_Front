@@ -6,6 +6,7 @@ import {
   Form,
   Button,
   FormControl,
+  Container,
 } from "react-bootstrap";
 import "./NavBar.css";
 import "../fonts.css";
@@ -56,7 +57,7 @@ const NavBar = (props) => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar bg="light" expand="lg" sticky="top" className="dropShadowNav">
         <Navbar.Brand>
           <Link to="/">
             <img
@@ -172,6 +173,42 @@ const NavBar = (props) => {
           </Nav>
         )}
       </Navbar>
+
+      {/* SubNavBar starts here */}
+      <Container fluid className="fullWidthImage">
+        <Nav
+          bg="light"
+          expand="lg"
+          id="center"
+          variant="light"
+          defaultActiveKey="/"
+          className="color_brandgradient stickyNav"
+        >
+          <Nav.Item>
+            <Nav.Link eventKey="link-1">
+              <Link to="/guide" className="mainHeaderFonts color_white"> Guides </Link>
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link eventKey="link-2">
+              <Link to="/visas" className="mainHeaderFonts color_white"> Visas </Link>
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link eventKey="link-3">
+              <Link to="/healthInsurance" className="mainHeaderFonts color_white"> Insurance </Link>
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link eventKey="link-4">
+              <Link to="/applications" className="mainHeaderFonts color_white"> Everyday Life </Link>
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Container>
     </>
   );
 };
