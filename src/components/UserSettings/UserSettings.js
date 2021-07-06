@@ -52,7 +52,7 @@ const UserSettings = ({ token }) => {
   const fetchUserInfo = async () => {
     if (token.id) {
       axios
-        .get(`http://localhost:3002/users/${token.id}`)
+        .get(`https://stark-fjord-75040.herokuapp.com/users/${token.id}`)
         .then((res) => setUserInfo(res.data.getUser))
         .catch((err) => console.log(err));
     }
@@ -84,7 +84,7 @@ const UserSettings = ({ token }) => {
   const updateUserInfo = async (data) => {
     if (token.id) {
       axios
-        .put(`http://localhost:3002/users/${token.id}`, data)
+        .put(`https://stark-fjord-75040.herokuapp.com/users/${token.id}`, data)
         .then((res) => {
           console.log(res);
         })

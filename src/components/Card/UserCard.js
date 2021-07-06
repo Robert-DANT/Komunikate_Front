@@ -22,8 +22,7 @@ const UserProfile = () => {
 
   const fetchUsers = async () => {
     await axios
-    .get(`http://localhost:3002/users/${id}`)
-    /* .get(`http://localhost:3002/users/${id}`) */
+    .get(`https://stark-fjord-75040.herokuapp.com/users/${id}`)
       .then((response) => setUsers(response.data.getUser))
       .catch((error) => console.log(error));
   };

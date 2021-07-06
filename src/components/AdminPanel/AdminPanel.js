@@ -21,8 +21,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 
 
-// const dataProvider = jsonServerProvider('http://localhost:3002/users');
-const dataProvider = myDataProvider('http://localhost:3002', httpClient);
+/* const dataProvider = myDataProvider('https://localhost:3002', httpClient); */
+const dataProvider = myDataProvider('https://stark-fjord-75040.herokuapp.com', httpClient);
 
 
 const theme = createMuiTheme({
