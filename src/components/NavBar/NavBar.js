@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import "./NavBar.css";
 import "../fonts.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory  } from "react-router-dom";
 import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Long_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Long_Blue_v01.svg';
@@ -18,25 +18,62 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_Black_v01.svg';
 // import logo from './components/logos/Komunikate_Small_White_v01.svg';
-import axios from 'axios';
+import Axios from 'axios';
+import jwt_decode from "jwt-decode";
+
 const PORT = process.env.PORT || 'http://localhost:3002';
+const queryString = require("query-string");
 
+const NavBar = ({ userToken, setJwt }) => {
 
-const NavBar = (props) => {
+  // Dropdown Login Functionality Below
+
+  const [email, setEmail] = useState();
+  const [pw, setPw] = useState();
+  let history = useHistory();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const user = queryString.stringify({
+      email: email,
+      password: pw,
+    });
+    loginFunction(user).then((res) => {
+      if (res) {
+        alert("You've logged in");
+        setJwt(res);
+        history.push("/");
+      } else {
+        alert("You've entered an incorrect E-mail or Password");
+      }
+    });
+  };
+
+  const loginFunction = (user) => {
+    return Axios.post("http://localhost:3002/login", user)
+    /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
+      .then((response) => {
+        localStorage.setItem("token", response.data);
+        // Commented out setToken below because it 
+        // doesn't seem to be needed for userlogin to run
+/*         setToken(response.data); */
+        return response.data; //redirect react-router to individual landing page
+      })
+      .catch((err) => {
+        console.log(err); //show error message, clear form, say try again
+      });
+  };
+
+  // Login Functionality Above
     const searchRef = useRef()
     const [searchResults, setSearchResults] = useState([])
-  /*   const token = localStorage.usertoken; */
-  // console.log(props);
-  // const [token, setToken] = useState(props.token);
-  console.log(props.token);
-  /*   const test = true; */
   const token = localStorage.getItem("token");
 
 
   const getSearch = () => {
     const search = { params: {searchtext: searchRef.current.value}}
 
-    axios
+    Axios
         .get(`${PORT}/posts/search`, search)
         .then(res => {
             console.log(res)
@@ -107,7 +144,7 @@ const NavBar = (props) => {
               </Link>
             </Nav.Link>
             <NavDropdown
-              title="Username"
+              title={`Hello ${userToken.username}` || "Hello!"}
               id="basic-nav-dropdown"
               className="navBarSpacing"
             >
@@ -121,7 +158,7 @@ const NavBar = (props) => {
                 <Link to="/user_settings">User Settings</Link>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+              <NavDropdown.Item href="/" onClick={() => localStorage.clear()}>Log Out</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         ) : (
@@ -137,6 +174,7 @@ const NavBar = (props) => {
                     type="email"
                     placeholder="Enter email"
                     className="formFonts"
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
@@ -149,12 +187,13 @@ const NavBar = (props) => {
                     type="password"
                     placeholder="Password"
                     className="formFonts"
+                    onChange={(e) => setPw(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="primary" type="submit" className="buttonFonts">
+                <Button variant="primary" type="submit" className="buttonFonts" onClick={handleLogin}>
                   Log In
                 </Button>
               </Form>
