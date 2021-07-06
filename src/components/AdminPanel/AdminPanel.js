@@ -25,18 +25,17 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const dataProvider = myDataProvider('http://localhost:3002', httpClient);
 
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark', // Switching the dark mode on is a single property value change.
-  },
-});
-
+// const theme = createMuiTheme({
+//   palette: {
+//     type: 'dark', // Switching the dark mode on is a single property value change.
+//   },
+// });
 
 
 function AdminPanel() {
 
   return (
-    <Admin theme={theme} layout={MyLayout} dataProvider={dataProvider}>
+    <Admin /*theme={theme}*/ layout={MyLayout} dataProvider={dataProvider}>
       <Resource
         name="users"
         list={UserList}
