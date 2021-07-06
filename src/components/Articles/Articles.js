@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./Articles.css";
 import React, { useState, useEffect } from "react";
+import "../fonts.css";
 
 const Articles = () => {
   let { topic } = useParams();
@@ -30,7 +31,16 @@ const Articles = () => {
 
   return (
     <Container className="cards-container">
+            <Container className="our-mission-container mainBodyFont justifyText">
+          <h1 className="mainHeaderFonts color_lightblue someTopPadding">The Latest Articles</h1>
+          <hr className="color_lightblue_hr" />
+          <h4>
+
+          </h4>
+        </Container>
       <CardColumns>
+
+        
         {articles &&
           articles.map((article) => (
             <Link to={`/articles/article/${article._id}`}>

@@ -8,6 +8,7 @@ import Carousel05 from "../../images/banner/05_ThreeWoman.jpg";
 import Carousel06 from "../../images/banner/06_RJD9955.jpg"
 import Carousel07 from "../../images/banner/07_relocating-to-germany.jpg"
 import Carousel08 from "../../images/banner/08_Berlin_Bridge.jpg"
+import Carousel09 from "../../images/banner/10_BerlinSky.jpg";
 import './LandingBanner.css';
 import "../fonts.css"
 
@@ -15,14 +16,14 @@ const LandingBanner = () => {
 
     return (
         <div>
-            <div class="carousel-inner" role="listbox" className="bannerShift">
+            <div class="carousel-inner" role="listbox" className="bannerShift boxDropShadow">
 
             <Carousel fade controls={false} indicators={false}>
                 <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel01}
-                        alt="First slide"
+                        alt="Karl-Marx-Allee"
                     />
                     <Carousel.Caption>
                     <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
@@ -38,7 +39,7 @@ const LandingBanner = () => {
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel02}
-                        alt="Second slide"
+                        alt="Kantstrasse, Charlottenburg"
                     />
 
                     <Carousel.Caption>
@@ -52,7 +53,7 @@ const LandingBanner = () => {
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel03}
-                        alt="Third slide"
+                        alt="Central Park"
                     />
 
                     <Carousel.Caption>
@@ -67,15 +68,31 @@ const LandingBanner = () => {
                 <Carousel.Item interval={5000}>
                     <img
                         className="d-block w-100 imgYShift"
+                        src={Carousel09}
+                        alt="The sky over Alexanderplatz"
+                    />
+
+                    <Carousel.Caption>
+                        <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
+                        <h3 className="mainHeaderFonts text-left">Berlin</h3>
+                        <p className="subHeadlineFonts text-left">
+                            The sky over Alexanderplatz
+                        </p>
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img
+                        className="d-block w-100 imgYShift"
                         src={Carousel04}
-                        alt="Third slide"
+                        alt="Platz der Republik in Altona"
                     />
 
                     <Carousel.Caption>
                         <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
                         <h3 className="mainHeaderFonts text-left">Hamburg</h3>
                         <p className="subHeadlineFonts text-left">
-                            Platz der Republik, Altona
+                            Platz der Republik in Altona
                         </p>
                         </div>
                     </Carousel.Caption>
@@ -84,14 +101,14 @@ const LandingBanner = () => {
                     <img
                         className="d-block w-100"
                         src={Carousel06}
-                        alt="Third slide"
+                        alt="Overlook point at Weißenburgpark"
                     />
 
                     <Carousel.Caption>
                         <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
                         <h3 className="mainHeaderFonts text-left">Stuttgart </h3>
                         <p className="subHeadlineFonts text-left">
-                            View from the top of Weißenburgpark
+                            Overlook point at Weißenburgpark
                         </p>
                         </div>
                     </Carousel.Caption>
@@ -100,7 +117,7 @@ const LandingBanner = () => {
                     <img
                         className="d-block w-100"
                         src={Carousel07}
-                        alt="Third slide"
+                        alt="Frankfurt International Airport"
                     />
 
                     <Carousel.Caption>
@@ -116,14 +133,14 @@ const LandingBanner = () => {
                     <img
                         className="d-block w-100"
                         src={Carousel08}
-                        alt="Third slide"
+                        alt="The Molecule Man in the Spree River"
                     />
 
                     <Carousel.Caption>
                         <div class="text-wrap" className="color_lightblueBox captionShift dropShadow">
                         <h3 className="mainHeaderFonts text-left">Berlin </h3>
                         <p className="subHeadlineFonts text-left">
-                            The Molecule Man standing in the Spree River in Treptow
+                            The Molecule Man in the Spree River
                         </p>
                         </div>
                     </Carousel.Caption>

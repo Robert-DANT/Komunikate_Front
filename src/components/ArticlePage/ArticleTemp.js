@@ -2,12 +2,28 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './ArticleTemp.css';
 import { useParams } from 'react-router-dom';
+import {FaArrowCircleUp} from 'react-icons/fa';
 
 function ArticleTemp() {
   let {id} = useParams()
 
   const [post, setPost] = useState()
 
+  // Scroll up arrow logic starts here
+  const [showScroll, setShowScroll] = useState(false)
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 200) {
+      setShowScroll(true)
+    } else if (showScroll && window.pageYOffset <= 200) {
+      setShowScroll(false)
+    }
+  };
+  window.addEventListener('scroll', checkScrollTop)
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+// Scroll up arrow logic ends here
 
   const calcDate = (time) => {
     const event = new Date(time);
@@ -79,6 +95,15 @@ function ArticleTemp() {
         {/* </p> */}
       </section>
       <h6 className="ArtCreat">Author</h6>
+
+        <div className="scrollPlacement">
+          <FaArrowCircleUp
+            className="scrollTop"
+            onClick={scrollTop}
+            style={{ height: 60, display: showScroll ? 'flex' : 'none' }}
+          />
+        </div>
+{/*       <ScrollUpButton /> */}
       {/* <input
         className="ArtComment"
         name="submit"
