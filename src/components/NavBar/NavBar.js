@@ -21,7 +21,7 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 import Axios from 'axios';
 import jwt_decode from "jwt-decode";
 
-const PORT = process.env.PORT || 'http://localhost:3002';
+const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com/';
 const queryString = require("query-string");
 
 const NavBar = ({ userToken, setJwt }) => {
@@ -50,7 +50,7 @@ const NavBar = ({ userToken, setJwt }) => {
   };
 
   const loginFunction = (user) => {
-    return Axios.post("http://localhost:3002/login", user)
+    return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
     /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
       .then((response) => {
         localStorage.setItem("token", response.data);
@@ -225,25 +225,25 @@ const NavBar = ({ userToken, setJwt }) => {
         >
           <Nav.Item>
             <Nav.Link eventKey="link-1">
-              <Link to="/guide" className="mainHeaderFonts color_white"> Guides </Link>
+              <Link to="/articles/guide" className="mainHeaderFonts color_white"> Guides </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-2">
-              <Link to="/visas" className="mainHeaderFonts color_white"> Visas </Link>
+              <Link to="/articles/visa" className="mainHeaderFonts color_white"> Visas </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-3">
-              <Link to="/healthInsurance" className="mainHeaderFonts color_white"> Insurance </Link>
+              <Link to="/articles/healthcare" className="mainHeaderFonts color_white"> Healthcare </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-4">
-              <Link to="/applications" className="mainHeaderFonts color_white"> Everyday Life </Link>
+              <Link to="/articles/lifestyle" className="mainHeaderFonts color_white"> Lifestyle </Link>
             </Nav.Link>
           </Nav.Item>
         </Nav>

@@ -35,7 +35,7 @@ function ArticleTemp() {
 
   const fetchArticle = async () => {
     await axios
-      .get(`http://localhost:3002/posts/${id}`)
+      .get(`https://stark-fjord-75040.herokuapp.com/posts/${id}`)
       .then((response) => setPost(response.data.getarticle))
       .catch((error) => console.log(error));
   };
