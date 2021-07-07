@@ -17,18 +17,18 @@ import { Link } from 'react-router-dom';
 
 const UserLoggedIn = () => {
 
-  const [users, setUsers] = useState();
+  const [randomUsers, setRandomUsers] = useState();
 
 
-  const fetchUsers = async () => {
+  const fetchRandomUsers = async () => {
     await axios
-      .get("https://stark-fjord-75040.herokuapp.com/users")
-      .then((response) => setUsers(response.data.users))
+      .get("https://stark-fjord-75040.herokuapp.com/users/randomUsers")
+      .then((response) => setRandomUsers(response.data.users))
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    fetchUsers();
+    fetchRandomUsers();
   }, []);
 
 
@@ -60,7 +60,7 @@ const UserLoggedIn = () => {
                 Submit
               </Button>
             </Form.Group>
-{ users &&  users.map((user) => (
+{ randomUsers &&  randomUsers.map((user) => (
 
             
             <Card>
