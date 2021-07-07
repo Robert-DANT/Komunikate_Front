@@ -25,7 +25,7 @@ const PORT = 'https://stark-fjord-75040.herokuapp.com';
 const queryString = require("query-string");
 
 const NavBar = ({ userToken, setJwt }) => {
-
+ 
   // Dropdown Login Functionality Below
 
   const [email, setEmail] = useState();
@@ -64,30 +64,18 @@ const NavBar = ({ userToken, setJwt }) => {
       });
   };
 
-  // Login Functionality Above
+  // Search functionality
     const searchRef = useRef()
-    const [searchResults, setSearchResults] = useState([])
-  const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
 
-  const getSearch = () => {
-    const search = { params: {searchtext: searchRef.current.value}}
-
-    Axios
-        .get(`${PORT}/posts/search`, search)
-        .then(res => {
-            console.log(res)
-            //setSearchResults(results)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-  }
+  
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(searchRef.current.value) 
-    getSearch()
+
+    history.push(`/articles/${searchRef.current.value}`)
+    searchRef.current.value = ''
   }
 
 
