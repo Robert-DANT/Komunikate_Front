@@ -5,11 +5,11 @@ import { useConversations } from '../contexts/ConversationsProvider'
 export default function OpenConversations() {
     const textRef = useRef()
     const [text, setText] = useState('')
-    const setRef = useCallback(node => {  //i'd like to change this to a useRef!!
-        if (node){
-        node.scrollIntoView({ smooth: true})
-    }
-    }, [])
+    // const setRef = useCallback(node => {  //i'd like to change this to a useRef!!
+    //     if (node){
+    //     node.scrollIntoView({ smooth: true})
+    // }
+    // }, [])
     const { sendMessage, selectedConversation } = useConversations()
 
     const handleSubmit = (e) => {
@@ -30,7 +30,7 @@ export default function OpenConversations() {
                         const lastMessage = selectedConversation.messages.length - 1 === index
                         return (
                             <div
-                                ref={lastMessage ? setRef : null}
+                                //ref={lastMessage ? setRef : null}
                                 key={index}
                                 className={`my-1 d-flex flex-column ${message.fromMe ? 'align-self-end align-items-end' : 'align-items-start'}`}
                             >

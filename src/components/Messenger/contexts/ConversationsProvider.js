@@ -19,8 +19,10 @@ export function ConversationsProvider( { token, idUser, children } ) {
     const { mapContacts } = useContacts()
     const socket = useSocket()
     console.log(socket)
-    console.log(conversations)
+    console.log('conversations', conversations)
     const id = idUser._id
+    console.log(id)
+
 
     const arrayEquality = (a, b) => {
         
@@ -48,13 +50,17 @@ export function ConversationsProvider( { token, idUser, children } ) {
                              }
                          )
                          .then(res => {
+                             console.log(res)
                             if (Array.isArray(res.data)) {                         
                              const newConversations = res.data.map(el => {
                                 const recipients = el.participants.filter(p => p !== id)
+                                console.log('id', id)// because this one is undefined!!!!!
+                                console.log('goes wrong', recipients)//something goes wrong here >> id is undefined on reload ??? >>> added id as a condition
                                 const messages = el.messages
                                 return { recipients, messages }
                             })
                             setConversations(newConversations)
+                            console.log('newConversations', newConversations)
                             }
                          })
                          .catch(err => {
@@ -63,10 +69,10 @@ export function ConversationsProvider( { token, idUser, children } ) {
      }
 
      useEffect(() => {
-        if (token) getConversations()
-    }, [token])
+        if (token && id) getConversations()
+    }, [token, id])
 
-    console.log(conversations)
+
     
 
 
@@ -98,7 +104,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
 
                 return conversation
             })
-            
+            console.log('in addTo conversations', conversations)
             if (madeChange){
                     return newConversations
             } else {
@@ -131,7 +137,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
             const contact = mapContacts.find(contact => {
                 return contact._id === recipient
             })
-            const name = (contact && contact.username) || recipient
+            const name = (contact && contact.username) 
             return { id: recipient, name}
         })
 
@@ -165,6 +171,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
         createConversation,
         arrayEquality
     }
+    console.log('conversations', value)
 
     return (
         <ConversationsContext.Provider value={value}>

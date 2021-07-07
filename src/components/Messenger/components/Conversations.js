@@ -2,10 +2,9 @@ import axios from 'axios'
 import { ListGroup } from 'react-bootstrap'
 import { useConversations } from '../contexts/ConversationsProvider'
 
-export default function Conversations({idUser}) {
+export default function Conversations() {
     const { conversations, selectConversationIndex } = useConversations()
-    const id = idUser._id
-
+    console.log('conversations', conversations)
 
     return (
         <ListGroup variant='flush'>
@@ -16,7 +15,7 @@ export default function Conversations({idUser}) {
                     onClick={() => selectConversationIndex(index)}
                     active={conversation.selected}
                 >
-                    {conversation.recipients.map(recipient => (recipient.id !== id ? recipient.name : '')).join(' ')}
+                    {conversation.recipients.map(recipient => recipient.name).join(', ')}
                 </ListGroup.Item>
             ))}
         </ListGroup>
