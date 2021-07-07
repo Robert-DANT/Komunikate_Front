@@ -1,0 +1,7 @@
+.send-button-messenger {
+  background-color: rgba(0, 150, 190, 1);
+}
+
+.send-button-messenger:hover {
+  background-color: #005b97;
+}

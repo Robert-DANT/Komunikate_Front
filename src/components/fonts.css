@@ -23,34 +23,49 @@
 }
 
 .color_whiteBG {
-  background-color: #ffffff75 ;
+  background-color: #ffffff75;
 }
 
 .color_lightblueBG {
-  background-color: #0095beb7 ;
+  background-color: #0095beb7;
 }
 
 .color_lightblueBox {
-    background-color: #0095bee0 ;
-    border-radius : 10px;
-  }
+  background-color: #0095bee0;
+  border-radius: 10px;
+}
 
 .color_darkblueBox {
-    background-color: #005b97 ;
-  }
+  background-color: #005b97;
+}
 
 .color_darkgradBox {
-    background-color: #005b97 ;
-    background-color: linear-gradient(0deg, rgba(0,91,151,1) 0%, rgba(0,150,190,1) 70%);   
+  background-color: #005b97;
+  background-color: linear-gradient(
+    0deg,
+    rgba(0, 91, 151, 1) 0%,
+    rgba(0, 150, 190, 1) 70%
+  );
 }
 
 .color_whiteGrad {
-  background: rgb(0,150,190);
-  background: -moz-linear-gradient(0deg, rgba(0,150,190,0) 0%, rgba(255,255,255,1) 100%);
-  background: -webkit-linear-gradient(0deg, rgba(0,150,190,0) 0%, rgba(255,255,255,1) 100%);
-  background: linear-gradient(0deg, rgba(0,150,190,0) 0%, rgba(255,255,255,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0096be",endColorstr="#ffffff",GradientType=1); 
-  
+  background: rgb(0, 150, 190);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(0, 150, 190, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(0, 150, 190, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(0, 150, 190, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0096be",endColorstr="#ffffff",GradientType=1);
 }
 
 .color_brandgradient {
@@ -101,8 +116,8 @@
 }
 
 .titleShift {
-    margin-right: -500px;
-    margin-left: 1200px;
+  margin-right: -500px;
+  margin-left: 1200px;
 }
 
 .leftAlign {

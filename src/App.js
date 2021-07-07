@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-import FooterBar from "./components/Foot/Foot";
+// import FooterBar from "./components/Foot/Foot";
 import Guide from "./components/Routes/Guide";
 import Visas from "./components/Routes/Visas.js";
 import HealthInsurance from "./components/Routes/HealthInsurance";
@@ -52,7 +52,7 @@ const App = () => {
     }
   }, [jwt]);
 
-  console.log(userToken)
+  console.log(userToken);
 
   return (
     <Router>
@@ -64,7 +64,7 @@ const App = () => {
         <Switch>
           <Route path="/adminpanel" token={userToken} component={AdminPanel} />
           <Route path="/messages">
-            <Messenger userToken={userToken}/>
+            <Messenger userToken={userToken} />
           </Route>
           <Route
             exact
@@ -89,7 +89,7 @@ const App = () => {
           <Route path="/users/:id" token={userToken} component={UserCard} />
 
           {/* Routes for major Topics */}
-{/*           <Route path="/guide" component={Guide} />
+          {/*           <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />
           <Route path="/healthinsurance" component={HealthInsurance} />
           <Route path="/applications" component={Applications} /> */}
@@ -105,8 +105,8 @@ const App = () => {
         </Switch>
 
         {/* Needs Restyling */}
-        <FooterBar />
-{/*         <FooterBar className="stickyFooter" /> */}
+        {/* <FooterBar /> */}
+        {/*         <FooterBar className="stickyFooter" /> */}
       </div>
     </Router>
   );
