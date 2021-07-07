@@ -14,7 +14,7 @@ export function SocketProvider({ idUser, children }) {
   useEffect(() => {
 
     const newSocket = io(
-      process.env.REACT_APP_WSSERVER,
+      'https://stark-fjord-75040.herokuapp.com',
       { query: { id } }
     )
 

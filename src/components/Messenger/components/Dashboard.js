@@ -8,7 +8,7 @@ export default function Dashboard({ idUser }) {
     console.log(idUser)
     
     return (
-        <div className='d-flex' style={{ height: '100vh' }}>
+        <div className='d-flex' style={{ height: '90vh' }}>
             <Sidebar idUser={idUser}/>
             {selectedConversation && <OpenConversations/>}
         </div>        

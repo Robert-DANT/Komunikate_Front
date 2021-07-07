@@ -2,7 +2,9 @@ import { useContext, useState, useEffect, createContext } from 'react'
 import axios from 'axios'
 import { useSocket } from './SocketProvider'
 
-const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com'
+const PORT = 'https://stark-fjord-75040.herokuapp.com'
+// Pointing the port to the .env doesn't seem to work?
+/* process.env.REACT_APP_ENDPOINT ||  */
 
 const ContactsContext = createContext()
 

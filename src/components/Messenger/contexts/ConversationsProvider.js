@@ -5,7 +5,7 @@ import { useSocket } from './SocketProvider'
 //import useLocalStorage from '../hooks/useLocalStorage';
 
 
-const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com'
+const PORT = 'https://stark-fjord-75040.herokuapp.com'
 
 const ConversationsContext = createContext()
 

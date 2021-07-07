@@ -3,7 +3,7 @@ import { Container, Form, Button } from 'react-bootstrap'
 import queryString from 'querystring'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
-const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com/'
+const PORT = process.env.REACT_APP_PORT || 'https://stark-fjord-75040.herokuapp.com/'
 
 
 const Login = ({ onIdSubmit, setToken }) => {
