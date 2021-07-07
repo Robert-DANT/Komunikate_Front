@@ -51,3 +51,11 @@
   .dropShadowNav {
     filter: drop-shadow(0 -3mm 4mm #000000);
   }
+
+  .form-control {
+    width: 260px;
+}
+
+.dropDownShift {
+  margin-right: 200px;
+}

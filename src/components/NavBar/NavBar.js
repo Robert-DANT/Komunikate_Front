@@ -21,7 +21,7 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 import Axios from 'axios';
 import jwt_decode from "jwt-decode";
 
-const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com/';
+const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com';
 const queryString = require("query-string");
 
 const NavBar = ({ userToken, setJwt }) => {
@@ -166,9 +166,10 @@ const NavBar = ({ userToken, setJwt }) => {
             {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link> */}
-            <NavDropdown title="Login" id="basic-nav-dropdown">
+            <NavDropdown title="Login" id="basic-nav-dropdown"  class="dropdown-menu-end" className="dropDownShift">
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
+                <div class="col-auto">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
                     type="email"
@@ -179,9 +180,11 @@ const NavBar = ({ userToken, setJwt }) => {
                   <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                   </Form.Text>
+                  </div>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
+                <div class="col-auto">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
@@ -189,18 +192,21 @@ const NavBar = ({ userToken, setJwt }) => {
                     className="formFonts"
                     onChange={(e) => setPw(e.target.value)}
                   />
+                                    </div>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+{/*                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit" className="buttonFonts" onClick={handleLogin}>
-                  Log In
-                </Button>
+                </Form.Group> */}
+                  <div class="col-auto">
+                    <Button variant="primary" type="submit" className="buttonFonts" onClick={handleLogin}>
+
+                      Log In
+
+                    </Button>
+                  </div>
               </Form>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Reset Password
-              </NavDropdown.Item>
+ 
             </NavDropdown>
             <Form inline>
               <Link exact to="/register">
