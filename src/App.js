@@ -52,6 +52,7 @@ const App = () => {
         user_role: decoded.user.user_role,
         id: decoded.user._id,
         admin: decoded.user.admin,
+        userImg: decoded.user.userImg,
       });
     }
   }, [jwt]);

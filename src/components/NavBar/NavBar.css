@@ -59,3 +59,22 @@
 .dropDownShift {
   margin-right: 200px;
 }
+
+.profile-cropper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border:3px solid #0096be;
+  filter: drop-shadow(0 0 0.5rem #a8a8a82a);
+}
+
+.profile-cropper img{
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto; 
+}

@@ -33,12 +33,14 @@ const UserLoggedIn = () => {
 
 
   return (
-/*     <Container className="outer-container-user-home" fluid> */
     <Container fluid className="fullWidthImage">
       <HeaderBody />
       <Container>
         <Row className="logged-in-container">
+       
           <Col md={3}>
+          <h1 className="mainHeaderFonts color_lightblue someTopPadding">Search Users</h1>
+          <hr className="color_lightblue_hr" />
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>By Language</Form.Label>
               <Form.Control as="select">
@@ -83,15 +85,11 @@ const UserLoggedIn = () => {
                   Send a Message
                 </Button>
               </Card.Body>
-{/*               <Card.Footer>
-                <small className="text-muted">Last seen 3 mins ago</small>
-              </Card.Footer> */}
             </Card> )) }
 
           </Col>
           <Col className="table-column" md={9}>
             <Articles />
-{/*             <UserCard /> */}
           </Col>
         </Row>
         

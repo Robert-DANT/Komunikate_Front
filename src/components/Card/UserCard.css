@@ -1,7 +1,26 @@
 .card-image {
-  border-radius: 100% !important;
-  width: 10rem !important;
-  height: 10rem;
-  align-self: center;
-  padding: 1rem;
+  width: auto;
+  height: 11rem;
+  
+  }
+
+.proPhotoSettings {
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid #0096be;
+  filter: drop-shadow(0 0 0.5rem #a8a8a82a);
+}
+
+.proPhotoSettings img{
+  text-align: center;
+  display: inline;
+  margin: -50 auto;
+  height: 11em;
+  width: auto; 
 }

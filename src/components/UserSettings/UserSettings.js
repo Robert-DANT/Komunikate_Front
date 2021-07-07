@@ -142,12 +142,15 @@ Moved to
       <Container className="content-container bg-light">
         <Row>
           <Col sm={3}>
-            <img
-              className="user-image"
-              src={proPhoto}
-              alt="Generic placeholder"
-            />
-
+            <div className="proPhotoSettings centerImage">
+              <div className="centerImage">
+                <img
+                  /* className="user-image" */
+                  src={proPhoto}
+                  alt="Generic placeholder"
+                />
+              </div>
+            </div>
             <ListGroup className="" variant="flush">
               <Button className="button-photo buttonFonts" variant="success">
                 Update Photo
@@ -389,7 +392,7 @@ Moved to
                     />
                   </Form.Group>
                 </Form.Row>
-
+{/* 
                 <Form.Row>
                   <Form.Group as={Col}>
                     <Form.Label className="mainHeaderFonts">
@@ -423,7 +426,7 @@ Moved to
                       className="formFonts"
                     />
                   </Form.Group>
-                </Form.Row>
+                </Form.Row> */}
                 <hr />
                 <Form.Group as={Col}>
                   <Form.Label className="mainHeaderFonts">

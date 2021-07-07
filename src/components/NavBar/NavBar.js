@@ -109,8 +109,8 @@ const NavBar = ({ userToken, setJwt }) => {
 
         <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          
+        {/* Center Search Bar */}
+        <Navbar.Collapse id="basic-navbar-nav">  
           <Form onSubmit={handleSubmit} id="center" inline>
             <FormControl
               type="text"
@@ -122,6 +122,7 @@ const NavBar = ({ userToken, setJwt }) => {
           </Form>
         </Navbar.Collapse>
 
+        {/* Conditionally rendered login/registration button : user Profile options */}
         {token ? (
           <Nav>
             <Nav.Link>
@@ -160,13 +161,23 @@ const NavBar = ({ userToken, setJwt }) => {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/" onClick={() => localStorage.clear()}>Log Out</NavDropdown.Item>
             </NavDropdown>
+            <div className="profile-cropper">
+              <a href="/user_profile">
+                <img src={userToken.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+                  width="40px"
+                  height="40px"
+                  alt="{userToken.username}" />
+              </a>
+            </div>
           </Nav>
+          
         ) : (
           <Nav className="mr-auto">
             {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link> */}
-            <NavDropdown title="Login" id="basic-nav-dropdown"  class="dropdown-menu-end" className="dropDownShift">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" width="50px"/>
+            <NavDropdown title="Login" id="basic-nav-dropdown"  class="dropdown-menu-end">
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                 <div class="col-auto">
