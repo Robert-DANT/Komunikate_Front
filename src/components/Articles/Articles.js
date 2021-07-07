@@ -5,10 +5,13 @@ import "./Articles.css";
 import React, { useState, useEffect } from "react";
 import "../fonts.css";
 
+
 const Articles = () => {
   let { topic } = useParams();
   console.log(topic)
   const [articles, setArticles] = useState();
+
+  const categories = ['guide', 'healthcare', 'lifestyle', 'visa']
 
   const calcDate = (time) => {
     const event = new Date(time);
@@ -32,8 +35,21 @@ const Articles = () => {
       .catch((error) => console.log(error));
   };
 
+  const fetchSearch = async () => {
+    await axios
+            .get(`https://stark-fjord-75040.herokuapp.com/posts/search`, { params: {searchtext: topic}})
+            .then(res => {
+                console.log(res)
+                setArticles(res.data.searchedArticles)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+  }
+
   useEffect(() => {
-    if (topic) fetchCategories()
+    if (categories.includes(topic)) fetchCategories()
+    else if (topic) fetchSearch()
     else fetchArticles()
   }, [topic]);
 

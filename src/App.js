@@ -20,6 +20,7 @@ import SingleArticle from "./components/ArticlePage/ArticleTemp";
 import LandingBanner from "./components/LandingBanner/LandingBanner";
 //import Messenger from "./components/Messenger/Sliders"
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +30,7 @@ import {
 } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import { ArticlesProvider } from "./components/Articles/ArticlesContext/ArticlesContext";
 
 const App = () => {
   const [userToken, setUserToken] = useState({});
@@ -97,17 +99,18 @@ const App = () => {
           <Route path="/articles/article/:id" component={SingleArticle} />
 
           <Route path="/articles/:topic?" component={Articles} />
-
           {/* Add all Routes above, Below is redirect for non existent paths */}
           <Route path="/*">
             <Redirect to="/" />
           </Route>
         </Switch>
+        
 
         {/* Needs Restyling */}
         <FooterBar />
 {/*         <FooterBar className="stickyFooter" /> */}
       </div>
+
     </Router>
   );
 };
