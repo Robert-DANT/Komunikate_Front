@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-// import FooterBar from "./components/Footer/FooterBar";
+import FooterBar from "./components/Foot/Foot";
 import Guide from "./components/Routes/Guide";
 import Visas from "./components/Routes/Visas.js";
 import HealthInsurance from "./components/Routes/HealthInsurance";
@@ -105,7 +105,7 @@ const App = () => {
         </Switch>
 
         {/* Needs Restyling */}
-        {/* <FooterBar /> */}
+        <FooterBar />
 {/*         <FooterBar className="stickyFooter" /> */}
       </div>
     </Router>

@@ -21,7 +21,7 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 import Axios from 'axios';
 import jwt_decode from "jwt-decode";
 
-const PORT = process.env.REACT_APP_PORT || 'https://stark-fjord-75040.herokuapp.com/';
+const PORT = 'https://stark-fjord-75040.herokuapp.com';
 const queryString = require("query-string");
 
 const NavBar = ({ userToken, setJwt }) => {
