@@ -170,7 +170,11 @@ const NavBar = ({ userToken, setJwt }) => {
               <Link to="/user_login">Login</Link>
             </Nav.Link> */}
               <NavDropdown title="Login" id="basic-nav-dropdown">
+<<<<<<< HEAD
                 <Form className="dropdown-login-form">
+=======
+                <Form className="dropdown-login-form text-align">
+>>>>>>> stylingMessenger
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control

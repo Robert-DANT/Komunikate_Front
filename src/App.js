@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-// import FooterBar from "./components/Footer/FooterBar";
+import FooterBar from "./components/Foot/Foot";
 import Guide from "./components/Routes/Guide";
 import Visas from "./components/Routes/Visas.js";
 import HealthInsurance from "./components/Routes/HealthInsurance";
@@ -31,11 +31,7 @@ import jwt_decode from "jwt-decode";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 const App = () => {
-  const [userToken, setUserToken] = useState({
-    email: "",
-    user_role: "",
-    admin: "",
-  });
+  const [userToken, setUserToken] = useState({});
   const [jwt, setJwt] = useState("");
 
   let location = useLocation();
@@ -56,6 +52,8 @@ const App = () => {
     }
   }, [jwt]);
 
+  console.log(userToken)
+
   return (
     <Router>
       <div className="App">
@@ -65,7 +63,9 @@ const App = () => {
 
         <Switch>
           <Route path="/adminpanel" token={userToken} component={AdminPanel} />
-          <Route path="/messages" token={userToken} component={Messenger} />
+          <Route path="/messages">
+            <Messenger userToken={userToken}/>
+          </Route>
           <Route
             exact
             path="/"
@@ -105,7 +105,7 @@ const App = () => {
         </Switch>
 
         {/* Needs Restyling */}
-        {/* <FooterBar /> */}
+        <FooterBar />
 {/*         <FooterBar className="stickyFooter" /> */}
       </div>
     </Router>

@@ -11,7 +11,7 @@ const queryString = require("query-string");
 const UserLogin = ({ setJwt }) => {
   let history = useHistory();
   // The below token useState doesn't seem to be used here so it was commented out
-/*   const [token, setToken] = useState(); */
+  /*   const [token, setToken] = useState(); */
   const [pw, setPw] = useState("");
   const [email, setEmail] = useState("");
 
@@ -37,18 +37,20 @@ const UserLogin = ({ setJwt }) => {
   };
 
   const loginFunction = (user) => {
-    return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
-    /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
-      .then((response) => {
-        localStorage.setItem("token", response.data);
-        // Commented out setToken below because it 
-        // doesn't seem to be needed for userlogin to run
-/*         setToken(response.data); */
-        return response.data; //redirect react-router to individual landing page
-      })
-      .catch((err) => {
-        console.log(err); //show error message, clear form, say try again
-      });
+    return (
+      Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
+        /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
+        .then((response) => {
+          localStorage.setItem("token", response.data);
+          // Commented out setToken below because it
+          // doesn't seem to be needed for userlogin to run
+          /*         setToken(response.data); */
+          return response.data; //redirect react-router to individual landing page
+        })
+        .catch((err) => {
+          console.log(err); //show error message, clear form, say try again
+        })
+    );
   };
 
   return (
@@ -103,7 +105,6 @@ const UserLogin = ({ setJwt }) => {
                 Not a member?&nbsp;
                 <Link to="/register">Sign Up</Link>{" "}
               </p>
-              <p>Forgot Password?</p>
             </div>
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Remember me" />
