@@ -26,7 +26,9 @@ const MyAppBar = (props) => {
         className={classes.title}
         id="react-admin-title"
       />
-      <img src={Logo} alt="Komunikate" width="370em" />
+      <a href="http://localhost:3000">
+        <img src={Logo} alt="Komunikate" width="370em" />
+      </a>
       <span className={classes.spacer} />
     </AppBar>
   );

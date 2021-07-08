@@ -54,7 +54,7 @@ const MainBody = (props) => {
       <Container className="our-mission-container mainBodyFont justifyText">
         <h1 className="mainHeaderFonts color_lightblue someTopPadding">What we're about!</h1>
         <hr className="color_lightblue_hr" />
-        <h5>
+        <h5 className="introText">
           <strong className="color_lightblue">komunikate</strong> is a community 
           of people helping each other figure out all of the necessary steps when immigrating to Germany.
 

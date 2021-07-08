@@ -94,7 +94,7 @@ function ArticleTemp() {
           female?"[15][16]{" "} */}
         {/* </p> */}
       </section>
-      <h6 className="ArtCreat">Author</h6>
+      <h6 className="ArtCreat">Komunikate</h6>
 
         <div className="scrollPlacement">
           <FaArrowCircleUp
