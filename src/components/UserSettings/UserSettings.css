@@ -27,7 +27,7 @@
   filter: blur(5px);
   -webkit-filter: blur(5px);
   margin: -10px;
-  /* z-index: -1; */
+  z-index: -1;
 }
 
 .content-container {
@@ -75,15 +75,15 @@ h3 {
 
 .user-image {
   border-radius: 100% !important;
-  border:10px solid #0096be;
+  border: 10px solid #0096be;
   width: 11rem !important;
+  height: 11rem !important;
   /* height: 13rem; */
   align-self: center;
-/*   padding: 1rem; */
+  /*   padding: 1rem; */
 
-/* border-image-source: linear-gradient(to left, #0096be, #005b97); */
-filter: drop-shadow(0 0 0.15rem #005b97);
-
+  /* border-image-source: linear-gradient(to left, #0096be, #005b97); */
+  filter: drop-shadow(0 0 0.15rem #005b97);
 }
 
 hr {
