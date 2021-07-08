@@ -13,6 +13,9 @@ import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios';
 import "./UserProfile.css";
 import "../fonts.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
+
 
 const UserProfile = ({setUser}) => {
 
@@ -66,7 +69,7 @@ const UserProfile = ({setUser}) => {
                       Moved to Germany in 2010
                     </Card.Text>
                     <Button variant="success" className="mt-auto buttonFonts" block onClick={handleClick}>
-                      Send a Message
+                      Komunikate <FontAwesomeIcon icon={faComments} />
                     </Button>
                   </Card.Body>
                 </Card>}

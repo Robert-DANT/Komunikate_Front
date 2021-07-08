@@ -3,6 +3,11 @@ import { Modal, Form, Button, Badge } from 'react-bootstrap'
 import { useContacts } from '../contexts/ContactsProvider'
 import { useConversations } from '../contexts/ConversationsProvider' 
 import SearchModal from './SearchModal'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-regular-svg-icons'
+import { faCommentSlash } from '@fortawesome/free-solid-svg-icons'
+
+
 
 
 export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
@@ -86,7 +91,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                                         label={(
                                         <>
                                             <span><h6>{contact.username}.... 
-                                                {connectedUsers.includes(contact._id) ? <Badge pill variant="success">@</Badge> : <Badge pill variant="secondary">@</Badge>}</h6></span>
+                                                {connectedUsers.includes(contact._id) ? <Badge pill variant="success"><FontAwesomeIcon icon={faComment} /></Badge> : <Badge pill variant="secondary"><FontAwesomeIcon icon={faCommentSlash} /></Badge>}</h6></span>
                                             <ul style={{listStyleType: 'none'}}>
                                                 <li>{contact.user_role}</li>
                                                 <li>{contact.languages.map(el => `${el} `)}</li>

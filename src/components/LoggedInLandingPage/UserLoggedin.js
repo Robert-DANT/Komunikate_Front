@@ -14,15 +14,25 @@ import HeaderBody from "../HeaderSection/HeaderBody";
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import ISO6391 from 'iso-639-1'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 
-const UserLoggedIn = ({ token }) => {
+
+
+const UserLoggedIn = ({ token, setUser }) => {
 
   const [randomUsers, setRandomUsers] = useState();
   const languagesRef = useRef()
   const citiesRef = useRef()
   const roleRef = useRef()
   const languagesArray = ISO6391.getAllNames()
+  let history = useHistory()
+
+  const handleClick = (id, name) => {
+    setUser({ id: id, name: name })
+    history.push('/messages')
+  }
 
 
   const fetchRandomUsers = async () => {
@@ -127,8 +137,8 @@ const UserLoggedIn = ({ token }) => {
                   User Profile
                 </Button>
                 </Link>
-                <Button variant="success" className="mt-auto" block>
-                  Send a Message
+                <Button variant="success" onClick={() => handleClick(user._id, user.username)} className="mt-auto" block>
+                  Komunikate <FontAwesomeIcon icon={faComments} />
                 </Button>
               </Card.Body>
 {/*               <Card.Footer>

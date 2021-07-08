@@ -1,6 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react'
 import { Form, InputGroup, Button } from 'react-bootstrap'
 import { useConversations } from '../contexts/ConversationsProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
+
 
 export default function OpenConversations() {
     const textRef = useRef()
@@ -63,8 +66,7 @@ export default function OpenConversations() {
                                 style={{ height: '100px', resize: 'none'}}
                             />
                             <InputGroup.Append>
-                                <Button type="submit">Send</Button>
-                                {/* button should take height of textarea, but it doesn't */}
+                                <Button type="submit"><FontAwesomeIcon icon={faPaperPlane} /><FontAwesomeIcon icon={faPaperPlane} /><FontAwesomeIcon icon={faPaperPlane} /></Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </Form.Group>
