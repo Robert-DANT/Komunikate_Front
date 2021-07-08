@@ -118,3 +118,12 @@
   text-align: justify;
   text-justify: inter-word;
 }
+
+.paragraphRagging {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.creationDatePadding {
+  margin: 1.4em;
+}

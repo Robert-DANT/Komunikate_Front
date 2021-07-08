@@ -153,7 +153,7 @@ const NavBar = ({ userToken, setJwt }) => {
                 <Link to="/user_home">User Home</Link>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                <Link to="/user_profile">User Profile</Link>
+                <Link to={`/users/${userToken.id}`}>User Profile</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link to="/user_settings">User Settings</Link>
@@ -162,12 +162,12 @@ const NavBar = ({ userToken, setJwt }) => {
               <NavDropdown.Item href="/" onClick={() => localStorage.clear()}>Log Out</NavDropdown.Item>
             </NavDropdown>
             <div className="profile-cropper">
-              <a href="/user_profile">
+            <Link to={`/users/${userToken.id}`}>
                 <img src={userToken.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
                   width="40px"
                   height="40px"
                   alt="{userToken.username}" />
-              </a>
+              </Link>
             </div>
           </Nav>
           
@@ -176,7 +176,7 @@ const NavBar = ({ userToken, setJwt }) => {
             {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link> */}
-                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" width="50px"/>
+                          
             <NavDropdown title="Login" id="basic-nav-dropdown"  class="dropdown-menu-end">
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

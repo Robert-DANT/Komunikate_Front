@@ -13,6 +13,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import "./UserCard.css";
 import "../fonts.css";
+import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
 
@@ -34,14 +35,15 @@ const UserProfile = () => {
 
   return (
     <Container className="outer-container-profile" fluid>
-      <Container className="user-profile-container bg-light">
+      <Container className="user-profile-container boxDropShadow bg-light">
+      {users ? (
         <Row>
           <Col md={4}>
            { users && <Card className="profile-card">
              
                 <Card.Body>
                 <div class="card-body align-items-center justify-content-center">
-                  <div className="proPhotoSettings">
+                  <div className="proPhotoSettings profileCircleShift">
                     <Card.Img
                       className="card-image"
                       variant="top"
@@ -49,7 +51,7 @@ const UserProfile = () => {
                     />
                   </div>
                   {/* Mongodb Model key name is: first_name + last_name */}
-                  <Card.Title className="mainHeaderFonts">
+                  <Card.Title className="mainHeaderFonts nameSpacer">
                     {users.first_name} {users.last_name}
                   </Card.Title>
                   {/* Mongodb Model key Mentor or Seeker is: user_role */}
@@ -64,8 +66,10 @@ const UserProfile = () => {
                   <Card.Text className="subHeadlineFonts">
                     { users.living_in_germany ? "Currently Living in Germany" : "Planning on Moving to Germany"}
                   </Card.Text>
-                  <Button variant="success" className="mt-auto buttonFonts" block>
+                  <Button variant="info" className="mt-auto buttonFonts" block>
+                  <Link to="/messages" className="color_white">
                     Send a Message
+                    </Link>
                   </Button>
                   </div>
                 </Card.Body>
@@ -74,25 +78,37 @@ const UserProfile = () => {
               
                 }
           </Col>
-          
-          <Col className="table-column" md={8}>
-            <h3 className="mainHeaderFonts">{users.username}'s Profile</h3>
+
+          <Col className="table-column allAboutShift" md={8}>
+            <h3 className="mainHeaderFonts">All About {users.username}</h3>
             {/* Mongodb Model key name for Mentor or Seeker is: user_role */}
 
             <hr />
             <p className="subHeadlineFonts">
-              {users.userBio}
+              {users.userBio ? users.userBio : `Hi, my name is ${users.first_name} and I've always
+              wanted to move to Germany ever since I visited Berlin for the first time 5 years ago. 
+              I celebrated New Year's eve at a party in Charlottenburg and at the stroke of midnight 
+              the party moved to the rooftop where you can see a panorama of the city being lit up 
+              by all of the fireworks. It was right then there that I knew I wanted to move to Germany! 
+              `}
             </p>
             <hr />
             <Table size="sm">
               <tbody>
                 <tr>
                   <td className="mainBodyFont">Nationality:</td>
-                  <td className="subHeadlineFonts">American</td>
+                  <td className="subHeadlineFonts">{users.nationality}</td>
                 </tr>
                 <tr>
                   <td className="mainBodyFont">Languages:</td>
-                  <td className="subHeadlineFonts">English, German</td>
+                  <td className="subHeadlineFonts">
+                  {users.languages[0]} {users.languages[1] && `, ${users.languages[1]}`}
+                    {users.languages[2] && `, ${users.languages[2]}`}
+                    {users.languages[3] && `, ${users.languages[3]}`}
+                    {users.languages[4] && `, ${users.languages[4]}`}
+                    {users.languages[5] && `, ${users.languages[5]}`}
+
+                    </td>
                 </tr>
                 <tr>
                   <td className="mainBodyFont">Professional Status:</td>
@@ -102,11 +118,12 @@ const UserProfile = () => {
             </Table>
             <hr />
             <p className="subHeadlineFonts">
-              {users.interests}
+            {users.interests ? users.interests : `Hiking, Traveling, Food, Learning new things, Photography`}
             </p>
 
-          </Col>
-        </Row>
+          </Col> 
+        </Row> )
+         : "Loading..." }
       </Container>
     </Container>
   );

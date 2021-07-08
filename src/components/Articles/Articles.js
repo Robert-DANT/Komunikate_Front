@@ -58,11 +58,12 @@ const Articles = () => {
                   src={article.img1 || "https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"}
                 />
                 <Card.Body>
-                  <Card.Title>{article.title}</Card.Title>
-                  <Card.Text>{article.body.substring(0, 120)}...</Card.Text>
+                  <Card.Title className="mainHeaderFonts">{article.title}</Card.Title>
+                  <hr className="color_lightblue_hr" />
+                  <Card.Text className="subHeadlineFonts paragraphRagging">{article.body.substring(0, 120)}...</Card.Text>
                 </Card.Body>
                 <Card.Text>
-                  <small className="text-muted">
+                  <small className="text-muted quoteFonts creationDatePadding">
                     post created: {calcDate(article.date)}
                   </small>
                 </Card.Text>

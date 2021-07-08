@@ -62,30 +62,44 @@ const UserLoggedIn = () => {
                 Submit
               </Button>
             </Form.Group>
-{ users &&  users.map((user) => (
-
-            
+{ users &&  users.map((user) => (     
             <Card>
-              <Card.Img
-                className="card-image"
-                variant="top"
-                src={user.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
-              />
-              <Card.Body>
-                <Card.Title>{user.username}</Card.Title>
-                <Badge variant="info">{user.user_role}</Badge>{" "}
-                <Card.Text>Speaks: {user.languages}</Card.Text>
-                <Card.Text>Nationality: {user.nationality}</Card.Text>
+
+                <Card.Body>
                 <Link to={`/users/${user._id}`}>
-                <Button variant="success" className="mt-auto" block>
-                  User Profile
-                </Button>
-                </Link>
-                <Button variant="success" className="mt-auto" block>
-                  Send a Message
-                </Button>
-              </Card.Body>
-            </Card> )) }
+                    <div className="proPhotoLogged profileCircleShift">
+                      <Card.Img
+                        className="proPhotos"
+                        variant="top"
+                        src={user.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+                      />
+                    </div>
+
+                    <Card.Title className="mainHeaderFonts nameSpacer">{user.username}</Card.Title>
+               
+                  </Link>
+                  <Badge variant="info">{user.user_role}</Badge>
+                  <Card.Text>
+                    <p>
+                    Speaks: <strong className="mainBodyFont">{user.languages[0]}
+                    {user.languages[1] && `, ${user.languages[1]}`}
+                    {user.languages[2] && `, ${user.languages[2]}`}
+                    {user.languages[3] && `, ${user.languages[3]}`}
+                    {user.languages[4] && `, ${user.languages[4]}`}
+                    {user.languages[5] && `, ${user.languages[5]}`}</strong>
+                    <br />
+                    Nationality: <strong className="mainBodyFont">{user.nationality}</strong>
+                    </p>
+                    </Card.Text>
+                  <Button variant="info" className="mt-auto buttonFonts" block>
+                  <Link to="/messages" className="color_white">
+                    Send a Message
+                    </Link>
+                  </Button>
+
+                </Card.Body>
+
+              </Card>     ))  }
 
           </Col>
           <Col className="table-column" md={9}>

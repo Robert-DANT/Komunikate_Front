@@ -117,7 +117,7 @@ const UserSettings = ({ token }) => {
               required
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="info" type="submit">
             Update
           </Button>
         </Form>
@@ -127,7 +127,7 @@ const UserSettings = ({ token }) => {
 
   const UpdatePassword = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-      <Button className="password-button buttonFonts" variant="success">
+      <Button className="password-button buttonFonts" variant="info">
         Update Password
       </Button>
     </OverlayTrigger>
@@ -152,7 +152,7 @@ Moved to
               </div>
             </div>
             <ListGroup className="" variant="flush">
-              <Button className="button-photo buttonFonts" variant="success">
+              <Button className="button-photo buttonFonts" variant="info">
                 Update Photo
               </Button>{" "}
               <ListGroup.Item
@@ -447,7 +447,7 @@ Moved to
 
                 <Button
                   className="cancel-save-button buttonFonts"
-                  variant="primary"
+                  variant="info"
                   type="submit"
                   onClick={updateProfile}
                 >
@@ -455,7 +455,7 @@ Moved to
                 </Button>
                 <Button
                   className="cancel-save-button buttonFonts"
-                  variant="primary"
+                  variant="info"
                   type="submit"
                 >
                   Cancel
