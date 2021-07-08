@@ -50,7 +50,7 @@ function ArticleTemp() {
     { post ? 
     
         <>
-          <div className="top-container">
+          <div className="top-container dropShadowLightBlue">
 
               <div className="article_top_left">
               <img
@@ -65,7 +65,7 @@ function ArticleTemp() {
       <h1 className="ArtHead textAlignLeft lessSpaceText">{post.title}</h1>
       <div className="hrHeight color_lightblue_hr"></div>
       <p className="ArtSub textAlignLeft">{post.subtitle}</p>
-      <p className="RelDate">Published: {calcDate(post.date)}</p>
+      <p className="moveTextUp formFonts">Published: {calcDate(post.date)}</p>
               </div>
 
 
