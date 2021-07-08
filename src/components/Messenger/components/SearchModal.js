@@ -24,8 +24,6 @@ export default function SearchModal({ closeModal }) {
 
     const newQueryString = {languages: languagesRef.current.value, city_in_germany: citiesRef.current.value, user_role: roleRef.current.value, username: usernameRef.current.value}
 
-    console.log(newQueryString)
-
     searchedUsersGet(newQueryString)
 
     closeModal()

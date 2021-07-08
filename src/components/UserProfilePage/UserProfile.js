@@ -12,6 +12,7 @@ import "./UserProfile.css";
 import "../fonts.css";
 
 const UserProfile = () => {
+
   return (
     <Container className="outer-container-profile" fluid>
       <Container className="user-profile-container bg-light">

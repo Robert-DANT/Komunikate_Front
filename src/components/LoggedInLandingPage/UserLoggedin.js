@@ -14,15 +14,25 @@ import HeaderBody from "../HeaderSection/HeaderBody";
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import ISO6391 from 'iso-639-1'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 
-const UserLoggedIn = () => {
+
+
+const UserLoggedIn = ({ token, setUser }) => {
 
   const [randomUsers, setRandomUsers] = useState();
   const languagesRef = useRef()
   const citiesRef = useRef()
   const roleRef = useRef()
   const languagesArray = ISO6391.getAllNames()
+  let history = useHistory()
+
+  const handleClick = (id, name) => {
+    setUser({ id: id, name: name })
+    history.push('/messages')
+  }
 
 
   const fetchRandomUsers = async () => {
@@ -81,6 +91,7 @@ const UserLoggedIn = () => {
               </Form.Control>
               <Form.Label>By City</Form.Label>
               <Form.Control as="select" ref={citiesRef}>
+                <option value=''></option>
                 <option>Berlin</option>
                 <option>Frankfurt am Main</option>
                 <option>Hamburg</option>
@@ -133,11 +144,9 @@ const UserLoggedIn = () => {
     Nationality: <strong className="mainBodyFont">{user.nationality}</strong>
     </p>
     </Card.Text>
-  <Button variant="info" className="mt-auto buttonFonts" block>
-  <Link to="/messages" className="color_white">
-    Send a Message
-    </Link>
-  </Button>
+    <Button variant="info" onClick={() => handleClick(user._id, user.username)} className="mt-auto buttonFonts" block>
+                  Komunikate <FontAwesomeIcon icon={faComments} />
+                </Button>
 </Card.Body>
 
 </Card>  )) }

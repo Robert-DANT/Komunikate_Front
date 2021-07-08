@@ -1,8 +1,11 @@
-import React, { useState, useRef, useCallback } from "react";
-import { Form, InputGroup, Button } from "react-bootstrap";
-import { useConversations } from "../contexts/ConversationsProvider";
+import React, { useState, useRef, useCallback } from 'react'
+import { Form, InputGroup, Button } from 'react-bootstrap'
+import { useConversations } from '../contexts/ConversationsProvider'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 import "../../fonts.css";
 import "./OpenConversations.css";
+
 
 export default function OpenConversations() {
   const textRef = useRef();
@@ -25,6 +28,12 @@ export default function OpenConversations() {
     );
     setText("");
   };
+
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e)
+    }
+  }
 
   return (
     <div className="d-flex flex-column flex-grow-1">
@@ -73,12 +82,9 @@ export default function OpenConversations() {
               onChange={() => setText(textRef.current.value)}
               style={{ height: "100px", resize: "none" }}
             />
-            <InputGroup.Append>
-              <Button className="send-button-messenger" type="submit">
-                Send
-              </Button>
-              {/* button should take height of textarea, but it doesn't */}
-            </InputGroup.Append>
+                    <InputGroup.Append>
+                        <Button type="submit"><FontAwesomeIcon icon={faPaperPlane} /><FontAwesomeIcon icon={faPaperPlane} /><FontAwesomeIcon icon={faPaperPlane} /></Button>
+                    </InputGroup.Append>
           </InputGroup>
         </Form.Group>
       </Form>

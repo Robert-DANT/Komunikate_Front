@@ -3,19 +3,17 @@ import { Modal, Form, Button, Badge } from "react-bootstrap";
 import { useContacts } from "../contexts/ContactsProvider";
 import { useConversations } from "../contexts/ConversationsProvider";
 import SearchModal from "./SearchModal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-regular-svg-icons'
+import { faCommentSlash } from '@fortawesome/free-solid-svg-icons'
 import "../../fonts.css";
 import "./Contacts.css";
 
 export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedContactIds, setSelectedContactIds] = useState([]);
-  const { contacts, setContacts, connectedUsers } = useContacts();
-  const {
-    conversations,
-    createConversation,
-    selectConversationIndex,
-    arrayEquality,
-  } = useConversations();
+  const { contacts, setContacts, connectedUsers, searchedUsersGet } = useContacts();
+  const { conversations, createConversation, selectConversationIndex, arrayEquality, } = useConversations();
 
   //method to filter out duplicate conversations
   const conversationsPlusRecipients = conversations
@@ -23,9 +21,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
     .map((el) => el.map((el) => el.id));
 
   const checkDuplicate = () => {
-    return conversationsPlusRecipients.filter((el) =>
-      arrayEquality(el, selectedContactIds)
-    );
+    return conversationsPlusRecipients.filter((el) => arrayEquality(el, selectedContactIds));
   };
 
   const handleSubmit = (e) => {
@@ -71,6 +67,10 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
     setModalOpen(false);
   };
 
+  const handleClear = () => {
+    searchedUsersGet()
+}
+
   return (
     <>
       <div className="d-flex flex-column flex-grow-1">
@@ -83,7 +83,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
           }}
           className="p-2 border border-top border-right small"
         >
-          <Button
+{/*           <Button
             className="contact-field-buttons"
             form="checkbox-form"
             type="submit"
@@ -91,15 +91,21 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
             block
           >
             Komunikate
-          </Button>
+          </Button> */}
+          <Button onClick={() => setModalOpen(true)} className="contact-field-buttons" block>Search Komunikators</Button>
+                <br/>
+                <Button onClick={handleClear} className="contact-field-buttons" block>Clear Search</Button>
+                <br/>
+                <Button form='checkbox-form' type='submit' size="lg" className="contact-field-buttons" block>Komunikate</Button>
+       
           <br />
-          <Button
+{/*           <Button
             className="contact-field-buttons"
             onClick={() => setModalOpen(true)}
             block
           >
             Search Komunikators
-          </Button>
+          </Button> */}
         </div>
         <div className="flex-grow-1 overflow-auto komunikators-list">
           <Form onSubmit={handleSubmit} id="checkbox-form">
@@ -121,14 +127,14 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                                 height="50px"
                                 alt="user-img"
                               /> */}
-                              {contact.username}....
+                              {contact.username}&nbsp; 
                               {connectedUsers.includes(contact._id) ? (
                                 <Badge pill variant="success">
-                                  @ {contact.user_role}
+                                  <FontAwesomeIcon icon={faComment} /> {contact.user_role}
                                 </Badge>
                               ) : (
                                 <Badge pill variant="secondary">
-                                  @ {contact.user_role}
+                                  <FontAwesomeIcon icon={faCommentSlash} /> {contact.user_role}
                                 </Badge>
                               )}
                             </h6>

@@ -7,9 +7,9 @@ const CONVERSATIONS_KEY = "conversations";
 const CONTACTS_KEY = "contacts";
 
 export default function Sidebar({ idUser }) {
-  const [activeKey, setActiveKey] = useState(CONVERSATIONS_KEY);
-  //const conversationsOpen = activeKey === CONVERSATIONS_KEY //check whether conversion tab is open
-  console.log(idUser);
+    const [activeKey, setActiveKey] = useState(CONVERSATIONS_KEY)
+    //const conversationsOpen = activeKey === CONVERSATIONS_KEY //check whether conversion tab is open
+
 
   return (
     <div style={{ width: "500px" }} className="d-flex flex-column">

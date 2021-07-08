@@ -1,5 +1,5 @@
 .contact-field-buttons {
-  background: rgb(0, 91, 151);
+/*   background: rgb(0, 91, 151); */
   background: linear-gradient(
     0deg,
     rgba(0, 150, 190, 1) 40%,
@@ -12,6 +12,13 @@
   background-color: #005b97;
 }
 
+.badge.badge-success {
+  background-color: #005b97;
+} 
+
+.badge.badge-secondary {
+  background-color: #bbbbbb;
+} 
 .user-id {
   margin-bottom: 0;
 }

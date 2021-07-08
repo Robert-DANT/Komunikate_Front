@@ -60,8 +60,7 @@ export function ContactsProvider({ token, children }) {
             )
             .then(res => {
                 console.log(res)
-                let allContacts = res.data.users.map(({ _id, username }) => ({ _id, username })) //TODO i will need more information about the contacts here (same above)
-                console.log(allContacts)
+                let allContacts = res.data.users.map(({ _id, username }) => ({ _id, username })) 
                 setMapContacts(allContacts)
             })
             .catch(err => {
@@ -84,12 +83,10 @@ export function ContactsProvider({ token, children }) {
         if (!socket) return
 
         socket.on('user-joined', data => {
-            console.log(data)
             setConnectedUsers(data)
         })
 
         socket.on('user-left', data => {
-            console.log(data)
             setConnectedUsers(data)
         })
 

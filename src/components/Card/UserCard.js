@@ -9,16 +9,19 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios';
 import "./UserCard.css";
 import "../fonts.css";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 
-const UserProfile = () => {
+
+const UserProfile = ({setUser}) => {
 
   let {id} = useParams();
-
+  let history = useHistory()
   const [users, setUsers] = useState(false);
 
   const fetchUsers = async () => {
@@ -31,6 +34,11 @@ const UserProfile = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  const handleClick = () => {
+    setUser({ id, name: users.username })
+    history.push('/messages')
+  }
 
 
   return (
@@ -66,11 +74,10 @@ const UserProfile = () => {
                   <Card.Text className="subHeadlineFonts">
                     { users.living_in_germany ? "Currently Living in Germany" : "Planning on Moving to Germany"}
                   </Card.Text>
-                  <Button variant="info" className="mt-auto buttonFonts" block>
-                  <Link to="/messages" className="color_white">
-                    Send a Message
-                    </Link>
+                  <Button variant="info" className="mt-auto buttonFonts" block onClick={handleClick}>
+                      Komunikate! <FontAwesomeIcon icon={faComments} />
                   </Button>
+
                   </div>
                 </Card.Body>
 
