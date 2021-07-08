@@ -22,6 +22,12 @@ export default function OpenConversations() {
         setText('')
     }
 
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+          handleSubmit(e)
+        }
+      }
+
     return (
         <div className='d-flex flex-column flex-grow-1'>
             <div className='flex-grow-1 overflow-auto'>
@@ -45,7 +51,7 @@ export default function OpenConversations() {
                     })}
                 </div>
             </div>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} onKeyUp={handleEnter}>
                     <Form.Group className='m-2 '>
                         <InputGroup>
                             <Form.Control

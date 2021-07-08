@@ -120,7 +120,7 @@ const UserLoggedIn = ({ token }) => {
               <Card.Body>
                 <Card.Title>{user.username}</Card.Title>
                 <Badge variant="info">{user.user_role}</Badge>{" "}
-                <Card.Text>Speaks: {user.languages}</Card.Text>
+                <Card.Text>Speaks: {user.languages.map(el => `${el} `)}</Card.Text>
                 <Card.Text>Nationality: {user.nationality}</Card.Text>
                 <Link to={`/users/${user._id}`}>
                 <Button variant="success" className="mt-auto" block>

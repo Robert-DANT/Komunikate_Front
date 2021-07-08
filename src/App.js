@@ -35,6 +35,8 @@ import AdminPanel from "./components/AdminPanel/AdminPanel";
 const App = () => {
   const [userToken, setUserToken] = useState({});
   const [jwt, setJwt] = useState("");
+  const [user, setUser] = useState()
+  console.log('this is the userId', user)
 
   let location = useLocation();
 
@@ -52,7 +54,7 @@ const App = () => {
         admin: decoded.user.admin,
       });
     }
-  }, [jwt]);
+  }, [jwt])
 
   console.log(userToken)
 
@@ -65,8 +67,8 @@ const App = () => {
 
         <Switch>
           <Route path="/adminpanel" token={userToken} component={AdminPanel} />
-          <Route path="/messages">
-            <Messenger userToken={userToken}/>
+          <Route exact path="/messages">
+            <Messenger userToken={userToken} user={user} setUser={setUser}/>
           </Route>
           <Route
             exact
@@ -85,10 +87,13 @@ const App = () => {
           </Route>
           <Route
             path="/user_profile/:id?"
-            token={userToken}
-            component={UserProfile}
-          />
-          <Route path="/users/:id" token={userToken} component={UserCard} />
+          >
+            <UserProfile token={userToken}/>
+          </Route>
+          
+          <Route path="/users/:id" token={userToken} component={UserCard} >
+            <UserCard token={userToken} setUser={setUser}/>
+          </Route>
 
           {/* Routes for major Topics */}
 {/*           <Route path="/guide" component={Guide} />

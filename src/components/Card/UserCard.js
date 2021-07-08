@@ -9,15 +9,15 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios';
 import "./UserProfile.css";
 import "../fonts.css";
 
-const UserProfile = () => {
+const UserProfile = ({setUser}) => {
 
   let {id} = useParams();
-
+  let history = useHistory()
   const [users, setUsers] = useState(false);
 
   const fetchUsers = async () => {
@@ -30,6 +30,11 @@ const UserProfile = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  const handleClick = () => {
+    setUser({ id, name: users.username })
+    history.push('/messages')
+  }
 
 
   return (
@@ -60,7 +65,7 @@ const UserProfile = () => {
                     <Card.Text className="subHeadlineFonts">
                       Moved to Germany in 2010
                     </Card.Text>
-                    <Button variant="success" className="mt-auto buttonFonts" block>
+                    <Button variant="success" className="mt-auto buttonFonts" block onClick={handleClick}>
                       Send a Message
                     </Button>
                   </Card.Body>

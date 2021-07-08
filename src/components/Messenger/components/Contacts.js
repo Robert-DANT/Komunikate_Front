@@ -61,7 +61,6 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
         searchedUsersGet()
     }
 
-
     
 
 
@@ -90,7 +89,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                                                 {connectedUsers.includes(contact._id) ? <Badge pill variant="success">@</Badge> : <Badge pill variant="secondary">@</Badge>}</h6></span>
                                             <ul style={{listStyleType: 'none'}}>
                                                 <li>{contact.user_role}</li>
-                                                <li>{contact.languages.map(el => el)}</li>
+                                                <li>{contact.languages.map(el => `${el} `)}</li>
                                                 <li>{contacts.city_in_germany}</li>
                                             </ul> 
                                         </>

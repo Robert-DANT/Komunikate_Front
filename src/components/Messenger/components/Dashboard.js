@@ -5,7 +5,6 @@ import { useConversations } from '../contexts/ConversationsProvider'
 
 export default function Dashboard({ idUser }) {
     const { selectedConversation } = useConversations()
-    console.log(idUser)
     
     return (
         <div className='d-flex' style={{ height: '90vh' }}>
