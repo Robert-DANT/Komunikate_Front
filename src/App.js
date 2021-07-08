@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
 // import FooterBar from "./components/Foot/Foot";
+import FooterNew from "./components/FooterNew/FooterNew";
 import Guide from "./components/Routes/Guide";
 import Visas from "./components/Routes/Visas.js";
 import HealthInsurance from "./components/Routes/HealthInsurance";
@@ -50,6 +51,7 @@ const App = () => {
         user_role: decoded.user.user_role,
         id: decoded.user._id,
         admin: decoded.user.admin,
+        userImg: decoded.user.userImg,
       });
     }
   }, [jwt]);
@@ -58,7 +60,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App footer-bottom">
         {location.pathname.toLowerCase() !== "/adminpanel" && (
           <NavBar userToken={userToken} setJwt={setJwt} />
         )}
@@ -108,7 +110,7 @@ const App = () => {
 
         {/* Needs Restyling */}
         {/* <FooterBar /> */}
-        {/*         <FooterBar className="stickyFooter" /> */}
+        <div className="footer-snap"><FooterNew /></div>
       </div>
 
     </Router>

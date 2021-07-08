@@ -18,3 +18,14 @@ html {
 .App {
   text-align: center;
 }
+
+.footer-snap {
+  position: fixed;
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+.footer-bottom {
+  padding-bottom:60px;
+}

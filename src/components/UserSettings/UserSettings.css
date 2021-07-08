@@ -79,13 +79,42 @@ h3 {
   width: 11rem !important;
   height: 11rem !important;
   /* height: 13rem; */
-  align-self: center;
-  /*   padding: 1rem; */
+    align-self: right;
+/*   padding: 1rem; */
+
+/* border-image-source: linear-gradient(to left, #0096be, #005b97); */
+filter: drop-shadow(0 0 0.15rem #005b97);
 
   /* border-image-source: linear-gradient(to left, #0096be, #005b97); */
   filter: drop-shadow(0 0 0.15rem #005b97);
 }
 
+.centerImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 hr {
   border-top: 1px solid blue;
+}
+
+.proPhotoSettings {
+  width: 11.25rem;
+  height: 11.25rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid #0096be;
+  filter: drop-shadow(0 0 0.5rem #a8a8a86b);
+}
+
+.proPhotoSettings img{
+
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto; 
 }

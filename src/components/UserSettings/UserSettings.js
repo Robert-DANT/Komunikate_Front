@@ -117,7 +117,7 @@ const UserSettings = ({ token }) => {
               required
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="info" type="submit">
             Update
           </Button>
         </Form>
@@ -127,7 +127,7 @@ const UserSettings = ({ token }) => {
 
   const UpdatePassword = () => (
     <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-      <Button className="password-button buttonFonts" variant="success">
+      <Button className="password-button buttonFonts" variant="info">
         Update Password
       </Button>
     </OverlayTrigger>
@@ -142,14 +142,17 @@ Moved to
       <Container className="content-container bg-light">
         <Row>
           <Col sm={3}>
-            <img
-              className="user-image"
-              src={proPhoto}
-              alt="Generic placeholder"
-            />
-
+            <div className="proPhotoSettings centerImage">
+              <div className="centerImage">
+                <img
+                  /* className="user-image" */
+                  src={proPhoto}
+                  alt="Generic placeholder"
+                />
+              </div>
+            </div>
             <ListGroup className="" variant="flush">
-              <Button className="button-photo buttonFonts" variant="success">
+              <Button className="button-photo buttonFonts" variant="info">
                 Update Photo
               </Button>{" "}
               <ListGroup.Item
@@ -389,7 +392,7 @@ Moved to
                     />
                   </Form.Group>
                 </Form.Row>
-
+{/* 
                 <Form.Row>
                   <Form.Group as={Col}>
                     <Form.Label className="mainHeaderFonts">
@@ -423,7 +426,7 @@ Moved to
                       className="formFonts"
                     />
                   </Form.Group>
-                </Form.Row>
+                </Form.Row> */}
                 <hr />
                 <Form.Group as={Col}>
                   <Form.Label className="mainHeaderFonts">
@@ -444,7 +447,7 @@ Moved to
 
                 <Button
                   className="cancel-save-button buttonFonts"
-                  variant="primary"
+                  variant="info"
                   type="submit"
                   onClick={updateProfile}
                 >
@@ -452,7 +455,7 @@ Moved to
                 </Button>
                 <Button
                   className="cancel-save-button buttonFonts"
-                  variant="primary"
+                  variant="info"
                   type="submit"
                 >
                   Cancel
