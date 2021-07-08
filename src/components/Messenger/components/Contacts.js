@@ -8,7 +8,7 @@ import SearchModal from './SearchModal'
 export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedContactIds, setSelectedContactIds] = useState([])
-    const { contacts, setContacts, connectedUsers } = useContacts()
+    const { contacts, setContacts, connectedUsers, searchedUsersGet } = useContacts()
     const { conversations, createConversation, selectConversationIndex, arrayEquality } = useConversations()
 
     
@@ -57,6 +57,10 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
         setModalOpen(false)
       }
 
+    const handleClear = () => {
+        searchedUsersGet()
+    }
+
 
     
 
@@ -66,9 +70,11 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
         <div className='d-flex flex-column flex-grow-1'>
         <div style={{position: 'sticky', top: 0, zIndex: 10,
                 backgroundColor: 'white'}} className='p-2 border border-top border-right small'>
-                <Button form='checkbox-form' type='submit' size="lg" block>Komunikate</Button>
-                <br/>
                 <Button onClick={() => setModalOpen(true)} block>Search Komunikators</Button>
+                <br/>
+                <Button onClick={handleClear} block>Clear Search</Button>
+                <br/>
+                <Button form='checkbox-form' type='submit' size="lg" block>Komunikate</Button>
         </div>
             <div className='flex-grow-1 overflow-auto'>
                 <Form onSubmit={handleSubmit} id='checkbox-form'>

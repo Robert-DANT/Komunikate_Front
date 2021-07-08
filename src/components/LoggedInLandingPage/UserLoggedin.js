@@ -16,7 +16,7 @@ import axios from 'axios';
 import ISO6391 from 'iso-639-1'
 import { Link } from 'react-router-dom';
 
-const UserLoggedIn = () => {
+const UserLoggedIn = ({ token }) => {
 
   const [randomUsers, setRandomUsers] = useState();
   const languagesRef = useRef()
@@ -37,10 +37,10 @@ const UserLoggedIn = () => {
     axios
         .get(`https://stark-fjord-75040.herokuapp.com/users`,
             {
-                headers: {
-                    'auth-token': token,
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
+                // headers: {
+                //     'auth-token': token,
+                //     'Content-Type': 'application/x-www-form-urlencoded'
+                // },
                 params: queryString
             }
         )
@@ -85,6 +85,7 @@ const UserLoggedIn = () => {
               </Form.Control>
               <Form.Label>By City</Form.Label>
               <Form.Control as="select" ref={citiesRef}>
+                <option value=''></option>
                 <option>Berlin</option>
                 <option>Frankfurt am Main</option>
                 <option>Hamburg</option>
@@ -102,10 +103,11 @@ const UserLoggedIn = () => {
               </Button>
             </Form.Group>
             </Form>
-            <br/>
+            <div>
             <Button variant="secondary" block>
                 Clear Search
             </Button>
+            </div>
 { randomUsers &&  randomUsers.map((user) => (
 
             
