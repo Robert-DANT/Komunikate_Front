@@ -107,7 +107,7 @@ const NavBar = ({ userToken, setJwt }) => {
               className="mr-sm-2 formFonts formWidth roundedInput"
               ref={searchRef}
             />
-            <Button type="submit" variant="outline-success" className="buttonFonts">Find it!</Button>
+            <Button type="submit" variant="outline-primary" className="buttonFonts">Find it!</Button>
           </Form>
         </Navbar.Collapse>
 

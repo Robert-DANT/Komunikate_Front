@@ -74,9 +74,9 @@ const Articles = () => {
                   src={article.img1 || "https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"}
                 />
                 <Card.Body>
-                  <Card.Title className="mainHeaderFonts">{article.title}</Card.Title>
+                  <Card.Title className="mainHeaderFonts color_darkgrey">{article.title}</Card.Title>
                   <hr className="color_lightblue_hr" />
-                  <Card.Text className="subHeadlineFonts paragraphRagging">{article.body.substring(0, 120)}...</Card.Text>
+                  <Card.Text className="subHeadlineFonts paragraphRagging color_darkgrey textLeftAlign">{article.body.substring(0, 120)}...</Card.Text>
                 </Card.Body>
                 <Card.Text>
                   <small className="text-muted quoteFonts creationDatePadding">
