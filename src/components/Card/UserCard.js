@@ -13,6 +13,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import "./UserProfile.css";
 import "../fonts.css";
+import "./UserCard.css"
 
 const UserProfile = () => {
 
