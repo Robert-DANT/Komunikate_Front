@@ -37,10 +37,6 @@ const UserLoggedIn = () => {
     axios
         .get(`https://stark-fjord-75040.herokuapp.com/users`,
             {
-                headers: {
-                    'auth-token': token,
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
                 params: queryString
             }
         )
