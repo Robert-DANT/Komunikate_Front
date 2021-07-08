@@ -5,10 +5,13 @@ import "./Articles.css";
 import React, { useState, useEffect } from "react";
 import "../fonts.css";
 
+
 const Articles = () => {
   let { topic } = useParams();
   console.log(topic)
   const [articles, setArticles] = useState();
+
+  const categories = ['guide', 'healthcare', 'lifestyle', 'visa']
 
   const calcDate = (time) => {
     const event = new Date(time);
@@ -32,8 +35,21 @@ const Articles = () => {
       .catch((error) => console.log(error));
   };
 
+  const fetchSearch = async () => {
+    await axios
+            .get(`https://stark-fjord-75040.herokuapp.com/posts/search`, { params: {searchtext: topic}})
+            .then(res => {
+                console.log(res)
+                setArticles(res.data.searchedArticles)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+  }
+
   useEffect(() => {
-    if (topic) fetchCategories()
+    if (categories.includes(topic)) fetchCategories()
+    else if (topic) fetchSearch()
     else fetchArticles()
   }, [topic]);
 
@@ -58,271 +74,20 @@ const Articles = () => {
                   src={article.img1 || "https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"}
                 />
                 <Card.Body>
-                  <Card.Title>{article.title}</Card.Title>
-                  <Card.Text>{article.body.substring(0, 120)}...</Card.Text>
+                  <Card.Title className="mainHeaderFonts">{article.title}</Card.Title>
+                  <hr className="color_lightblue_hr" />
+                  <Card.Text className="subHeadlineFonts paragraphRagging">{article.body.substring(0, 120)}...</Card.Text>
                 </Card.Body>
                 <Card.Text>
-                  <small className="text-muted">
+                  <small className="text-muted quoteFonts creationDatePadding">
                     post created: {calcDate(article.date)}
                   </small>
                 </Card.Text>
               </Card>
             </Link>
           ))}
-{/*         
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Text>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Text>
-        </Card>
-        
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2014/11/15/23/31/alpsee-532864_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2018/06/04/18/32/koblenz-3453860_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2021/04/25/16/43/lighthouse-6207038_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Text>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Text>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2018/08/03/11/48/skyline-3581739_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Text>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Text>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2014/11/15/23/31/alpsee-532864_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Text>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Text>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2014/11/15/23/31/alpsee-532864_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2018/06/04/18/32/koblenz-3453860_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2021/04/25/16/43/lighthouse-6207038_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Text>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Text>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2018/08/03/11/48/skyline-3581739_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title that wraps to a new line</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.Body>
-          <Card.Text>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Text>
-        </Card>
-        <Card>
-          <Card.Img
-            variant="top"
-            src="https://cdn.pixabay.com/photo/2014/11/15/23/31/alpsee-532864_960_720.jpg"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{" "}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card> */}
       </CardColumns>
     </Container>
-
-    // <>
-    //   <h3>Articles</h3>
-    //   <Card className="article">
-    //     <Card.Header>Featured</Card.Header>
-    //     <Card.Img
-    //       className="article-img"
-    //       variant="top"
-    //       src="https://cdn.pixabay.com/photo/2017/08/16/00/59/panorama-2646143_960_720.jpg"
-    //     />
-    //     <Card.Body>
-    //       <Card.Title>Moving to Germany in 2021</Card.Title>
-    //       <Card.Text>
-    //         With supporting text below as a natural lead-in to additional
-    //         content.
-    //       </Card.Text>
-    //       <Button variant="primary">Continue reading...</Button>
-    //     </Card.Body>
-    //   </Card>
-    //   <Card className="article">
-    //     <Card.Header>Featured</Card.Header>
-    //     <Card.Img
-    //       className="article-img"
-    //       variant="top"
-    //       src="https://cdn.pixabay.com/photo/2014/11/15/23/31/alpsee-532864_960_720.jpg"
-    //     />
-    //     <Card.Body>
-    //       <Card.Title>Berlin 101</Card.Title>
-    //       <Card.Text>
-    //         With supporting text below as a natural lead-in to additional
-    //         content.
-    //       </Card.Text>
-    //       <Button variant="primary">Continue reading...</Button>
-    //     </Card.Body>
-    //   </Card>
-    //   <Card className="article">
-    //     <Card.Header>Featured</Card.Header>
-    //     <Card.Img
-    //       className="article-img"
-    //       variant="top"
-    //       src="https://cdn.pixabay.com/photo/2021/04/25/16/43/lighthouse-6207038_960_720.jpg"
-    //     />
-    //     <Card.Body>
-    //       <Card.Title>Germany for beginners</Card.Title>
-    //       <Card.Text>
-    //         With supporting text below as a natural lead-in to additional
-    //         content.
-    //       </Card.Text>
-    //       <Button variant="primary">Continue reading...</Button>
-    //     </Card.Body>
-    //   </Card>
-    // </Co>
   );
 };
 

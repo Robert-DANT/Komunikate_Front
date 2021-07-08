@@ -1,0 +1,13 @@
+.conversations-list {
+  background: rgb(0, 91, 151);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 150, 190, 1) 40%,
+    rgb(235, 239, 240) 20%,
+    rgba(0, 150, 190, 1) 40%
+  );
+}
+
+.list-group-item.active {
+  border-color: white;
+}

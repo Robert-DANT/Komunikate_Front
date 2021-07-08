@@ -81,6 +81,7 @@ const NavBar = ({ userToken, setJwt }) => {
   }
 
 
+
   return (
     <>
       <Navbar bg="light" expand="lg" sticky="top" className="dropShadowNav">
@@ -107,9 +108,14 @@ const NavBar = ({ userToken, setJwt }) => {
               className="mr-sm-2 formFonts formWidth roundedInput"
               ref={searchRef}
             />
-            <Button type="submit" variant="outline-success" className="buttonFonts">Find it!</Button>
+            <Button
+              type="submit"
+              variant="outline-primary"
+              className="buttonFonts"
+            >
+              Find it!
+            </Button>
           </Form>
-        </Navbar.Collapse>
 
         {/* Conditionally rendered login/registration button : user Profile options */}
         {token ? (
@@ -231,25 +237,46 @@ const NavBar = ({ userToken, setJwt }) => {
         >
           <Nav.Item>
             <Nav.Link eventKey="link-1">
-              <Link to="/articles/guide" className="mainHeaderFonts color_white"> Guides </Link>
+              <Link
+                to="/articles/guide"
+                className="mainHeaderFonts color_white"
+              >
+                {" "}
+                Guides{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-2">
-              <Link to="/articles/visa" className="mainHeaderFonts color_white"> Visas </Link>
+              <Link to="/articles/visa" className="mainHeaderFonts color_white">
+                {" "}
+                Visas{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-3">
-              <Link to="/articles/healthcare" className="mainHeaderFonts color_white"> Healthcare </Link>
+              <Link
+                to="/articles/healthcare"
+                className="mainHeaderFonts color_white"
+              >
+                {" "}
+                Healthcare{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-4">
-              <Link to="/articles/lifestyle" className="mainHeaderFonts color_white"> Lifestyle </Link>
+              <Link
+                to="/articles/lifestyle"
+                className="mainHeaderFonts color_white"
+              >
+                {" "}
+                Lifestyle{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
         </Nav>

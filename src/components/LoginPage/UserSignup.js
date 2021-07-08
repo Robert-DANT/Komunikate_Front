@@ -28,19 +28,7 @@ const UserSignup = ({ token, setToken }) => {
 
   const languagesArray = ISO6391.getAllNames()
 
-  const moreLanguages = () => {
-    return (<Form.Control 
-      as="select"
-      defaultValue='Choose ...'
-      onChange={(e) => setLanguages(...languages, e.target.value)}
-      id="languages"
-      name="languages"
-      required
-      >
-          <option>Choose ...</option>
-          {languagesArray.map(el => <option>{el}</option>)}
-    </Form.Control>)
-  }
+  
 
   // unneeded login code - can be deleted
   /*   const handleLogin = (e) => {
@@ -121,23 +109,6 @@ const UserSignup = ({ token, setToken }) => {
         })
     );
   };
-
-  // old code for Poke game
-  /*   const handleStartClick = () => {
-      if (token) {
-        const decoded = jwt_decode(token)
-        if (Date.now() >= decoded.exp*1000) {
-          alert('Session expired, please login again')
-          setLoginScreen(true)
-        }
-        else if(decoded.user.name) {
-          alert(`Welcome back ${decoded.user.name}!`)
-        }
-        else setLoginScreen(true)
-      }
-      else setLoginScreen(true)
-      
-    } */
 
     const handleAddLanguage = () => {
       const newLanguages = [...languages, ''];

@@ -3,7 +3,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
 import HeaderBody from "./components/HeaderSection/HeaderBody";
-// import FooterBar from "./components/Footer/FooterBar";
+// import FooterBar from "./components/Foot/Foot";
+import FooterNew from "./components/FooterNew/FooterNew";
 import Guide from "./components/Routes/Guide";
 import Visas from "./components/Routes/Visas.js";
 import HealthInsurance from "./components/Routes/HealthInsurance";
@@ -20,6 +21,7 @@ import SingleArticle from "./components/ArticlePage/ArticleTemp";
 import LandingBanner from "./components/LandingBanner/LandingBanner";
 //import Messenger from "./components/Messenger/Sliders"
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +31,7 @@ import {
 } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+
 
 const App = () => {
   const [userToken, setUserToken] = useState({});
@@ -48,15 +51,16 @@ const App = () => {
         user_role: decoded.user.user_role,
         id: decoded.user._id,
         admin: decoded.user.admin,
+        userImg: decoded.user.userImg,
       });
     }
   }, [jwt]);
 
-  console.log(userToken)
+  console.log(userToken);
 
   return (
     <Router>
-      <div className="App">
+      <div className="App footer-bottom">
         {location.pathname.toLowerCase() !== "/adminpanel" && (
           <NavBar userToken={userToken} setJwt={setJwt} />
         )}
@@ -64,7 +68,7 @@ const App = () => {
         <Switch>
           <Route path="/adminpanel" token={userToken} component={AdminPanel} />
           <Route path="/messages">
-            <Messenger userToken={userToken}/>
+            <Messenger userToken={userToken} />
           </Route>
           <Route
             exact
@@ -89,7 +93,7 @@ const App = () => {
           <Route path="/users/:id" token={userToken} component={UserCard} />
 
           {/* Routes for major Topics */}
-{/*           <Route path="/guide" component={Guide} />
+          {/*           <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />
           <Route path="/healthinsurance" component={HealthInsurance} />
           <Route path="/applications" component={Applications} /> */}
@@ -97,17 +101,18 @@ const App = () => {
           <Route path="/articles/article/:id" component={SingleArticle} />
 
           <Route path="/articles/:topic?" component={Articles} />
-
           {/* Add all Routes above, Below is redirect for non existent paths */}
           <Route path="/*">
             <Redirect to="/" />
           </Route>
         </Switch>
+        
 
         {/* Needs Restyling */}
         {/* <FooterBar /> */}
-{/*         <FooterBar className="stickyFooter" /> */}
+        <div className="footer-snap"><FooterNew /></div>
       </div>
+
     </Router>
   );
 };

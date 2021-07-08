@@ -1,4 +1,4 @@
-/* /* #center {
+/* #center {
     margin: auto;
     justify-content: center;
 } */
@@ -52,62 +52,41 @@ footer.light .footer-copyright{ background: none repeat scroll 0 0 rgba(255, 255
 .widget-title.text-center span,.widget-title.text-center span::after {margin-left: auto;margin-right:auto;left: 0;right: 0;}
 .widget .badge{ float: right; background: #7f7f7f;}
 
-.typo-light h1,
-.typo-light h2,
-.typo-light h3,
-.typo-light h4,
-.typo-light h5,
+.typo-light h1, 
+.typo-light h2, 
+.typo-light h3, 
+.typo-light h4, 
+.typo-light h5, 
 .typo-light h6,
 .typo-light p,
 .typo-light div,
 .typo-light span,
-.typo-light small {
-  color: #fff;
-}
+.typo-light small{  color: #fff;}
 
-ul.social-footer2 {
-  margin: 0;
-  padding: 0;
-  width: auto;
-}
-ul.social-footer2 li {
-  display: inline-block;
-  padding: 0;
-}
-ul.social-footer2 li a:hover {
-  background-color: #ff8d1e;
-}
-ul.social-footer2 li a {
-  display: block;
-  height: 30px;
-  width: 30px;
-  text-align: center;
-}
-.btn {
-  background-color: #0caa33;
-  color: #fff;
-}
-.btn:hover,
-.btn:focus,
-.btn.active {
-  background: #1d9ad8;
-  color: rgb(0, 0, 0);
-  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  -webkit-transition: all 250ms ease-in-out 0s;
-  -moz-transition: all 250ms ease-in-out 0s;
-  -ms-transition: all 250ms ease-in-out 0s;
-  -o-transition: all 250ms ease-in-out 0s;
-  transition: all 250ms ease-in-out 0s;
+ul.social-footer2 { margin: 0;padding: 0; width: auto;}
+ul.social-footer2 li {display: inline-block;padding: 0;}
+ul.social-footer2 li a:hover {background-color:#ff8d1e;}
+ul.social-footer2 li a {display: block; height:30px;width: 30px;text-align: center;}
+.btn{background-color: #0caa33; color:#fff;}
+.btn:hover, .btn:focus, .btn.active {background: #1d9ad8;color: rgb(0, 0, 0);
+-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+-webkit-transition: all 250ms ease-in-out 0s;
+-moz-transition: all 250ms ease-in-out 0s;
+-ms-transition: all 250ms ease-in-out 0s;
+-o-transition: all 250ms ease-in-out 0s;
+transition: all 250ms ease-in-out 0s;
+
 }
 
 .stickyFooter {
-  background-color: #f3f3f3;
+  background-color: #F3F3F3;
   padding-top: 10px;
   padding-bottom: 0px;
   position:fixed;
   bottom:0;
-  width:100%; */
+  width:100%;
+} */

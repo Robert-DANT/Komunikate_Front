@@ -1,0 +1,27 @@
+.contact-field-buttons {
+  background: rgb(0, 91, 151);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 150, 190, 1) 40%,
+    rgb(235, 239, 240) 20%,
+    rgba(0, 150, 190, 1) 40%
+  );
+}
+
+.contact-field-buttons:hover {
+  background-color: #005b97;
+}
+
+.user-id {
+  margin-bottom: 0;
+}
+
+.user-role {
+  margin-left: 1rem;
+}
+
+.komunikators-list {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}

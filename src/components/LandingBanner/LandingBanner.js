@@ -19,7 +19,7 @@ const LandingBanner = () => {
             <div class="carousel-inner" role="listbox" className="bannerShift boxDropShadow">
 
             <Carousel fade controls={false} indicators={false}>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel01}
@@ -49,7 +49,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel03}
@@ -65,7 +65,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel09}
@@ -81,7 +81,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100 imgYShift"
                         src={Carousel04}
@@ -97,7 +97,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100"
                         src={Carousel06}
@@ -113,7 +113,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100"
                         src={Carousel07}
@@ -129,7 +129,7 @@ const LandingBanner = () => {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100"
                         src={Carousel08}

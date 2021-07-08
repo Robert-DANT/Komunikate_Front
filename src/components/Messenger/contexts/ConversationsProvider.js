@@ -5,7 +5,7 @@ import { useSocket } from './SocketProvider'
 //import useLocalStorage from '../hooks/useLocalStorage';
 
 
-const PORT = process.env.PORT || 'http://localhost:3002'
+const PORT = 'https://stark-fjord-75040.herokuapp.com'
 
 const ConversationsContext = createContext()
 
@@ -13,7 +13,7 @@ export const useConversations = () => {
     return useContext(ConversationsContext)
 }
 
-export function ConversationsProvider( { token, idUser, children } ) { 
+export function ConversationsProvider({ token, idUser, children }) {
     const [conversations, setConversations] = useState([]) //useLocalStorage('conversations', [])
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
     const { mapContacts } = useContacts()
@@ -25,55 +25,55 @@ export function ConversationsProvider( { token, idUser, children } ) {
 
 
     const arrayEquality = (a, b) => {
-        
-        if (a.length !== b.length) { return false}
-    
+
+        if (a.length !== b.length) { return false }
+
         a.sort()
         b.sort()
-    
-        const result =  a.every((element, index) => {
+
+        const result = a.every((element, index) => {
             return element === b[index]
-          })
-        
+        })
+
         return result
     }
-    
 
-    const getConversations = () => { 
-             axios
-                         .get(`${PORT}/conversations/ind`,
-                             {
-                                 headers: {
-                                    'auth-token': token,
-                                    'Content-Type': 'application/x-www-form-urlencoded'
-                                 }
-                             }
-                         )
-                         .then(res => {
-                             console.log(res)
-                            if (Array.isArray(res.data)) {                         
-                             const newConversations = res.data.map(el => {
-                                const recipients = el.participants.filter(p => p !== id)
-                                console.log('id', id)// because this one is undefined!!!!!
-                                console.log('goes wrong', recipients)//something goes wrong here >> id is undefined on reload ??? >>> added id as a condition
-                                const messages = el.messages
-                                return { recipients, messages }
-                            })
-                            setConversations(newConversations)
-                            console.log('newConversations', newConversations)
-                            }
-                         })
-                         .catch(err => {
-                             console.log(err)
-                         })
-     }
 
-     useEffect(() => {
+    const getConversations = () => {
+        axios
+            .get(`${PORT}/conversations/ind`,
+                {
+                    headers: {
+                        'auth-token': token,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }
+            )
+            .then(res => {
+                console.log(res)
+                if (Array.isArray(res.data)) {
+                    const newConversations = res.data.map(el => {
+                        const recipients = el.participants.filter(p => p !== id)
+                        console.log('id', id)// because this one is undefined!!!!!
+                        console.log('goes wrong', recipients)//something goes wrong here >> id is undefined on reload ??? >>> added id as a condition
+                        const messages = el.messages
+                        return { recipients, messages }
+                    })
+                    setConversations(newConversations)
+                    console.log('newConversations', newConversations)
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
         if (token && id) getConversations()
     }, [token, id])
 
 
-    
+
 
 
 
@@ -90,11 +90,10 @@ export function ConversationsProvider( { token, idUser, children } ) {
         setConversations(prevConversations => {
             let madeChange = false //evaluates whether a new conversations has to be created or whether the message is to be added to an existing conversation (if false, create; if true, add)
             const newMessage = { sender, text }
-            
+
             //see whether recipients matches conversations and update this conversation
             const newConversations = prevConversations.map(conversation => {
-                if (arrayEquality(conversation.recipients, recipients))
-                {
+                if (arrayEquality(conversation.recipients, recipients)) {
                     madeChange = true
                     return {
                         ...conversation,
@@ -105,11 +104,11 @@ export function ConversationsProvider( { token, idUser, children } ) {
                 return conversation
             })
             console.log('in addTo conversations', conversations)
-            if (madeChange){
-                    return newConversations
+            if (madeChange) {
+                return newConversations
             } else {
                 return [
-                    ...prevConversations, 
+                    ...prevConversations,
                     { recipients, messages: [newMessage] }
                 ]
             }
@@ -127,7 +126,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
     const sendMessage = (recipients, text) => {
         socket.emit('send-message', { recipients, text })
 
-        addMessageToConversation({ recipients, text, sender: id})
+        addMessageToConversation({ recipients, text, sender: id })
     }
 
 
@@ -137,15 +136,15 @@ export function ConversationsProvider( { token, idUser, children } ) {
             const contact = mapContacts.find(contact => {
                 return contact._id === recipient
             })
-            const name = (contact && contact.username) 
-            return { id: recipient, name}
+            const name = (contact && contact.username)
+            return { id: recipient, name }
         })
 
         const messages = conversation.messages.map(message => {
             const contact = mapContacts.find(contact => {
                 return contact._id === message.sender
             })
-            const name =  (contact && contact.username)
+            const name = (contact && contact.username)
             const fromMe = id === message.sender
             return { ...message, senderName: name, fromMe }
         })
@@ -154,7 +153,7 @@ export function ConversationsProvider( { token, idUser, children } ) {
         //if (selected) return { ...conversation, messages, recipients, selected, newMessage: false }
         return { ...conversation, messages, recipients, selected }
     })
-    
+
     // useEffect(() => {
     //     setFormattedConversations(formattedConversationsFunc())
     // }, [stringifiedConversations, selectedConversationIndex])
