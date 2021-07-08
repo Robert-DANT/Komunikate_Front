@@ -142,3 +142,7 @@
 .creationDatePadding {
   margin: 1.4em;
 }
+
+.textLeftAlign {
+  text-align: left;
+}

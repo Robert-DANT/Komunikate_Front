@@ -65,5 +65,10 @@
 }
 
 .profileCircleShift {
-  margin-left: .5rem;
+  margin-left: 1rem;
+}
+
+
+.userCardSpacer {
+  height: 1em;
 }

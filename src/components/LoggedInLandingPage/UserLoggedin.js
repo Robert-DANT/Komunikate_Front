@@ -98,10 +98,11 @@ const UserLoggedIn = () => {
               </Button>
             </Form.Group>
             </Form>
-            <br/>
+
             <Button variant="secondary" block>
                 Clear Search
             </Button>
+            <br />
 { randomUsers &&  randomUsers.map((user) => (
 
 <Card>
@@ -122,7 +123,7 @@ const UserLoggedIn = () => {
   <Badge variant="info">{user.user_role}</Badge>
   <Card.Text>
     <p>
-    Speaks: <strong className="mainBodyFont">{user.languages[0]}
+    Speaks: <strong className="mainBodyFont textLeftAlign">{user.languages[0]}
     {user.languages[1] && `, ${user.languages[1]}`}
     {user.languages[2] && `, ${user.languages[2]}`}
     {user.languages[3] && `, ${user.languages[3]}`}
@@ -137,10 +138,9 @@ const UserLoggedIn = () => {
     Send a Message
     </Link>
   </Button>
-
 </Card.Body>
 
-</Card>     ))  }
+</Card>  )) }
 
 </Col>
 <Col className="table-column" md={9}>
