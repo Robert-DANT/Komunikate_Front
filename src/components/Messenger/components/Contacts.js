@@ -144,6 +144,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                             <small className="user-languages">
                               {contact.languages.map((el) => `${el} `)}
                             </small>
+                            
                           </span>
                           <ul style={{ listStyleType: "none" }}>
                             {/* <li>{contact.user_role}</li> */}

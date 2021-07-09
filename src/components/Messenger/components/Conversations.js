@@ -18,11 +18,15 @@ export default function Conversations() {
           onClick={() => selectConversationIndex(index)}
           active={conversation.selected}
         >
+          <h5 className="mainHeaderFonts color_white">
           {conversation.recipients
             .map((recipient) => recipient.name)
             .join(", ")}
+          </h5>
         </ListGroup.Item>
       ))}
     </ListGroup>
   );
 }
+
+//className="mainHeaderFonts color_white"
