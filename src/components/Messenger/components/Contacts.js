@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import { Modal, Form, Button, Badge } from "react-bootstrap";
 import { useContacts } from "../contexts/ContactsProvider";
 import { useConversations } from "../contexts/ConversationsProvider";
@@ -121,12 +122,14 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                         <>
                           <span>
                             <h6 className="user-id">
-                              {/* <img
-                                src={contact.userImg}
-                                width="50px"
-                                height="50px"
-                                alt="user-img"
-                              /> */}
+                            <div className="profile-cropper">
+                                    <Link to={`/users/${contact._id}`}>
+                                        <img src={contact.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+                                        width="40px"
+                                        height="40px"
+                                        alt="{contact.username}" />
+                                    </Link>
+                                </div>
                               {contact.username}&nbsp; 
                               {connectedUsers.includes(contact._id) ? (
                                 <Badge pill variant="success">
@@ -139,8 +142,9 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                               )}
                             </h6>
                             <small className="user-languages">
-                              {contact.languages.map((el) => el)}
+                              {contact.languages.map((el) => `${el} `)}
                             </small>
+                            
                           </span>
                           <ul style={{ listStyleType: "none" }}>
                             {/* <li>{contact.user_role}</li> */}
@@ -164,3 +168,4 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
     </>
   );
 }
+

@@ -40,7 +40,9 @@ export function ContactsProvider({ token, children }) {
                 }
             )
             .then(res => {
-                let contacts = res.data.users.map(({ _id, username, languages, city_in_germany, user_role }) => ({ _id, username, languages, city_in_germany, user_role, isChecked: false }))
+                let contacts = res.data.users.map(({ _id, username, languages, city_in_germany, user_role, userImg
+                }) => ({ _id, username, languages, city_in_germany, user_role, userImg,
+                    isChecked: false }))
                 setContacts(contacts)
             })
             .catch(err => {
