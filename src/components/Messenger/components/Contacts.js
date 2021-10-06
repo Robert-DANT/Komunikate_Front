@@ -113,39 +113,50 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
             {contacts.map(
               (contact) =>
                 contact._id !== idUser._id && (
+                  <div styleName="chatUsers">
                   <Form.Group key={contact._id}>
+                    {/* This is the start of the DIVS */}
+                
                     <Form.Check
                       type="checkbox"
                       checked={contact.isChecked}
                       value={contact._id}
                       label={
                         <>
-                          <span>
-                            <h6 className="user-id">
-                            <div className="profile-cropper">
-                                    <Link to={`/users/${contact._id}`}>
-                                        <img src={contact.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
-                                        width="40px"
-                                        height="40px"
-                                        alt="{contact.username}" />
-                                    </Link>
+                            <div styleName="chatUsers">
+                                         <h6 className="user-id"></h6>
+                            </div>
+                                <div>
+                                            <div className="profile-cropper">
+                                                    <Link to={`/users/${contact._id}`}>
+                                                        <img src={contact.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+                                                        width="50px"
+                                                        height="50px"
+                                                        alt="{contact.username}" 
+                                                        />
+                                                    </Link>
+                                                </div>
                                 </div>
-                              {contact.username}&nbsp; 
-                              {connectedUsers.includes(contact._id) ? (
-                                <Badge pill variant="success">
-                                  <FontAwesomeIcon icon={faComment} /> {contact.user_role}
-                                </Badge>
-                              ) : (
-                                <Badge pill variant="secondary">
-                                  <FontAwesomeIcon icon={faCommentSlash} /> {contact.user_role}
-                                </Badge>
-                              )}
-                            </h6>
-                            <small className="user-languages">
-                              {contact.languages.map((el) => `${el} `)}
-                            </small>
-                            
-                          </span>
+
+                            <div>
+                                 
+                                            {contact.username}&nbsp; 
+                                            {connectedUsers.includes(contact._id) ? (
+                                              <Badge pill variant="success">
+                                                <FontAwesomeIcon icon={faComment} /> {contact.user_role}
+                                              </Badge>
+                                            ) : (
+                                              <Badge pill variant="secondary">
+                                                <FontAwesomeIcon icon={faCommentSlash} /> {contact.user_role}
+                                              </Badge>
+                                            )}
+                                          <p>
+                                          <small className="user-languages">
+                                            {contact.languages.map((el) => `${el} `)}
+                                          </small>
+                                          </p> 
+                        
+                            </div>
                           <ul style={{ listStyleType: "none" }}>
                             {/* <li>{contact.user_role}</li> */}
                             {/* <li>{contact.languages.map((el) => el)}</li> */}
@@ -156,6 +167,7 @@ export default function Contacts({ setActiveKey, conversationsKey, idUser }) {
                       onChange={handleCheckboxChange}
                     />
                   </Form.Group>
+                  </div>
                 )
             )}
           </Form>
