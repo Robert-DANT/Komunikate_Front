@@ -72,11 +72,7 @@ const App = () => {
           <Route exact path="/messages">
             <Messenger userToken={userToken} user={user} setUser={setUser}/>
           </Route>
-          <Route
-            exact
-            path="/"
-            token={userToken}
-          >
+          <Route exact path="/" token={userToken}>
             {userToken.user_role === "" ? <HeaderBody/> : <UserLoggedIn setUser={setUser}/>}
           </Route>
           {/* User Registration and Login Routes */}

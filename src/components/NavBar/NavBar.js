@@ -12,12 +12,6 @@ import "./NavBar.css";
 import "../fonts.css";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
-// import logo from './components/logos/Komunikate_Long_Black_v01.svg';
-// import logo from './components/logos/Komunikate_Long_Blue_v01.svg';
-// import logo from './components/logos/Komunikate_Long_White_v01.svg';
-// import logo from './components/logos/Komunikate_Small_Black_v01.svg';
-// import logo from './components/logos/Komunikate_Small_Black_v01.svg';
-// import logo from './components/logos/Komunikate_Small_White_v01.svg';
 import Axios from "axios";
 import jwt_decode from "jwt-decode";
 

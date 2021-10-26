@@ -77,12 +77,10 @@ const Articles = () => {
                   <Card.Title className="mainHeaderFonts color_darkgrey">{article.title}</Card.Title>
                   <hr className="color_lightblue_hr" />
                   <Card.Text className="subHeadlineFonts paragraphRagging color_darkgrey textLeftAlign">{article.body.substring(0, 120)}...</Card.Text>
-                </Card.Body>
-                <Card.Text>
                   <small className="text-muted quoteFonts creationDatePadding">
-                    post created: {calcDate(article.date)}
+                    posted on {calcDate(article.date)}
                   </small>
-                </Card.Text>
+                </Card.Body>
               </Card>
             </Link>
           ))}
