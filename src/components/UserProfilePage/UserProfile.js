@@ -1,13 +1,4 @@
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-  Table,
-  Badge,
-  ListGroup,
-} from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Table, Badge, ListGroup } from "react-bootstrap";
 import "./UserProfile.css";
 import "../fonts.css";
 
@@ -83,27 +74,6 @@ const UserProfile = () => {
               Hobbies + Interests. Hobbies + Interests. Hobbies + Interests.
               Hobbies + Interests. Hobbies + Interests. Hobbies + Interests.
             </p>
-            {/*
-            <hr className="hr-posts" />
-            <h4>Most recent posts</h4>
-
-             <ListGroup variant="flush">
-              <ListGroup.Item action href="#link1">
-                Moving to Germany in 2021
-                <br />
-                <small className="text-muted">Last comment on ...</small>
-              </ListGroup.Item>
-              <ListGroup.Item action href="#link1">
-                Berlin 101
-                <br />
-                <small className="text-muted">Last comment on ...</small>
-              </ListGroup.Item>
-              <ListGroup.Item action href="#link1">
-                Germany for beginners
-                <br />
-                <small className="text-muted">Last comment on ...</small>
-              </ListGroup.Item>
-            </ListGroup> */}
           </Col>
         </Row>
       </Container>

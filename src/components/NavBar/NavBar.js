@@ -1,13 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  Button,
-  FormControl,
-  Container,
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Form, Button, FormControl, Container } from "react-bootstrap";
 import "./NavBar.css";
 import "../fonts.css";
 import { Link, useHistory } from "react-router-dom";
@@ -64,67 +56,53 @@ const NavBar = ({ userToken, setJwt }) => {
     const searchRef = useRef()
     const token = localStorage.getItem("token");
 
-
-  
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
     history.push(`/articles/${searchRef.current.value}`)
     searchRef.current.value = ''
-  }
-
+    }
 
   return (
     <>
       <Navbar bg="light" expand="lg" sticky="top" className="dropShadowNav">
         <Navbar.Brand>
           <Link to="/">
-            <img
-              src={logo}
-              width="350"
-              /* height="50" */
-              className="d-inline-block align-top logoShift"
-              alt="Kommunikate"
-            />
+            <img src={logo} width="350" className="d-inline-block align-top logoShift" alt="Kommunikate"/>
           </Link>
         </Navbar.Brand>
 
         <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        
         {/* Center Search Bar */}
-        <Navbar.Collapse id="basic-navbar-nav">  
+        <Navbar.Collapse id="basic-navbar-nav">
           <Form onSubmit={handleSubmit} id="center" inline>
-            <FormControl
-              type="text"
+            <FormControl type="text" 
               placeholder="What are you looking for?"
               className="mr-sm-2 formFonts formWidth roundedInput"
-              ref={searchRef}
-            />
-            <Button type="submit" variant="outline-primary" className="buttonFonts">Find it!</Button>
+              ref={searchRef}/>
+            <Button type="submit" variant="outline-primary" className="buttonFonts">
+              Find it!
+            </Button>
           </Form>
         </Navbar.Collapse>
 
         {/* Conditionally rendered login/registration button : user Profile options */}
         {token ? (
           <Nav>
-            <Nav.Link>
-              <Link to="/adminpanel">
-                <img
-                  src="https://image.flaticon.com/icons/png/512/3463/3463339.png"
-                  // change icon to admin panel & add conditional rendering for admin
-                  width="30"
-                  alt="Admin Panel"
-                />
-              </Link>
-            </Nav.Link>
+            {/* Only show Admin icon if user is an admin */}
+            {userToken.user_role != "Admin" ? "" : (
+              <Nav.Link>
+                <Link to="/adminpanel">
+                  <img src="https://image.flaticon.com/icons/png/512/3463/3463339.png" width="30" alt="Admin Panel"/>
+                </Link>
+              </Nav.Link>
+            )}
+
             <Nav.Link>
               <Link to="/messages">
-                <img
-                  src="https://image.flaticon.com/icons/png/512/2950/2950657.png"
-                  width="30"
-                  alt="Messages"
-                />
+                <img src="https://image.flaticon.com/icons/png/512/2950/2950657.png" width="30" alt="Messages"/>
               </Link>
             </Nav.Link>
             <NavDropdown
@@ -142,70 +120,75 @@ const NavBar = ({ userToken, setJwt }) => {
                 <Link to="/user_settings">User Settings</Link>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/" onClick={() => localStorage.clear()}>Log Out</NavDropdown.Item>
+              <NavDropdown.Item href="/" onClick={() => localStorage.clear()}>
+                Log Out
+              </NavDropdown.Item>
             </NavDropdown>
             <div className="profile-cropper">
-            <Link to={`/users/${userToken.id}`}>
+              <Link to={`/users/${userToken.id}`}>
                 <img src={userToken.userImg || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
-                  width="40px"
-                  height="40px"
-                  alt="{userToken.username}" />
+                  width="40px" height="40px" alt="{userToken.username}"/>
               </Link>
             </div>
           </Nav>
-          
         ) : (
           <Nav className="mr-auto">
             {/*             <Nav.Link>
               <Link to="/user_login">Login</Link>
             </Nav.Link> */}
-                          
-            <NavDropdown title="Login" id="basic-nav-dropdown"  class="dropdown-menu-end">
+
+            <NavDropdown
+              title="Sign in"
+              id="basic-nav-dropdown"
+              class="dropdown-menu-end"
+            >
               <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                <div class="col-auto">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    className="formFonts"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
+                <Form.Group className="mb-2" controlId="formBasicEmail">
+                  <div class="col-auto">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      className="formFonts"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <Form.Text className="text-muted">
+                   {/*    We'll never share your email with anyone else. */}
+                    </Form.Text>
                   </div>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                <div class="col-auto">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    className="formFonts"
-                    onChange={(e) => setPw(e.target.value)}
-                  />
-                                    </div>
+                  <div class="col-auto">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      className="formFonts"
+                      onChange={(e) => setPw(e.target.value)}
+                    />
+                  </div>
                 </Form.Group>
-{/*                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                {/*                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
-                  <div class="col-auto">
-                    <Button variant="primary" type="submit" className="buttonFonts" onClick={handleLogin}>
-
-                      Log In
-
-                    </Button>
-                  </div>
+                <div class="col-auto">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="buttonFonts"
+                    onClick={handleLogin}
+                  >
+                    Log In
+                  </Button>
+                </div>
               </Form>
               <NavDropdown.Divider />
- 
             </NavDropdown>
             <Form inline>
               <Link exact to="/register">
                 <Button variant="outline-success" className="buttonFonts">
-                  Register
+                  Create a Komuni<span className="reverseText">k</span>ate Account!
                 </Button>{" "}
               </Link>
             </Form>
@@ -225,25 +208,46 @@ const NavBar = ({ userToken, setJwt }) => {
         >
           <Nav.Item>
             <Nav.Link eventKey="link-1">
-              <Link to="/articles/guide" className="mainHeaderFonts color_white"> Guides </Link>
+              <Link
+                to="/articles/guide"
+                className="mainHeaderFonts color_white"
+              >
+                {" "}
+                Guides{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-2">
-              <Link to="/articles/visa" className="mainHeaderFonts color_white"> Visas </Link>
+              <Link to="/articles/visa" className="mainHeaderFonts color_white">
+                {" "}
+                Visas{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-3">
-              <Link to="/articles/healthcare" className="mainHeaderFonts color_white"> Healthcare </Link>
+              <Link
+                to="/articles/healthcare"
+                className="mainHeaderFonts color_white"
+              >
+                {" "}
+                Healthcare{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link eventKey="link-4">
-              <Link to="/articles/lifestyle" className="mainHeaderFonts color_white"> Lifestyle </Link>
+              <Link
+                to="/articles/lifestyle"
+                className="mainHeaderFonts color_white"
+              >
+                {" "}
+                Lifestyle{" "}
+              </Link>
             </Nav.Link>
           </Nav.Item>
         </Nav>

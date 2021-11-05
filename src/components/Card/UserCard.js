@@ -1,22 +1,11 @@
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-  Table,
-  Badge,
-  ListGroup,
-} from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Table, Badge, ListGroup } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 import axios from 'axios';
 import "./UserCard.css";
 import "../fonts.css";
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComments } from '@fortawesome/free-regular-svg-icons'
-
 
 const UserProfile = ({setUser}) => {
 
@@ -39,7 +28,6 @@ const UserProfile = ({setUser}) => {
     setUser({ id, name: users.username })
     history.push('/messages')
   }
-
 
   return (
     <Container className="outer-container-profile" fluid>

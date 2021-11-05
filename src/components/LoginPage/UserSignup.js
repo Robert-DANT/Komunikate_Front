@@ -1,9 +1,9 @@
 import { Container, Form, Col, Row, Button } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import "./UserSignup.css";
 import axios from "axios";
 import ISO6391 from 'iso-639-1'
 import jwt_decode from "jwt-decode";
+import "./UserSignup.css";
 
 // npm install query-string
 const queryString = require("query-string");
@@ -27,39 +27,6 @@ const UserSignup = ({ token, setToken }) => {
   console.log(userRole);
 
   const languagesArray = ISO6391.getAllNames()
-
-  
-
-  // unneeded login code - can be deleted
-  /*   const handleLogin = (e) => {
-    e.preventDefault()
-    const form = document.getElementById("loginForm");
-    form.reset();
-    const user = queryString.stringify({
-      email: email,
-      password: pw
-    })
-    loginFunction(user).then(res => {
-      if (res) {
-        alert('Welcome Back')
-      }
-      else {
-        alert("You\\'ve entered an incorrect E-mail or Password")
-      }
-    })
-  }
-
-  const loginFunction = user => {
-    return axios
-      .post('https://stark-fjord-75040.herokuapp.com/login', user)
-      .then(response => {
-        setToken(response.data)
-        return response.data
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  } */
 
   // code to prepare user inputted form data
   const handleRegister = (e) => {
@@ -307,34 +274,3 @@ const UserSignup = ({ token, setToken }) => {
 };
 
 export default UserSignup;
-
-
-
-
- 
-
-
-          
-       
-
-
-{/* <Form.Group as={Col}>
-<Form.Label>Languages</Form.Label>
-<Form.Control 
-  as="select"
-  defaultValue='Choose ...'
-  onChange={(e) => setLanguages(...languages, e.target.value)}
-  id="languages"
-  name="languages"
-  required
-  >
-      <option>Choose ...</option>
-      {languagesArray.map(el => <option>{el}</option>)}
-</Form.Control>
-<Button>
-  Add language
-</Button>
-</Form.Group> */}
-
-
-

@@ -11,6 +11,18 @@
   background-position: center; */
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
+      /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+    
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .outer-container-settings::before {
@@ -22,7 +34,7 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  bottom: 0px;
+  bottom: 0px;  
   left: 0px;
   filter: blur(5px);
   -webkit-filter: blur(5px);

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, useLocation, Redirect } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar/NavBar";
@@ -20,15 +21,6 @@ import Messenger from "./components/Messenger/Messenger";
 import SingleArticle from "./components/ArticlePage/ArticleTemp";
 import LandingBanner from "./components/LandingBanner/LandingBanner";
 //import Messenger from "./components/Messenger/Sliders"
-
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useLocation,
-  Redirect,
-} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 
@@ -37,9 +29,10 @@ const App = () => {
   const [userToken, setUserToken] = useState({});
   const [jwt, setJwt] = useState("");
   const [user, setUser] = useState()
-  console.log('this is the userId', user)
+/*   console.log('this is the userId', user) */
 
   let location = useLocation();
+  let token = localStorage.token;
 
   useEffect(() => {
     let token = localStorage.token;
@@ -58,7 +51,7 @@ const App = () => {
     }
   }, [jwt])
 
-  console.log(userToken);
+/*   console.log(userToken); */
 
   return (
     <Router>
@@ -73,7 +66,8 @@ const App = () => {
             <Messenger userToken={userToken} user={user} setUser={setUser}/>
           </Route>
           <Route exact path="/" token={userToken}>
-            {userToken.user_role === "" ? <HeaderBody/> : <UserLoggedIn setUser={setUser}/>}
+{/*             {userToken.user_role === "" ? <HeaderBody/> : <UserLoggedIn setUser={setUser}/>} */}
+            {token ? <UserLoggedIn setUser={setUser}/> : <HeaderBody/> }
           </Route>
           {/* User Registration and Login Routes */}
           <Route path="/register" component={UserSignup} />
@@ -95,7 +89,7 @@ const App = () => {
           </Route>
 
           {/* Routes for major Topics */}
-          {/*           <Route path="/guide" component={Guide} />
+          {/* <Route path="/guide" component={Guide} />
           <Route path="/visas" component={Visas} />
           <Route path="/healthinsurance" component={HealthInsurance} />
           <Route path="/applications" component={Applications} /> */}
@@ -109,12 +103,9 @@ const App = () => {
           </Route>
         </Switch>
         
-
-        {/* Needs Restyling */}
         {/* <FooterBar /> */}
         <div className="footer-snap"><FooterNew /></div>
       </div>
-
     </Router>
   );
 };

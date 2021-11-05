@@ -20,12 +20,12 @@ html {
 }
 
 .footer-snap {
-  position: fixed;
+  position: static;
   left:0;
-  bottom:0;
+  bottom:-60;
   right:0;
 }
 
 .footer-bottom {
-  padding-bottom:60px;
+  padding-bottom:0px;
 }
