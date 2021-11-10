@@ -63,7 +63,7 @@ const UserProfile = ({setUser}) => {
                     { users.living_in_germany ? "Currently Living in Germany" : "Planning on Moving to Germany"}
                   </Card.Text>
                   <Button variant="info" className="mt-auto buttonFonts" block onClick={handleClick}>
-                      Komunikate! <FontAwesomeIcon icon={faComments} />
+                      Komuni<span className="reverseText">k</span>ate! <FontAwesomeIcon icon={faComments} />
                   </Button>
 
                   </div>
@@ -97,7 +97,7 @@ const UserProfile = ({setUser}) => {
                 <tr>
                   <td className="mainBodyFont">Languages:</td>
                   <td className="subHeadlineFonts">
-                  {users.languages[0]} {users.languages[1] && `, ${users.languages[1]}`}
+                  {users.languages[0]}{users.languages[1] && `, ${users.languages[1]}`}
                     {users.languages[2] && `, ${users.languages[2]}`}
                     {users.languages[3] && `, ${users.languages[3]}`}
                     {users.languages[4] && `, ${users.languages[4]}`}

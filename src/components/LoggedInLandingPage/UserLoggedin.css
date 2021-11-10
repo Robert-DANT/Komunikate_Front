@@ -65,9 +65,14 @@
 }
 
 .profileCircleShift {
-  margin-left: 1rem;
+  margin-left: 2.5rem;
 }
 
+@media only screen and (max-width: 800px) {
+  .profileCircleShift {
+    margin-left: 6rem;
+  }
+}
 
 .userCardSpacer {
   height: 1em;

@@ -40,10 +40,13 @@
 .content-container-register {
   position: relative;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  max-width: 60rem;
+  /* max-width: 60rem; */
   border-radius: 60px;
   padding-top: 1%;
   padding-bottom: 1%;
+/*   display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 h3 {
@@ -53,4 +56,19 @@ h3 {
 .signup-form {
   max-width: 50rem;
   margin: 0 auto;
+  text-align: center; 
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hr-posts {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid black;
+  width: 50%;
 }
