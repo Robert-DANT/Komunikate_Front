@@ -7,7 +7,7 @@ import logo from "../../images/logos/Komunikate_Long_Blue_sub_v03.svg";
 import Axios from "axios";
 import jwt_decode from "jwt-decode";
 
-const PORT = process.env.PORT || 'https://stark-fjord-75040.herokuapp.com';
+const PORT = process.env.PORT || 'https://komunikate-backend.onrender.com';
 const queryString = require("query-string");
 
 const NavBar = ({ userToken, setJwt }) => {
@@ -35,10 +35,12 @@ const NavBar = ({ userToken, setJwt }) => {
     });
   };
 
+
+
   const loginFunction = (user) => {
     return (
-      Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
-        /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
+      Axios.post("https://komunikate-backend.onrender.com/login", user)
+        /* return Axios.post("https://komunikate-backend.onrender.com/login", user) */
         .then((response) => {
           localStorage.setItem("token", response.data);
           // Commented out setToken below because it
@@ -62,6 +64,8 @@ const NavBar = ({ userToken, setJwt }) => {
     history.push(`/articles/${searchRef.current.value}`)
     searchRef.current.value = ''
     }
+
+console.log(userToken);
 
   return (
     <>
@@ -149,7 +153,7 @@ const NavBar = ({ userToken, setJwt }) => {
                     <Form.Control
                       type="email"
                       placeholder="Enter email"
-                      className="formFonts"
+                      className="formFonts form-login"
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <Form.Text className="text-muted">

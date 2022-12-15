@@ -67,7 +67,7 @@ const UserSignup = ({ token, setToken }) => {
 
     return (
       axios
-      .post("https://stark-fjord-75040.herokuapp.com/users/register", newUser)
+      .post("https://komunikate-backend.onrender.com/users/register", newUser)
         .then((res) => {
           console.log(res);
           console.log("Registered");

@@ -14,7 +14,7 @@ export function SocketProvider({ idUser, children }) {
   useEffect(() => {
 
     const newSocket = io(
-      'https://stark-fjord-75040.herokuapp.com',
+      'https://komunikate-backend.onrender.com',
       { query: { id } }
     )
 

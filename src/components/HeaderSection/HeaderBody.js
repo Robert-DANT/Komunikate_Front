@@ -14,46 +14,14 @@ const MainBody = (props) => {
   return (
     <Container fluid className="fullWidthImage">
       {/* Subnavbar code moved to Navbar component */}
-{/*       <Container fluid className="fullWidthImage">
-        <Nav
-          bg="light"
-          expand="lg"
-          id="center"
-          variant="light"
-          defaultActiveKey="/"
-          className="color_brandgradient stickyNav"
-        >
-          <Nav.Item>
-            <Nav.Link eventKey="link-1">
-              <Link to="/guide" className="mainHeaderFonts color_white"> Guides </Link>
-            </Nav.Link>
-          </Nav.Item>
 
-          <Nav.Item>
-            <Nav.Link eventKey="link-2">
-              <Link to="/visas" className="mainHeaderFonts color_white"> Visas </Link>
-            </Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link eventKey="link-3">
-              <Link to="/healthInsurance" className="mainHeaderFonts color_white"> Insurance </Link>
-            </Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link eventKey="link-4">
-              <Link to="/applications" className="mainHeaderFonts color_white"> Everyday Life </Link>
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Container> */}
-      
       <LandingBanner className="bannerShift" />
       
       <Container className="our-mission-container mainBodyFont justifyText">
+        <div>
         <h1 className="mainHeaderFonts color_lightblue someTopPadding">What we're about!</h1>
         <hr className="color_lightblue_hr" />
+
         <h5 className="introText">
           <strong className="color_lightblue">komunikate</strong> is a community 
           of people helping each other figure out all of the necessary steps when immigrating to Germany.
@@ -67,9 +35,13 @@ const MainBody = (props) => {
           will be your definitive guide in finding all your answers without
           needing to go to dozens of websites.
         </h5>
+        </div>
+        
       </Container>
       {/* <div style={{ backgroundImage: `url(${HomePagePic})` }}></div> */}
+
       {token ? "" : <Articles />}
+
     </Container>
   );
 };

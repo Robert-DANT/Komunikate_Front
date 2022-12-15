@@ -36,7 +36,7 @@ function ArticleTemp() {
 
   const fetchArticle = async () => {
     await axios
-      .get(`https://stark-fjord-75040.herokuapp.com/posts/${id}`)
+      .get(`https://komunikate-backend.onrender.com/posts/${id}`)
       .then((response) => setPost(response.data.getarticle))
       .catch((error) => console.log(error));
   };

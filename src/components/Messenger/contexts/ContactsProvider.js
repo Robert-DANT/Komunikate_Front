@@ -2,7 +2,7 @@ import { useContext, useState, useEffect, createContext } from 'react'
 import axios from 'axios'
 import { useSocket } from './SocketProvider'
 
-const PORT = 'https://stark-fjord-75040.herokuapp.com'
+const PORT = 'https://komunikate-backend.onrender.com'
 // Pointing the port to the .env doesn't seem to work?
 /* process.env.REACT_APP_ENDPOINT ||  */
 

@@ -15,7 +15,7 @@ const UserProfile = ({setUser}) => {
 
   const fetchUsers = async () => {
     await axios
-    .get(`https://stark-fjord-75040.herokuapp.com/users/${id}`)
+    .get(`https://komunikate-backend.onrender.com/users/${id}`)
       .then((response) => setUsers(response.data.getUser))
       .catch((error) => console.log(error));
   };
@@ -29,6 +29,8 @@ const UserProfile = ({setUser}) => {
     history.push('/messages')
   }
 
+  console.log(users)
+
   return (
     <Container className="outer-container-profile" fluid>
       <Container className="user-profile-container boxDropShadow bg-light">
@@ -40,6 +42,7 @@ const UserProfile = ({setUser}) => {
                 <Card.Body>
                 <div class="card-body align-items-center justify-content-center">
                   <div className="proPhotoSettings profileCircleShift">
+                  {/* <div className="proPhotoSettings profileCircleShift"> */}
                     <Card.Img
                       className="card-image"
                       variant="top"

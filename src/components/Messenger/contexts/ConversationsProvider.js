@@ -6,7 +6,7 @@ import { useSocket } from './SocketProvider'
 //import useLocalStorage from '../hooks/useLocalStorage';
 
 
-const PORT = 'https://stark-fjord-75040.herokuapp.com'
+const PORT = 'https://komunikate-backend.onrender.com'
 
 const ConversationsContext = createContext()
 

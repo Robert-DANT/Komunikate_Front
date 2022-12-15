@@ -68,10 +68,20 @@
   margin-left: 2.5rem;
 }
 
+.profileCircleShiftFrontPage {
+  margin-left: 1rem;
+}
+
 @media only screen and (max-width: 800px) {
+  
   .profileCircleShift {
     margin-left: 6rem;
   }
+
+  .profileCircleShiftFrontPage {
+    margin-left: 11rem;
+  }
+
 }
 
 .userCardSpacer {

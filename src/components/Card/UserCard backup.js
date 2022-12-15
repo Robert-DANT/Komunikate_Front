@@ -22,7 +22,7 @@ const UserCards = () => {
 
   const fetchUsers = async () => {
     await axios
-      .get("https://stark-fjord-75040.herokuapp.com/users")
+      .get("https://komunikate-backend.onrender.com/users")
       .then((response) => setUser(response.data.users))
       .catch((error) => console.log(error));
   };

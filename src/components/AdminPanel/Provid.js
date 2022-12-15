@@ -33,7 +33,7 @@ export default (apiUrl, httpClient) => {
      * @returns {Object} { url, options } The HTTP request parameters
      */
     const convertDataRequestToHTTP = (type, resource, params) => {
-        let url = 'https://stark-fjord-75040.herokuapp.com/';
+        let url = 'https://komunikate-backend.onrender.com/';
         const options = {};
         switch (type) {
             case GET_LIST: {

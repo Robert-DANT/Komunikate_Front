@@ -11,7 +11,7 @@ const queryString = require("query-string");
 const UserLogin = ({ setJwt }) => {
   let history = useHistory();
   // The below token useState doesn't seem to be used here so it was commented out
-  /*   const [token, setToken] = useState(); */
+  // const [token, setToken] = useState();
   const [pw, setPw] = useState("");
   const [email, setEmail] = useState("");
 
@@ -27,7 +27,7 @@ const UserLogin = ({ setJwt }) => {
       if (res) {
         alert("You've logged in");
         setJwt(res);
-        /*         return <Redirect to='/frontpage' /> */
+        // return <Redirect to='/frontpage'/>
         // props.history("/")
         history.push("/");
       } else {
@@ -38,13 +38,12 @@ const UserLogin = ({ setJwt }) => {
 
   const loginFunction = (user) => {
     return (
-      Axios.post("https://stark-fjord-75040.herokuapp.com/login", user)
-        /* return Axios.post("https://stark-fjord-75040.herokuapp.com/login", user) */
+      Axios.post("https://komunikate-backend.onrender.com/login", user)
         .then((response) => {
           localStorage.setItem("token", response.data);
           // Commented out setToken below because it
           // doesn't seem to be needed for userlogin to run
-          /*         setToken(response.data); */
+          // setToken(response.data);
           return response.data; //redirect react-router to individual landing page
         })
         .catch((err) => {
@@ -57,32 +56,16 @@ const UserLogin = ({ setJwt }) => {
     <Container className="outer-container-login" fluid>
       <Container className="login-container-content bg-light">
         <Link to="/">
-          <img
-            src={logo}
-            width="300"
-            height="80"
-            className="d-inline-block align-top"
-            alt="Komunikate"
-          />
+          <img src={logo} width="300" height="80" className="d-inline-block align-top" alt="Komunikate"/>
         </Link>
 
         <Row className="justify-content-center">
-          {/*           <Breadcrumb className="form-nav">
-            <Breadcrumb.Item href="#">Login</Breadcrumb.Item>
-            <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-              SignUp
-            </Breadcrumb.Item>
-          </Breadcrumb> */}
           <Form onSubmit={handleLogin} id="loginForm" autocomplete="off">
             <Form.Group controlId="formBasicEmail">
               <Form.Label>E-Mail</Form.Label>
               <Form.Control
                 onChange={(e) => setEmail(e.target.value)}
-                type="text"
-                id="name"
-                name="name"
-                placeholder="E-mail address"
-                required
+                type="text" id="name" name="name" placeholder="E-mail address" required
               />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
@@ -93,11 +76,7 @@ const UserLogin = ({ setJwt }) => {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 onChange={(e) => setPw(e.target.value)}
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                required
+                type="password" id="password" name="password" placeholder="Password" required
               />
             </Form.Group>
             <div className="font-weight-light">
@@ -107,7 +86,7 @@ const UserLogin = ({ setJwt }) => {
               </p>
             </div>
             <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Remember me" />
+              <Form.Check type="checkbox" label="Remember me"/>
             </Form.Group>
             <Button className="login-button" type="submit">
               Login

@@ -22,7 +22,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 
 /* const dataProvider = myDataProvider('https://localhost:3002', httpClient); */
-const dataProvider = myDataProvider('https://stark-fjord-75040.herokuapp.com', httpClient);
+const dataProvider = myDataProvider('https://komunikate-backend.onrender.com', httpClient);
 
 
 const theme = createMuiTheme({

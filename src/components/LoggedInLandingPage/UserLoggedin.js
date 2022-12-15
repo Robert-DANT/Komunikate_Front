@@ -37,7 +37,7 @@ const UserLoggedIn = ({ token, setUser }) => {
 
   const fetchRandomUsers = async () => {
     await axios
-      .get("https://stark-fjord-75040.herokuapp.com/users/randomUsers")
+      .get("https://komunikate-backend.onrender.com/users/randomUsers")
       .then((response) => setRandomUsers(response.data.users))
       .catch((error) => console.log(error));
   };
@@ -45,7 +45,7 @@ const UserLoggedIn = ({ token, setUser }) => {
 
   const searchedUsersGet = (queryString) => {
     axios
-        .get(`https://stark-fjord-75040.herokuapp.com/users`,
+        .get(`https://komunikate-backend.onrender.com/users`,
             {
                 params: queryString
             }
@@ -70,7 +70,6 @@ const UserLoggedIn = ({ token, setUser }) => {
 
     searchedUsersGet(newQueryString)
   }
-
 
   return (
 /*     <Container className="outer-container-user-home" fluid> */
@@ -120,7 +119,7 @@ const UserLoggedIn = ({ token, setUser }) => {
 
 <Card.Body>
 <Link to={`/users/${user._id}`}>
-    <div className="proPhotoLogged profileCircleShift">
+    <div className="proPhotoLogged profileCircleShiftFrontPage">
       <Card.Img
         className="proPhotos"
         variant="top"

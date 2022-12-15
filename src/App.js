@@ -51,7 +51,7 @@ const App = () => {
     }
   }, [jwt])
 
-/*   console.log(userToken); */
+/*   console.log(jwt_decode(token)); */
 
   return (
     <Router>

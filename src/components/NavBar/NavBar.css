@@ -56,6 +56,18 @@
     width: 260px;
 } */
 
+  .form-login {
+    width: 18rem;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .form-login {
+    width: 15rem;
+}
+
+}
+
 .dropDownShift {
   margin-right: 200px;
 }

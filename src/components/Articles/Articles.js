@@ -23,21 +23,21 @@ const Articles = () => {
 
   const fetchCategories = async () => {
     await axios
-      .get(`https://stark-fjord-75040.herokuapp.com/posts/categories/${topic}`)
+      .get(`https://komunikate-backend.onrender.com/posts/categories/${topic}`)
       .then((response) => setArticles(response.data.getCategoryArticle))
       .catch((error) => console.log(error));
   };
 
   const fetchArticles = async () => {
     await axios
-      .get("https://stark-fjord-75040.herokuapp.com/posts")
+      .get("https://komunikate-backend.onrender.com/posts")
       .then((response) => setArticles(response.data.allarticles))
       .catch((error) => console.log(error));
   };
 
   const fetchSearch = async () => {
     await axios
-            .get(`https://stark-fjord-75040.herokuapp.com/posts/search`, { params: {searchtext: topic}})
+            .get(`https://komunikate-backend.onrender.com/posts/search`, { params: {searchtext: topic}})
             .then(res => {
                 console.log(res)
                 setArticles(res.data.searchedArticles)
@@ -53,18 +53,22 @@ const Articles = () => {
     else fetchArticles()
   }, [topic]);
 
+  function capitalizeWord(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <Container className="cards-container">
+      <div>
             <Container className="our-mission-container mainBodyFont justifyText">
-          <h1 className="mainHeaderFonts color_lightblue someTopPadding">{topic ? topic  : "The Latest Articles"}</h1>
+          <h1 className="mainHeaderFonts color_lightblue someTopPadding">{topic ? capitalizeWord(topic)  : "The Latest Articles"}</h1>
           <hr className="color_lightblue_hr" />
           <h4>
 
           </h4>
         </Container>
-      <CardColumns>
 
-        
+      <CardColumns>
         {articles &&
           articles.map((article) => (
             <Link to={`/articles/article/${article._id}`}>
@@ -85,6 +89,8 @@ const Articles = () => {
             </Link>
           ))}
       </CardColumns>
+      </div>
+
     </Container>
   );
 };
